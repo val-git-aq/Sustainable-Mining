@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import Avatar from '../../components/Avatar.astro';
+import ProfileLinks from '../../components/ProfileLinks.astro';
+import { url } from '../../lib/site';
+
+const people = await getCollection('people');
+const pi = people.find((p) => p.data.role === 'pi')!;
+const pick = (status: string, roles: string[]) =>
+  people
+    .filter((p) => p.data.status === status && roles.includes(p.data.role))
+    .sort((a, b) => a.data.order - b.data.order);
+
+const current = [
+  { heading: 'Postdoctoral associates and research scientists', list: pick('current', ['postdoc', 'research-scientist']) },
+  { heading: 'Ph.D. students', list: pick('current', ['phd']) },
+  { heading: 'Undergraduate researchers', list: pick('current', ['undergrad']) },
+];
+const alumni = [
+  { heading: 'Postdoctoral associates', list: pick('alumni', ['postdoc']) },
+  { heading: 'Ph.D. graduates', list: pick('alumni', ['phd']) },
+  { heading: 'M.S. graduates', list: pick('alumni', ['ms']) },
+  { heading: 'Undergraduate researchers', list: pick('alumni', ['undergrad']) },
+];
+---
+
+<Base title="Team" description="Current members and alumni of the Sustainable Mining Lab at the University of Nevada, Reno.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / Team</p>
+      <h1>Team</h1>
+    </div>
+
+    <section class="section pi" aria-labelledby="pi-h">
+      <h2 id="pi-h" class="visually-hidden">Principal investigator</h2>
+      <div class="pi-row" id={pi.id}>
+        <Avatar name={pi.data.name} photo={pi.data.photo} size={128} />
+        <div>
+          <p class="meta">Principal investigator</p>
+          <h3 class="pi-name">{pi.data.name}, {pi.data.title}</h3>
+          <p>{pi.data.position}, {`University of Nevada, Reno`}</p>
+          <p><a href={url('/team/ehsan-vahidi')}>Full profile, education and honors</a></p>
+          <ProfileLinks name={pi.data.name} scholar={pi.data.scholar} linkedin={pi.data.linkedin} />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="current-h">
+      <h2 id="current-h" class="rule-head">Current members</h2>
+      {
+        current.map((g) => (
+          <div class="group">
+            <h3 class="group-h">{g.heading}</h3>
+            <ul class="plain-list people-grid">{g.list.map((p) => <PersonCard person={p} />)}</ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="section" aria-labelledby="alumni-h">
+      <h2 id="alumni-h" class="rule-head">Alumni</h2>
+      {
+        alumni.map((g) => (
+          <div class="group">
+            <h3 class="group-h">{g.heading}</h3>
+            <ul class="plain-list people-grid">{g.list.map((p) => <PersonCard person={p} />)}</ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="section join" aria-labelledby="join-h">
+      <h2 id="join-h">Join the lab</h2>
+      <p>
+        We recruit Ph.D. and M.S. students in mining, metallurgical, chemical and environmental engineering, and we welcome
+        undergraduate researchers. Interested? Email Dr. Vahidi with your CV and a short note on your research interests.
+      </p>
+      <a class="btn" href={url('/contact')}>Contact the lab</a>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .pi-row { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; padding: 1.5rem; background: var(--surface); scroll-margin-top: 1rem; }
+  .pi-row p { margin-bottom: 0.35rem; }
+  .pi-name { font-size: var(--step-2); margin-bottom: 0.3rem; }
+  .group { margin-top: 2rem; }
+  .group-h { color: var(--nevada); }
+  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr)); column-gap: 2.5rem; }
+  .join { padding: 2rem; border-left: 4px solid var(--nevada); background: var(--surface); }
+</style>

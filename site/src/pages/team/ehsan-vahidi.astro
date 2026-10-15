@@ -1,0 +1,134 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Avatar from '../../components/Avatar.astro';
+import { SITE, url } from '../../lib/site';
+
+const pi = (await getCollection('people')).find((p) => p.id === 'ehsan-vahidi')!;
+const talks = (await getCollection('news')).filter((n) => n.data.kind === 'talk').sort((a, b) => b.data.year - a.data.year);
+
+const appointments = [
+  ['2026 – present', 'Chair, Department of Mining and Metallurgical Engineering, University of Nevada, Reno'],
+  ['2026 – present', 'Associate Professor and John N. Butler Endowed Professor, Mackay School of Earth Sciences and Engineering, UNR'],
+  ['2025 – 2026', 'Associate Chair, Department of Mining and Metallurgical Engineering, UNR'],
+  ['2020 – 2026', 'Assistant Professor and John N. Butler Endowed Professor, UNR'],
+  ['2018 – 2020', 'Postdoctoral Associate, Department of Civil & Environmental Engineering, Massachusetts Institute of Technology'],
+];
+const education = [
+  ['Ph.D., Environmental and Ecological Engineering', 'Purdue University, 2018', 'Dissertation: Sustainability Assessment of Critical Materials for Energy Applications (sponsored by U.S. DOE; advisor Prof. Fu Zhao)'],
+  ['M.Eng., Environmental Engineering', 'University of South Florida, 2014'],
+  ['M.Sc., Materials and Metallurgical Engineering', 'University of Tehran, 2008'],
+  ['B.Sc., Materials Science and Engineering', 'Sharif University of Technology, 2005'],
+  ['Kaufman Teaching & Learning Certificate', 'MIT Teaching and Learning Lab, 2019'],
+  ['Mini-MBA, Applied Management Principles', 'Purdue University, Krannert School of Management, 2018'],
+];
+const honors = [
+  'Freeport-McMoRan, Inc. Career Development Grant, Society for Mining, Metallurgy & Exploration (2024)',
+  'Second place, First Annual American-Made Carbon Management Collegiate Competition, U.S. DOE FECM (2023)',
+  'Excellence in Review Award, Resources, Conservation and Recycling (2019)',
+  'College of Engineering Outstanding Graduate Student Research Award, Purdue University (2018)',
+  'Ecological Sciences and Engineering Outstanding Graduate Student in Research Award, Purdue University (2018)',
+  'Hugh W. and Edna M. Donnan Dissertation Fellowship, Purdue University (2017–2018)',
+  'A.H. Ismail Interdisciplinary Program Doctoral Research Award, Purdue University (2018)',
+  'Andrews Environmental Research Award (2017) and Blosser Environmental Research Award (2016), Purdue University',
+  'Presidential Fellowship, University of South Florida (2011–2014)',
+];
+const courses = [
+  'Sustainable Resource Management (MINE 120): an interdisciplinary course taken by about 200 students each year',
+  'Introduction to Mining & Metallurgical Engineering I & II (MINE-MET 101, 102)',
+  'Solution Mining (MET 433/633)',
+  'Green Design and Production for Sustainable Engineering (MINE 733)',
+  'Online certificate courses (sponsored by Newmont): Critical Minerals Processing and Extraction (MET 450/650), Integrated Metallurgical Processes (MET 460/660), Foundational Metallurgical Engineering (MINE 160)',
+];
+const service = [
+  'Associate Editor, Frontiers in Sustainable Resource Management',
+  'Editorial board: Discover Chemistry (Springer Nature); Sustainable Horizons (Elsevier); Journal of Metallurgy and Mineral Processing',
+  'Session chair: SME Annual Conference (2022–2025), AEMA Annual Meeting (2021–2024), ISSST (2019, 2024), icRS (2021)',
+  'Reviewer for Nature Sustainability, Resources, Conservation & Recycling, Journal of Cleaner Production, Water Research, Hydrometallurgy and others',
+];
+---
+
+<Base title="Ehsan Vahidi" description="Dr. Ehsan Vahidi, Chair and John N. Butler Endowed Professor of Mining and Metallurgical Engineering at the University of Nevada, Reno.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / <a href={url('/team')}>Team</a> / Ehsan Vahidi</p>
+      <div class="pi-head">
+        <Avatar name={pi.data.name} photo={pi.data.photo} size={160} />
+        <div>
+          <h1>Ehsan Vahidi, Ph.D.</h1>
+          <p class="lede">Chair and John N. Butler Endowed Professor, Department of Mining and Metallurgical Engineering, University of Nevada, Reno</p>
+          <p class="links">
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+            <a href={SITE.unrProfile}>UNR profile</a>
+            <a href={SITE.scholar}>Google Scholar</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols section">
+      <div class="prose">
+        <p>
+          Dr. Ehsan Vahidi leads the Sustainable Mining Lab, which studies how critical minerals can be produced with lower
+          environmental and economic costs. His group combines hydrometallurgical experiments with life cycle assessment and
+          techno-economic analysis, with a focus on lithium, rare earth elements and phytomining. As PI and Co-I he has
+          secured sponsored research from the U.S. Department of Energy, the Department of Defense, the National Science
+          Foundation, ARPA-E and industry partners including MP Materials, Lithium Americas, SLB and Pan American Energy.
+        </p>
+        <p>
+          Before joining UNR in 2020 he was a postdoctoral associate at MIT, where he studied greenhouse gas mitigation in
+          the U.S. building sector. His Ph.D. at Purdue University produced some of the first openly available life cycle
+          inventories for rare earth element production.
+        </p>
+      </div>
+      <div>
+        <h2 class="rule-head">Appointments</h2>
+        <dl class="timeline">
+          {appointments.map(([when, what]) => (<><dt>{when}</dt><dd>{what}</dd></>))}
+        </dl>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="edu-h">
+      <h2 id="edu-h" class="rule-head">Education</h2>
+      <ul class="plain-list ruled">
+        {education.map(([deg, where, note]) => <li><strong>{deg}</strong><br /><span class="meta">{where}</span>{note && <><br /><span class="meta">{note}</span></>}</li>)}
+      </ul>
+    </section>
+
+    <div class="cols section">
+      <section aria-labelledby="hon-h">
+        <h2 id="hon-h" class="rule-head">Honors and awards</h2>
+        <ul>{honors.map((h) => <li>{h}</li>)}</ul>
+      </section>
+      <section aria-labelledby="teach-h">
+        <h2 id="teach-h" class="rule-head">Teaching</h2>
+        <ul>{courses.map((c) => <li>{c}</li>)}</ul>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="svc-h">
+      <h2 id="svc-h" class="rule-head">Professional service</h2>
+      <ul>{service.map((s) => <li>{s}</li>)}</ul>
+    </section>
+
+    <section class="section" aria-labelledby="talks-h">
+      <h2 id="talks-h" class="rule-head">Invited talks</h2>
+      <ul class="plain-list ruled">
+        {talks.map((t) => <li><strong>{t.data.title}</strong><br /><span class="meta">{t.data.outlet}, {t.data.year}</span></li>)}
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .pi-head { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+  .pi-head > div { flex: 1 1 22rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-weight: 600; }
+  .cols { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); }
+  .timeline { display: grid; grid-template-columns: max-content 1fr; gap: 0.6rem 1.25rem; margin: 0; }
+  .timeline dt { font-weight: 650; color: var(--nevada); white-space: nowrap; }
+  .timeline dd { margin: 0; }
+  li { margin-bottom: 0.4rem; }
+  @media (max-width: 480px) { .timeline { grid-template-columns: 1fr; } .timeline dd { margin-bottom: 0.6rem; } }
+</style>

@@ -1,0 +1,183 @@
+---
+import { NAV, SITE, url } from '../lib/site';
+
+const current = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const isCurrent = (href: string) => current === href || current.startsWith(`${href}/`);
+---
+
+<!-- One header bar in Nevada Blue: lab identity, navigation and the light/dark toggle -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={url('/')}>
+      <span class="brand-logo"><img src={url('/images/logo-nevada.webp')} alt="" width="1384" height="900" /></span>
+      <span class="brand-text">
+        <span class="brand-sub">{SITE.departmentShort}, {SITE.university}</span>
+        <span class="brand-name">{SITE.name}</span>
+      </span>
+    </a>
+    <div class="header-tools">
+      <button class="theme-toggle" type="button" hidden>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={url(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('is-open', !open);
+  });
+
+  // Light/dark toggle. The button's label names the mode it switches to.
+  const root = document.documentElement;
+  const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const effective = () => root.dataset.theme ?? (systemDark.matches ? 'dark' : 'light');
+  const render = () => {
+    if (!toggle) return;
+    const next = effective() === 'dark' ? 'light' : 'dark';
+    toggle.dataset.next = next;
+    toggle.setAttribute('aria-label', `Switch to ${next} mode`);
+    toggle.title = `Switch to ${next} mode`;
+  };
+  toggle?.addEventListener('click', () => {
+    const next = effective() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+    render();
+  });
+  systemDark.addEventListener('change', render);
+  if (toggle) toggle.hidden = false;
+  render();
+</script>
+
+<style>
+  .site-header {
+    /* Nevada Blue in both themes, with a Nevada Silver rule along the bottom */
+    background: var(--unr-blue);
+    color: #ffffff;
+    border-bottom: 4px solid var(--unr-silver);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    padding-block: 0.85rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-right: auto;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .brand-logo { flex: none; width: 5rem; height: 3.25rem; overflow: hidden; border-radius: 4px; }
+  /* The source image has a thin black edge; scaling slightly inside the clipped box trims it */
+  .brand-logo img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); }
+  .brand-text { display: grid; gap: 0.15rem; min-width: 0; }
+  .brand-sub { font-size: 0.75rem; color: #c9d1db; }
+  .brand-name {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+    font-weight: 800;
+    font-stretch: 112%;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .site-nav { order: 2; }
+  .header-tools { order: 3; display: flex; align-items: center; gap: 0.5rem; }
+  .site-nav ul {
+    display: flex;
+    gap: 0.25rem 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-nav a {
+    display: block;
+    padding: 0.4rem 0;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+  }
+  .site-nav a:hover { border-bottom-color: rgb(255 255 255 / 0.45); }
+  .site-nav a[aria-current='page'] { border-bottom-color: var(--unr-silver); }
+  .site-header :focus-visible { outline-color: #ffffff; }
+
+  .theme-toggle,
+  .menu-btn {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 0.35);
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .theme-toggle { border-radius: 50%; }
+  .theme-toggle[hidden] { display: none; }
+  .theme-toggle:hover,
+  .menu-btn:hover { background: rgb(255 255 255 / 0.12); }
+  .theme-toggle svg { width: 1.1rem; height: 1.1rem; }
+  .theme-toggle[data-next='dark'] .icon-sun,
+  .theme-toggle[data-next='light'] .icon-moon { display: none; }
+  .menu-btn { display: none; }
+
+  @media (max-width: 1120px) {
+    .header-inner { flex-wrap: wrap; }
+    .brand { flex: 1 1 0; min-width: 0; }
+    .brand-logo { width: 4.25rem; height: 2.75rem; }
+    .header-tools { order: 2; }
+    .menu-btn { display: grid; width: 2.75rem; height: 2.75rem; }
+    .theme-toggle { width: 2.75rem; height: 2.75rem; }
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      display: block;
+      width: 1.25rem;
+      height: 2px;
+      background: currentColor;
+      position: relative;
+      transition: transform 150ms ease;
+    }
+    .menu-icon::before, .menu-icon::after { content: ''; position: absolute; }
+    .menu-icon::before { top: -6px; }
+    .menu-icon::after { top: 6px; }
+    .menu-btn[aria-expanded='true'] .menu-icon { background: transparent; }
+    .menu-btn[aria-expanded='true'] .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+    .menu-btn[aria-expanded='true'] .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+    .site-nav { order: 3; display: none; flex-basis: 100%; }
+    .site-nav.is-open { display: block; }
+    .site-nav ul { flex-direction: column; gap: 0; }
+    .site-nav a { padding: 0.75rem 0; border-bottom: 1px solid rgb(255 255 255 / 0.18); }
+    .site-nav a[aria-current='page'] { border-bottom-color: rgb(255 255 255 / 0.18); box-shadow: inset 4px 0 0 var(--unr-silver); padding-left: 0.85rem; }
+  }
+</style>

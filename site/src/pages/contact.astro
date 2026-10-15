@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, url } from '../lib/site';
+---
+
+<Base title="Contact" description="Contact the Sustainable Mining Lab at the University of Nevada, Reno.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / Contact</p>
+      <h1>Contact</h1>
+      <p class="lede">For research collaborations, industry partnerships or graduate study, contact Dr. Ehsan Vahidi.</p>
+    </div>
+
+    <div class="contact-grid section">
+      <section aria-labelledby="reach-h">
+        <h2 id="reach-h" class="rule-head">Reach us</h2>
+        <dl class="details">
+          <dt>Email</dt>
+          <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+          <dt>Office phone</dt>
+          <dd><a href={`tel:+1${SITE.phone.replace(/-/g, '')}`}>{SITE.phone}</a></dd>
+          <dt>Mailing address</dt>
+          <dd>
+            Ehsan Vahidi<br />
+            {SITE.department}<br />
+            {SITE.university}<br />
+            {SITE.address.map((l) => (<>{l}<br /></>))}
+          </dd>
+          <dt>Elsewhere</dt>
+          <dd><a href={SITE.unrProfile}>UNR faculty profile</a><br /><a href={SITE.scholar}>Google Scholar</a></dd>
+        </dl>
+      </section>
+
+      <section class="prospective" aria-labelledby="pros-h">
+        <h2 id="pros-h">Prospective students</h2>
+        <p>
+          The lab recruits Ph.D. and M.S. students through the Mineral Resource Engineering, Mining Engineering and
+          Metallurgical Engineering programs at UNR. Backgrounds in metallurgical, chemical, environmental or mining
+          engineering, or in environmental science, are a good fit.
+        </p>
+        <p>When you email, please include:</p>
+        <ul>
+          <li>your CV and unofficial transcripts</li>
+          <li>which research area interests you (lithium, rare earth elements or phytomining) and why</li>
+          <li>any experience with laboratory work, life cycle assessment or process modeling</li>
+        </ul>
+        <p>UNR undergraduates can also join through the NSF EPSCoR and Nevada Undergraduate Research Award (NURA) programs.</p>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .contact-grid { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+  .details { margin: 0; }
+  .details dt { font-weight: 700; margin-top: 1.1rem; }
+  .details dd { margin: 0.2rem 0 0; }
+  .prospective { background: var(--surface); padding: 1.75rem; border-left: 4px solid var(--nevada); align-self: start; }
+</style>

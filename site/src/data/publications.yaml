@@ -1,0 +1,1405 @@
+# Publications. Generated from the CV, then hand-checked.
+# type: journal | under-review | proceedings | presentation
+# seq: position in the CV (lower = listed first within a year)
+# themes: lithium | ree | phytomining | battery-recycling | gold | carbon | other
+
+- id: unde-2026-navarronaranjo-ambient-temperature-leaching
+  type: "under-review"
+  title: "Ambient-Temperature Leaching of Spent NCA Cathodes: Kinetics, Mechanisms, and Sustainability Trade-Offs Among Mineral Acids"
+  authors: ["Jennifer Navarro-Naranjo", "Seyedmehdi Sharifian", "Kannan Ramaiyan", "Ehsan Vahidi", "Dev Chidambaram"]
+  venue: "Waste Management, February 2026"
+  year: 2026
+  themes: ["lithium", "battery-recycling"]
+  seq: 1
+
+- id: unde-2026-muthoni-chelant-assisted-phytoremediation
+  type: "under-review"
+  title: "Chelant-Assisted Phytoremediation and Ex-Situ Soil Washing: A Comparative Life Cycle Assessment and Cost Analysis of EDTA, EDDS, and Citric Acid"
+  authors: ["Frida Muthoni", "Seyedmehdi Sharifian", "Mohsen Rabbani", "Farzaneh Razmju", "Ehsan Vahidi"]
+  venue: "Journal of Environmental Management, June 2026"
+  year: 2026
+  themes: ["phytomining"]
+  seq: 2
+
+- id: unde-2026-navarronaranjo-leaching-critical-metals
+  type: "under-review"
+  title: "Leaching of Critical Metals from Spent NMC Cathodes under Ambient Condition"
+  authors: ["Jennifer Navarro-Naranjo", "Seyedmehdi Sharifian", "Kannan Ramaiyan", "Ehsan Vahidi", "Dev Chidambaram"]
+  venue: "Journal of Sustainable Metallurgy, February 2026"
+  year: 2026
+  themes: ["lithium", "battery-recycling"]
+  seq: 3
+
+- id: unde-2026-nili-enhancing-sustainable-rare
+  type: "under-review"
+  title: "Enhancing Sustainable Rare Earth Oxide Production from Bastnaesite via TEA–LCA and Density-Based Preconcentration"
+  authors: ["Sheida Nili", "Mohsen Rabbani", "Seyedmehdi Sharifian", "Victor R. Vasquez", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Chemistry & Engineering, May 2026"
+  year: 2026
+  themes: ["ree"]
+  seq: 4
+
+- id: unde-2025-sharifian-environmental-life-cycle
+  type: "under-review"
+  title: "Environmental Life Cycle Assessment of Heap-Leach Gold Production: Hotspot Characterization and Pathways Toward Process Circularity"
+  authors: ["Seyedmehdi Sharifian", "Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Resource Management, December 2025"
+  year: 2025
+  themes: ["gold"]
+  seq: 5
+
+- id: jour-2025-soltanizadeh-process-optimization-lithium
+  type: "journal"
+  title: "Process Optimization for Lithium Recovery from As-Cast Slag of Spent Li-Ion Batteries via Hydro/Pyrometallurgical Approach Assisted by Hybrid Roasting"
+  authors: ["Ali Soltanizadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Minerals Engineering, June 2025"
+  year: 2025
+  themes: ["lithium", "battery-recycling"]
+  seq: 6
+
+- id: unde-2026-nikfar-economic-pathways-lithium
+  type: "under-review"
+  title: "Economic Pathways to Lithium: A comparative techno-economic analysis of innovative extraction methods from brine"
+  authors: ["Sima Nikfar", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Resource Management"
+  year: 2026
+  doi: "10.1021/acssusresmgt.5c00695"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 7
+
+- id: jour-2026-rabbani-dual-product-phytomining
+  type: "journal"
+  title: "Dual-Product Phytomining Systems: Techno-Economic and Life-Cycle Implications of Fast Pyrolysis-Enabled REO Production"
+  authors: ["Mohsen Rabbani", "Frida Muthoni", "Mohammad Taqi Rabbani", "Sheida Nili", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 230, 108888"
+  year: 2026
+  doi: "10.1016/j.resconrec.2026.108888"
+  corresponding: true
+  themes: ["phytomining", "ree"]
+  seq: 8
+
+- id: jour-2026-sharifian-toward-sustainable-carbon
+  type: "journal"
+  title: "Toward Sustainable Carbon Utilization: Integrated LCA–TEA Assessment of Carbon Dioxide–Derived Polymers"
+  authors: ["Seyedmehdi Sharifian", "Zohreh Iranmanesh", "Neda Asasian-Kolur", "Sheida Nili", "Ehsan Vahidi", "Michael Harasek"]
+  venue: "Journal of Environmental Management, 400, 128785"
+  year: 2026
+  doi: "10.1016/j.jenvman.2026.128785"
+  corresponding: true
+  themes: ["carbon"]
+  seq: 9
+
+- id: jour-2026-sharifian-techno-economic-life
+  type: "journal"
+  title: "Techno-Economic and Life Cycle Analysis of Lithium Carbonate Production from Spodumene: Conventional vs. Direct Extraction Routes"
+  authors: ["Seyedmehdi Sharifian", "Sima Nikfar", "Chandima Subasinghe", "Zohreh Iranmanesh", "Mohammad Rezaee", "Ehsan Vahidi"]
+  venue: "RSC Green Chemistry, 28, 1144 - 1157"
+  year: 2026
+  doi: "10.1039/D5GC04866D"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 10
+
+- id: jour-2026-moghaddam-balancing-recovery-efficiency
+  type: "journal"
+  title: "Balancing Recovery Efficiency and Environmental Impact in Microwave-Assisted Leaching of Rare Earth Elements from Red Mud"
+  authors: ["Sajjad Ebrahimi Moghaddam", "Seyedeh Kimia Chavoshi", "Seyedmehdi Sharifian", "Ehsan Vahidi", "Fereshteh Rashchi"]
+  venue: "Chemical Engineering and Processing - Process Intensification, 220, 110649"
+  year: 2026
+  doi: "10.1016/j.cep.2025.110649"
+  themes: ["ree"]
+  seq: 11
+
+- id: jour-2026-ebrahimimoghaddam-gold-adsorption-upcycled
+  type: "journal"
+  title: "Gold adsorption on upcycled reduced graphene oxide in hypochlorite-chloride system: Functionality, mechanism, surface characterization, and environmental impacts"
+  authors: ["Sajjad Ebrahimi-Moghaddam", "Amirhossein Hamidi", "Seyedmehdi Sharifian", "Ehsan Vahidi", "Amirreza Azadmehr", "Fereshteh Rashchi"]
+  venue: "Separation and Purification Technology, 382, 135855"
+  year: 2026
+  doi: "10.1016/j.seppur.2025.135855"
+  corresponding: true
+  themes: ["gold"]
+  seq: 12
+
+- id: jour-2025-sharifian-toward-sustainable-polystyrene
+  type: "journal"
+  title: "Toward Sustainable Polystyrene Recycling: Benchmarking Technologies Using Integrated Economic and Environmental Metrics"
+  authors: ["Seyedmehdi Sharifian", "Zohreh Iranmanesh", "Neda Asasian-Kolur", "Sheida Nili", "Ehsan Vahidi", "Michael Harasek"]
+  venue: "ACS Sustainable Chemistry and Engineering, 13, 49, 21189–21200"
+  year: 2025
+  doi: "10.1021/acssuschemeng.5c09752"
+  corresponding: true
+  themes: ["other"]
+  seq: 13
+
+- id: jour-2025-rabbani-assessing-environmental-footprint
+  type: "journal"
+  title: "Assessing the Environmental Footprint of Electrochromic Windows: A Comparative LCA with AI-Based Forecasting"
+  authors: ["Mohsen Rabbani", "Olivia Tahti", "Sabinus E. Arthur", "Macy A. Hopping", "Christopher J. Barile", "Mohd H. Karim", "Ehsan Vahidi"]
+  venue: "RSC Sustainability"
+  year: 2025
+  doi: "10.1039/D5SU00638D"
+  corresponding: true
+  themes: ["other"]
+  seq: 14
+
+- id: jour-2025-kadivar-natural-synthetic-recycled
+  type: "journal"
+  title: "Natural, synthetic, or recycled? A life cycle and techno-economic analysis of battery-grade graphite production"
+  authors: ["Saeede Kadivar", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "Journal of Environmental Management, 395, 127747"
+  year: 2025
+  doi: "10.1016/j.jenvman.2025.127747"
+  corresponding: true
+  themes: ["lithium", "battery-recycling"]
+  seq: 15
+
+- id: jour-2025-mousavinezhad-advancing-domestic-lithium
+  type: "journal"
+  title: "Advancing Domestic Lithium Production from Sedimentary Rock Deposits: Integrating Life Cycle and Techno-Economic Assessments"
+  authors: ["Seyedkamal Mousavinezhad", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "Environmental Science and Technology, 59, 44, 23802–23811"
+  year: 2025
+  doi: "10.1021/acs.est.5c09948"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 16
+
+- id: jour-2025-shahbazian-balancing-electrochemical-performance
+  type: "journal"
+  title: "Balancing Electrochemical Performance and Environmental Impact of Ti–Nb Oxide Lithium-Ion Battery Anodes"
+  authors: ["Amirreza Shahbazian", "Nafiseh Hassanzadeh", "Fatemeh Mozaffarpour", "Ehsan Vahidi"]
+  venue: "Ionics, 1-16"
+  year: 2025
+  doi: "10.1007/s11581-025-06808-x"
+  themes: ["lithium"]
+  seq: 17
+
+- id: jour-2025-nili-reclaiming-value-from
+  type: "journal"
+  title: "Reclaiming Value from Waste: A Techno-Economic Evaluation of Rare Earth Extraction from Coal Refuse"
+  authors: ["Sheida Nili", "Mohsen Rabbani", "Seyedmehdi Sharifian", "Victor R. Vasquez", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Resource Management, 2 (9), 1807-1815"
+  year: 2025
+  doi: "10.1021/acssusresmgt.5c00353"
+  corresponding: true
+  themes: ["ree"]
+  seq: 18
+
+- id: jour-2025-nicastro-design-cellulose-nanocrystals
+  type: "journal"
+  title: "Eco-design of cellulose nanocrystals through ESCAPE 2 method at lab-scale"
+  authors: ["Gloria Nicastro", "Ario Fahimi", "Alain Dufresne", "Ehsan Vahidi", "Carlo Punta", "Elza Bontempi"]
+  venue: "Carbohydrate Polymers, 369, 124310"
+  year: 2025
+  doi: "10.1016/j.carbpol.2025.124310"
+  themes: ["other"]
+  seq: 19
+
+- id: jour-2025-iranmanesh-life-cycle-insights
+  type: "journal"
+  title: "Life Cycle Insights into Pit Lake End Use Strategies: Environmental Profiles for Three End-Use Scenarios"
+  authors: ["Zohreh Iranmanesh", "Zeinab Maghdouri Khubnam", "Seyedmehdi Sharifian", "Ehsan Vahidi", "Behrooz Abbasi"]
+  venue: "Journal of Environmental Management, 393, 127032"
+  year: 2025
+  doi: "10.1016/j.jenvman.2025.127032"
+  themes: ["other"]
+  seq: 20
+
+- id: jour-2025-rabbani-advancing-circular-economy
+  type: "journal"
+  title: "Advancing Circular Economy through Phytomining: Critical Mineral Recovery from Mine Tailings and Environmental Impact Assessment"
+  authors: ["Mohsen Rabbani", "Mohammad Taqi Rabbani", "Farzaneh Razmju", "Fridah Muthoni", "Farideh Razmjoo", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Chemistry and Engineering, 13, 29, 11335–11347"
+  year: 2025
+  doi: "10.1021/acssuschemeng.5c02822"
+  corresponding: true
+  themes: ["phytomining"]
+  seq: 21
+
+- id: jour-2025-soltanizadeh-appraising-environmental-footprints
+  type: "journal"
+  title: "Appraising the environmental footprints of spent Li-ion batteries recycling via a pyro/hydrometallurgy hybrid approach"
+  authors: ["Ali Soltanizadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Minerals Engineering, 231, 109466"
+  year: 2025
+  doi: "10.1016/j.mineng.2025.109466"
+  themes: ["lithium", "battery-recycling"]
+  seq: 22
+
+- id: jour-2025-nili-economic-viability-environmental
+  type: "journal"
+  title: "Economic Viability and Environmental Impact: A Dual Approach to Sustainable Rare Earth Production from Bastnasite Using a Density-Based Sorting Machine"
+  authors: ["Sheida Nili", "John S. Thella", "Seyedmehdi Sharifian", "Pengbo Chu", "Victor R. Vasquez", "Ehsan Vahidi"]
+  venue: "Science of The Total Environment, 983, 179696"
+  year: 2025
+  doi: "10.1016/j.scitotenv.2025.179696"
+  corresponding: true
+  themes: ["ree"]
+  seq: 23
+
+- id: jour-2025-rabbani-sustainable-copper-mining
+  type: "journal"
+  title: "Sustainable Copper Mining: A Pathway to Emission Reduction Through Renewable Energy"
+  authors: ["Mohsen Rabbani", "Sima Nikfar", "Seyed Kamal Mousavinezhad", "Sheida Nili", "Ehsan Vahidi"]
+  venue: "RSC Environmental Science: Advances, 4, 1035 - 1044"
+  year: 2025
+  doi: "10.1039/D5VA00043B"
+  corresponding: true
+  themes: ["carbon"]
+  seq: 24
+
+- id: jour-2025-sharifian-evaluating-upstream-processing
+  type: "journal"
+  title: "Evaluating Upstream Processing Strategies for Rare Earth Recovery from NdFeB Waste Magnets: A Comparative Techno-Economic and Environmental Analysis"
+  authors: ["Seyedmehdi Sharifian", "Sheida Nili", "Ehsan Vahidi"]
+  venue: "ACS Sustainable Chemistry and Engineering, 13, 19, 7134–7142"
+  year: 2025
+  doi: "10.1021/acssuschemeng.5c01342"
+  corresponding: true
+  themes: ["ree"]
+  seq: 25
+
+- id: jour-2025-mousavinezhad-sustainable-lithium-production
+  type: "journal"
+  title: "Sustainable Lithium Production from Sedimentary Rock Deposits: Carbon Reduction and EV Synergies"
+  authors: ["Seyedkamal Mousavinezhad", "Ario Fahimi", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 218, 107271"
+  year: 2025
+  doi: "10.1016/j.resconrec.2025.108271"
+  corresponding: true
+  themes: ["lithium", "carbon"]
+  seq: 26
+
+- id: jour-2025-fahimi-enhancing-phosphorus-recovery
+  type: "journal"
+  title: "Enhancing Phosphorus Recovery from Poultry Litter Ash through Microwave-Assisted Thermochemical Treatment for Improving Its Solubility"
+  authors: ["Ario Fahimi", "Mattia Massa", "Elsayed Mousa", "Guozhu Ye", "Georgeta Predeanu", "Hayati Olgun", "Seyedkamal Mousavinezhad", "Ehsan Vahidi", "Bruno Valentim", "Barbara Białecka", "Elza Bontempi"]
+  venue: "Journal of Environmental Management, 379, 124802"
+  year: 2025
+  doi: "10.1016/j.jenvman.2025.124802"
+  themes: ["other"]
+  seq: 27
+
+- id: jour-2025-muthoni-assessing-environmental-burden
+  type: "journal"
+  title: "Assessing the environmental burden of nickel sulfate for batteries: A life cycle perspective"
+  authors: ["Frida Muthoni", "Mohsen Rabbani", "Ario Fahimi", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 215, 108130"
+  year: 2025
+  doi: "10.1016/j.resconrec.2025.108130"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 28
+
+- id: jour-2025-rabbani-innovative-pilot-scale
+  type: "journal"
+  title: "Innovative pilot-scale process for sustainable rare earth oxide production from coal byproducts: A comprehensive environmental impact assessment"
+  authors: ["Mohsen Rabbani", "Joshua Werner", "Ehsan Vahidi"]
+  venue: "Journal of Rare Earths, 43, 397-404"
+  year: 2025
+  doi: "10.1016/j.jre.2024.04.004"
+  corresponding: true
+  themes: ["ree"]
+  seq: 29
+
+- id: jour-2025-ghodrati-performance-promotion-slurry
+  type: "journal"
+  title: "Performance Promotion of Slurry Seal Using Waste Glass Powder: Mechanical and Life Cycle Assessment"
+  authors: ["Ali Ghodrati", "Mehrdad Asadi Azadgoleh", "Mahdi Zalnezhad", "Mohammad Mahdi Mohammadi", "Pooyan Ayar", "Ehsan Vahidi"]
+  venue: "Road Materials and Pavement Design"
+  year: 2025
+  doi: "10.1080/14680629.2024.2449097"
+  themes: ["other"]
+  seq: 30
+
+- id: jour-2025-kar-review-environmental-impact
+  type: "journal"
+  title: "A review and environmental impact analysis on the current state of froth flotation on recycling of e-wastes"
+  authors: ["Umut Kar", " Sheida Nili", " Emmanuel Mends", " Ehsan Vahidi", " Pengbo Chu"]
+  venue: "Resources, Conservation and Recycling, 212, 107967"
+  year: 2025
+  doi: "10.1016/j.resconrec.2024.107967"
+  themes: ["other"]
+  seq: 31
+
+- id: jour-2025-nikfar-unlocking-sustainable-lithium
+  type: "journal"
+  title: "Unlocking Sustainable Lithium: A Comparative Life Cycle Assessment of Innovative Extraction Methods from Brine"
+  authors: ["Sima Nikfar", "Ario Fahimi", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 212, 107977"
+  year: 2025
+  doi: "10.1016/j.resconrec.2024.107977"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 32
+
+- id: jour-2025-yousefi-towards-durable-sustainable
+  type: "journal"
+  title: "Towards a durable and sustainable warm mix asphalt: techno-economic and environmental evaluation considering balanced mix design approach"
+  authors: ["Afshar Yousefi", "Benjamin Shane Underwood", " Ali Ghodrati", " Ali Behnood", " Ehsan Vahidi", " Ata Nowrouzi", "Pooyan Ayar", " Hamzeh Haghshenas"]
+  venue: "Journal of Cleaner Production, 144311"
+  year: 2025
+  doi: "10.1016/j.jclepro.2024.144311"
+  themes: ["other"]
+  seq: 33
+
+- id: jour-2024-fahimi-mapping-complexity-analyzing
+  type: "journal"
+  title: "Mapping Complexity: Analyzing Rare Earth Production Life Cycle Inventories with Network Analysis"
+  authors: ["Ario Fahimi", "Fu Zhao", "Shweta Singh", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 211, 107894"
+  year: 2024
+  doi: "10.1016/j.resconrec.2024.107894"
+  corresponding: true
+  themes: ["ree"]
+  seq: 34
+
+- id: jour-2024-kadivar-environmental-footprint-gold
+  type: "journal"
+  title: "Environmental footprint of gold production: a focus on sulfide mineral processing"
+  authors: ["Saeede Kadivar", "Hamid Akbari", "Ehsan Vahidi"]
+  venue: "Clean Technologies and Environmental Policy, 27, 3519–3533"
+  year: 2024
+  doi: "10.1007/s10098-024-02971-3"
+  corresponding: true
+  themes: ["gold"]
+  seq: 35
+
+- id: jour-2024-rabbani-advancing-phytomining-harnessing
+  type: "journal"
+  title: "Advancing phytomining: Harnessing plant potential for sustainable rare earth element extraction"
+  authors: ["Mohsen Rabbani", "Mohammad Taqi Rabbani", "Fridah Muthoni", "Ying Sun", "Ehsan Vahidi"]
+  venue: "Bioresource Technology, 130751"
+  year: 2024
+  doi: "10.1016/j.biortech.2024.130751"
+  corresponding: true
+  themes: ["phytomining", "ree"]
+  seq: 36
+
+- id: jour-2024-hamidi-treatment-conventional-microwave
+  type: "journal"
+  title: "Fly ash treatment via conventional and microwave-assisted organic acid leaching: kinetics and life cycle assessment"
+  authors: ["Amirhossein Hamidi", "Yasaman Saeid Bastami", "Sina Shakibania", "Alireza Mahmoudi", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Environmental Science and Pollution Research, 1-20"
+  year: 2024
+  doi: "10.1007/s11356-024-33208-x"
+  themes: ["other"]
+  seq: 37
+
+- id: jour-2024-nili-exploring-environmental-impact
+  type: "journal"
+  title: "Exploring the environmental impact of metallic element usage in smartphone evolution"
+  authors: ["Sheida Nili", "Sima Nikfar", "Mattew Joseph Bih Gozun", "Ario Fahimi", "Inez Hua", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 205, 107566"
+  year: 2024
+  doi: "10.1016/j.resconrec.2024.107566"
+  corresponding: true
+  themes: ["other"]
+  seq: 38
+
+- id: jour-2024-mousavinezhad-environmental-impact-assessment
+  type: "journal"
+  title: "Environmental impact assessment of direct lithium extraction from brine resources: Global warming potential, land use, water consumption, and charting sustainable scenarios"
+  authors: ["Seyedkamal Mousavinezhad", "Sheida Nili", "Ario Fahimi", "Ehsan Vahidi"]
+  venue: "Resources, Conservation and Recycling, 205, 107583"
+  year: 2024
+  doi: "10.1016/j.resconrec.2024.107583"
+  corresponding: true
+  themes: ["lithium"]
+  seq: 39
+
+- id: jour-2024-nazari-upcycling-spent-graphite
+  type: "journal"
+  title: "Upcycling spent graphite in LIBs into battery-grade graphene: environmental and technical analyses"
+  authors: ["Pouria Nazari", "Amirhossein Hamidi", "Rabeeh Golmohammadzadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Waste Management, 174, 140-152"
+  year: 2024
+  doi: "10.1016/j.wasman.2023.11.038"
+  corresponding: true
+  themes: ["lithium", "battery-recycling"]
+  seq: 40
+
+- id: jour-2023-rabbani-environmental-impact-assessment
+  type: "journal"
+  title: "Environmental impact assessment of a novel third-generation biorefinery approach for astaxanthin and biofuel production"
+  authors: ["Mohsen Rabbani", "Arman Hosseini", "Mohammad Anwar Karim", "Ario Fahimi", "Keikhosro Karimi", "Ehsan Vahidi"]
+  venue: "Science of The Total Environment, 168733"
+  year: 2023
+  doi: "10.1016/j.scitotenv.2023.168733"
+  corresponding: true
+  themes: ["other"]
+  seq: 41
+
+- id: jour-2023-shakibania-recovery-vanadium-from
+  type: "journal"
+  title: "Recovery of vanadium from spent refinery catalysts: optimizing the process and analyzing the environmental impact"
+  authors: ["Sina Shakibania", "Alireza Mahmoudi", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Clean Technologies and Environmental Policy, 1-16"
+  year: 2023
+  doi: "10.1007/s10098-023-02628-7"
+  corresponding: true
+  themes: ["other"]
+  seq: 42
+
+- id: jour-2023-kadivar-environmental-footprints-large
+  type: "journal"
+  title: "Environmental footprints of a large-scale gold production facility from double refractory ore"
+  authors: ["Saeede Kadivar", "Hamid Akbari", "Ehsan Vahidi"]
+  venue: "Science of The Total Environment, 167841"
+  year: 2023
+  doi: "10.1016/j.scitotenv.2023.167841"
+  corresponding: true
+  themes: ["gold"]
+  seq: 43
+
+- id: jour-2023-fahimi-analyzing-environmental-impact
+  type: "journal"
+  title: "Analyzing the environmental impact of recovering critical materials from spent lithium-ion batteries through statistical optimization"
+  authors: ["Ario Fahimi", "Hector Solorio", "Rasoul Khayam Nekouei", "Ehsan Vahidi"]
+  venue: "Journal of Power Sources, 580, 233425"
+  year: 2023
+  doi: "10.1016/j.jpowsour.2023.233425"
+  corresponding: true
+  themes: ["lithium", "battery-recycling"]
+  seq: 44
+
+- id: jour-2023-hamidi-valorization-nickel-ferrite
+  type: "journal"
+  title: "Valorization of fly ash by nickel ferrite and vanadium oxide recovery through pyro-hydrometallurgical processes: Technical and environmental assessment"
+  authors: ["Amirhossein Hamidi", "Sina Shakibania", "Alireza Mahmoudi", "Fereshteh Rashc-hi", "Ehsan Vahidi"]
+  venue: "Journal of Environmental Management, 344, 118442"
+  year: 2023
+  doi: "10.1016/j.jenvman.2023.118442"
+  corresponding: true
+  themes: ["other"]
+  seq: 45
+
+- id: jour-2023-mozaffarpour-synthesis-characterization-life
+  type: "journal"
+  title: "Synthesis, characterization, and life cycle assessment of electrochemically exfoliated KOH-activated porous graphene"
+  authors: ["Fatemeh Mozaffarpour", "Nafiseh Hassanzadeh", "Ehsan Vahidi"]
+  venue: "Frontiers of Environmental Science and Engineering, 17(12), 155"
+  year: 2023
+  doi: "10.1007/s11783-023-1755-4"
+  themes: ["other"]
+  seq: 46
+
+- id: jour-2023-mousavinezhad-comparative-life-cycle
+  type: "journal"
+  title: "Comparative life cycle analysis for critical materials recovery from spent Li-ion batteries"
+  authors: ["Seyedkamal Mousavinezhad", "Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "Journal of Environmental Management, 339, 117887"
+  year: 2023
+  doi: "10.1016/j.jenvman.2023.117887"
+  corresponding: true
+  themes: ["lithium", "battery-recycling"]
+  seq: 47
+
+- id: jour-2023-eghbali-assessing-environmental-footprints
+  type: "journal"
+  title: "Assessing the environmental footprints of the manganese recovery process from low-grade waste to synthesize manganese ferrite"
+  authors: ["Rojin Eghbali", "Ali Soltanizade", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Clean Technology & Environmental Policy"
+  year: 2023
+  doi: "10.1007/s10098-023-02488-1"
+  corresponding: true
+  themes: ["other"]
+  seq: 48
+
+- id: jour-2023-rezaee-novel-green-strategy
+  type: "journal"
+  title: "A novel green strategy for recovery of base and precious metals from waste printed circuit boards based on the step-wise glycine leaching"
+  authors: ["Mohammad Rezaee", "Roozbeh Saneie", "Amirhossein Mohammadzadeh", "Hadi Abdollahi", "Mehrdad Kordloo", "Ali Rezaee", "Ehsan Vahidi"]
+  venue: "Journal of Cleaner Production, 389, 136016"
+  year: 2023
+  doi: "10.1016/j.jclepro.2023.136016"
+  themes: ["other"]
+  seq: 49
+
+- id: jour-2022-mozaffarpour-comparative-life-cycle
+  type: "journal"
+  title: "Comparative life cycle assessment of synthesis routes for cathode materials in sodium-ion batteries"
+  authors: ["Fatemeh Mozaffarpour", "Nafiseh Hassanzadeh", "Ehsan Vahidi"]
+  venue: "Clean Technology & Environmental Policy, 24, 3319–3330"
+  year: 2022
+  doi: "10.1007/s10098-022-02381-3"
+  themes: ["other"]
+  seq: 50
+
+- id: jour-2022-azadgoleh-characterization-contaminant-leaching
+  type: "journal"
+  title: "Characterization of contaminant leaching from asphalt pavements: A critical review of measurement methods, reclaimed asphalt pavement, porous asphalt, and waste-modified asphalt mixtures"
+  authors: ["Mehrdad Asadi Azadgoleh", "Mohammad Mahdi Mohammadi", "Ali Ghodrati", "Seyed Sina Sharifi", "Seyed Mohammad Mahdi Palizban", "Arman Ahmadi", "Ehsan Vahidi", "Pooyan Ayar"]
+  venue: "Water Research, 118584"
+  year: 2022
+  doi: "10.1016/j.watres.2022.118584"
+  themes: ["other"]
+  seq: 51
+
+- id: jour-2021-alipanah-value-recovery-from
+  type: "journal"
+  title: "Value Recovery from Spent Lithium-ion Batteries: A Review on Technologies, Environmental Impacts, Economics, and Supply Chain"
+  authors: ["Majid Alipanah", "Apurba Kumar Saha", "Ehsan Vahidi", "Hongyue Jin"]
+  venue: "Clean Technologies and Recycling, 1(2): 152–184"
+  year: 2021
+  doi: "10.3934/ctr.2021008"
+  themes: ["lithium", "battery-recycling"]
+  seq: 52
+
+- id: jour-2021-vahidi-regional-variation-greenhouse
+  type: "journal"
+  title: "Regional variation of greenhouse gas mitigation strategies for the United States building sector"
+  authors: ["Ehsan Vahidi", "Randolph Kirchain", "Jasmina Burek", "Jeremy Gregory"]
+  venue: "Applied Energy, 302, 117527"
+  year: 2021
+  doi: "10.1016/j.apenergy.2021.117527"
+  corresponding: true
+  themes: ["carbon"]
+  seq: 53
+
+- id: jour-2021-gregory-role-concrete-life
+  type: "journal"
+  title: "The role of concrete in life cycle greenhouse gas emissions of US buildings and pavements"
+  authors: ["Jeremy R Gregory", "Hessam Azarijafari", "Ehsan Vahidi", "Fengdi Guo", "Franz-Josef Ulm", "Randolph E Kirchain"]
+  venue: "Proceedings of the National Academy of Sciences of the United States of America (PNAS), 118, No37"
+  year: 2021
+  doi: "10.1073/pnas.2021936118"
+  themes: ["carbon"]
+  seq: 54
+
+- id: jour-2021-nekouei-dual-functionality-mixed
+  type: "journal"
+  title: "Dual Functionality of Mixed Cu-based Two-Dimensional (2D) Heterostructures Derived from Electronic Wastes"
+  authors: ["Rasoul Khayyam Nekouei", "Ignacio Tudela", "Sajjad S. Mofarah", "Ehsan Vahidi", "Ke Wang", "Samane Maroufi", "Farshid Pahlevani", "Veena Sahajwalla"]
+  venue: "Green Chemistry-Royal Society of Chemistry, 2021, 23, 5511-5523"
+  year: 2021
+  doi: "10.1039/D1GC00354B"
+  themes: ["other"]
+  seq: 55
+
+- id: jour-2020-bailey-review-life-cycle
+  type: "journal"
+  title: "Review and new life cycle assessment for rare earth production from bastnäsite, ion adsorption clays and lateritic monazite"
+  authors: ["Gwendolyn Bailey", "James Joyce", "Dieuwertje Schrijvers", "Rita Schulze", "Anne Marie Sylvestre", "Benjamin Sprecher", "Ehsan Vahidi", "Wim Dewulf", "Karel Van Acker"]
+  venue: "Resources, Conservation & Recycling, 155, 104675"
+  year: 2020
+  doi: "10.1016/j.resconrec.2019.104675"
+  themes: ["ree"]
+  seq: 56
+
+- id: jour-2019-li-comparative-life-cycle
+  type: "journal"
+  title: "Comparative Life Cycle Analysis for Value Recovery of Precious Metals and Rare Earth Elements from Electronic Waste"
+  authors: ["Zhen Li", "Luis A Diaz", "Zhiyao Yang", "Hongyue Jin", "Tedd Lister", "Ehsan Vahidi", "Fu Zhao"]
+  venue: "Resources, Conservation & Recycling, 149, 20-30"
+  year: 2019
+  doi: "10.1016/j.resconrec.2019.05.025"
+  themes: ["ree"]
+  seq: 57
+
+- id: jour-2018-arshi-behind-scenes-clean
+  type: "journal"
+  title: "Behind the scenes of clean energy–the environmental footprint of rare earth products"
+  authors: ["Praneet Arshi", "Ehsan Vahidi", "Fu Zhao"]
+  venue: "ACS Sustainable Chemistry and Engineering, 6 (3), 3311–3320"
+  year: 2018
+  doi: "10.1021/acssuschemeng.7b03484"
+  themes: ["ree"]
+  seq: 58
+
+- id: jour-2018-vahidi-assessing-environmental-footprint
+  type: "journal"
+  title: "Assessing the environmental footprint of the production of rare earth metals and alloys via molten salt electrolysis"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "Resources, Conservation & Recycling, 139, 178-187"
+  year: 2018
+  doi: "10.1016/j.resconrec.2018.08.010"
+  corresponding: true
+  themes: ["ree"]
+  seq: 59
+
+- id: jour-2018-thompson-optimization-techno-economic
+  type: "journal"
+  title: "Optimization and Techno-economic and Life Cycle Analysis of Rare Earth Element Bioleaching from Waste Materials"
+  authors: ["Vicki Thompson", "Mayank Gupta", "Hongyue Jin", "Ehsan Vahidi", "Michael Jindra", "Van Nguyen", "Yoshiko Fujita", "John Sutherland", "Yongqin Jiao", "David Reed"]
+  venue: "ACS Sustainable Chemistry and Engineering, 6 (2), 1602–1609"
+  year: 2018
+  doi: "10.1021/acssuschemeng.7b02771"
+  themes: ["ree"]
+  seq: 60
+
+- id: jour-2017-vahidi-environmental-life-cycle
+  type: "journal"
+  title: "Environmental life cycle assessment on the separation of rare earth oxides through solvent extraction"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "Journal of Environmental Management, 203, 255-263"
+  year: 2017
+  doi: "10.1016/j.jenvman.2017.07.076"
+  corresponding: true
+  themes: ["ree"]
+  seq: 61
+
+- id: jour-2017-golmohammadzadeh-recovery-lithium-cobalt
+  type: "journal"
+  title: "Recovery of lithium and cobalt from spent lithium-ion batteries using different organic acids: Process optimization and kinetic aspects"
+  authors: ["Rabeeh Golmohammadzadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Waste Management, 64, 244–254"
+  year: 2017
+  doi: "10.1016/j.wasman.2017.03.037"
+  themes: ["lithium", "battery-recycling"]
+  seq: 62
+
+- id: jour-2017-dashti-influence-anode-composition
+  type: "journal"
+  title: "The influence of anode composition on energy consumption and current efficiency in zinc electrowinning"
+  authors: ["Somayyeh Dashti", "Fereshteh Rashchi", "Masoud Emami", "Ehsan Vahidi"]
+  venue: "Journal of the Electrochemical Society, 164 (7), 166-172"
+  year: 2017
+  doi: "10.1149/2.1031707jes"
+  themes: ["other"]
+  seq: 63
+
+- id: jour-2016-vahidi-initial-life-cycle
+  type: "journal"
+  title: "An initial life cycle assessment of rare earth oxides production from ion-adsorption clays"
+  authors: ["Ehsan Vahidi", "Julio Navarro", "Fu Zhao"]
+  venue: "Resources, Conservation & Recycling, 113, 1-11"
+  year: 2016
+  doi: "10.1016/j.resconrec.2016.05.006"
+  themes: ["ree"]
+  seq: 64
+
+- id: jour-2016-vahidi-environmental-life-cycle
+  type: "journal"
+  title: "Environmental life cycle analysis of pipe materials for sewer systems"
+  authors: ["Ehsan Vahidi", "Enze Jin", "Maithilee Das", "Mansukh Singh", "Fu Zhao"]
+  venue: "Sustainable Cities and Society, 27, 167–174"
+  year: 2016
+  doi: "10.1016/j.scs.2016.06.028"
+  corresponding: true
+  themes: ["other"]
+  seq: 65
+
+- id: jour-2016-mirazimi-optimization-dissolution-kinetics
+  type: "journal"
+  title: "Optimization and dissolution kinetics of vanadium recovery from LD converter slag in alkaline media"
+  authors: ["Mohammad Mirazimi", "Fereshteh Rashchi", "Ehsan Vahidi", "Navid Mostoufi"]
+  venue: "Russian Journal of Non-Ferrous Metals, 57 (5), 395–404"
+  year: 2016
+  doi: "10.3103/S1067821216050126"
+  themes: ["other"]
+  seq: 66
+
+- id: jour-2015-vahidi-comparative-life-cycle
+  type: "journal"
+  title: "Comparative life cycle assessment of wastewater pipeline materials"
+  authors: ["Ehsan Vahidi", "Enze Jin", "Maithilee Das", "Mansukh Singh", "Fu Zhao"]
+  venue: "Procedia Engineering, 1190-1201"
+  year: 2015
+  doi: "10.1016/j.proeng.2015.08.461"
+  themes: ["other"]
+  seq: 67
+
+- id: jour-2014-noori-selective-recovery-separation
+  type: "journal"
+  title: "Selective recovery and separation of nickel and vanadium in sulfate media using mixtures of D2EHPA and Cyanex 272"
+  authors: ["Mehdi Noori", "Fereshteh Rashchi", "Ataollah Babakhani", "Ehsan Vahidi"]
+  venue: "Separation and Purification Technology, 136, 265–273"
+  year: 2014
+  doi: "10.1016/j.seppur.2014.08.038"
+  themes: ["other"]
+  seq: 68
+
+- id: jour-2014-babakhani-selective-separation-from
+  type: "journal"
+  title: "Selective separation of Ni and Cd from sulphate solutions of spent Ni-Cd batteries using mixtures of D2EHPA and Cyanex 302"
+  authors: ["Ataollah Babakhani", "Fereshteh Rashchi", "Alireza Zakeri", "Ehsan Vahidi"]
+  venue: "Journal of Power Sources, 247, 127-133"
+  year: 2014
+  doi: "10.1016/j.jpowsour.2013.08.063"
+  themes: ["battery-recycling"]
+  seq: 69
+
+- id: jour-2011-alizadeh-recovery-zinc-from
+  type: "journal"
+  title: "Recovery of zinc from zinc leach residues with minimum iron dissolution using oxidative leaching"
+  authors: ["Reza Alizadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Waste Management and Research, 29 (2), 165–171"
+  year: 2011
+  doi: "10.1177/0734242X10372661"
+  themes: ["other"]
+  seq: 70
+
+- id: jour-2011-ghafarizadeh-recovery-manganese-from
+  type: "journal"
+  title: "Recovery of manganese from electric arc furnace dust"
+  authors: ["Behzad Ghafarizadeh", "Fereshteh Rashchi", "Ehsan Vahidi"]
+  venue: "Minerals Engineering, 24, 174-176"
+  year: 2011
+  doi: "10.1016/j.mineng.2010.11.003"
+  themes: ["other"]
+  seq: 71
+
+- id: jour-2010-vahidi-effect-additives-kinetics
+  type: "journal"
+  title: "Effect of additives on the kinetics study of zinc ion in the system Zn/H2SO4/D2EHPA/Kerosene"
+  authors: ["Ehsan Vahidi", "Fereshteh Rashchi", "Kamyar Pashayi"]
+  venue: "Canadian Metallurgical Quarterly, 49 (3), 235-240"
+  year: 2010
+  doi: "10.1179/cmq.2010.49.3.235"
+  themes: ["other"]
+  seq: 72
+
+- id: jour-2010-aarabikarasgani-kinetic-study-leaching
+  type: "journal"
+  title: "Kinetic study on the leaching of vanadium from LD converter slag using sulfuric acid"
+  authors: ["Mohsen Aarabi-Karasgani", "Fereshteh Rashchi", "Navid Mostoufi", "Ehsan Vahidi"]
+  venue: "Hydrometallurgy, 102, 14-21"
+  year: 2010
+  doi: "10.1016/j.hydromet.2010.01.006"
+  themes: ["other"]
+  seq: 73
+
+- id: jour-2010-hosseini-investigating-synergistic-effect
+  type: "journal"
+  title: "Investigating the synergistic effect of D2EHPA and Cyanex 302 on zinc and manganese separation"
+  authors: ["Tahereh Hosseini", "Fereshteh Rashchi", "Ehsan Vahidi", "Navid Mostoufi"]
+  venue: "Separation Science and Technology, 45, 1158-1164"
+  year: 2010
+  doi: "10.1080/01496391003727908"
+  themes: ["other"]
+  seq: 74
+
+- id: jour-2009-vahidi-recovery-zinc-from
+  type: "journal"
+  title: "Recovery of zinc from an industrial zinc leach residue by solvent extraction using D2EHPA"
+  authors: ["Ehsan Vahidi", "Fereshteh Rashchi", "Davood Moradkhani"]
+  venue: "Minerals Engineering, 22, 204-206"
+  year: 2009
+  doi: "10.1016/j.mineng.2008.05.002"
+  themes: ["other"]
+  seq: 75
+
+- id: proc-2024-rabbani-phytomining-rare-earth
+  type: "proceedings"
+  title: "Phytomining for Rare Earth Elements: A Comparative Life Cycle Assessment"
+  authors: ["Mohsen Rabbani", "Frida Muthoni", "Trista McLaughlin", "Ehsan Vahidi"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2024, 153rd Annual Meeting and Conference, Orlando, FL, USA, March 2024"
+  year: 2024
+  themes: ["phytomining", "ree"]
+  seq: 76
+
+- id: proc-2023-vahidi-environmental-footprints-gold
+  type: "proceedings"
+  title: "Environmental footprints of gold production from double refractory ore during roasting process"
+  authors: ["Ehsan Vahidi", "Saeede Kadivar"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2023, 152nd Annual Meeting and Conference, San Diego, CA, USA, March 2023"
+  year: 2023
+  themes: ["gold"]
+  seq: 77
+
+- id: proc-2019-bailey-state-life-cycle
+  type: "proceedings"
+  title: "A State of the Art Life Cycle Assessment of Rare Earth Elements"
+  authors: ["Gwendolyn Bailey", "Dieuwertje Schrijvers", "Rita Schulze", "Anne Marie Sylvestre", "James Joyce", "Benjamin Sprecher", "Ehsan Vahidi", "Wim Dewulf", "Karel Van Acker"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2019, 148th Annual Meeting and Conference, San Antonio, TX, USA, March 2019"
+  year: 2019
+  themes: ["ree"]
+  seq: 78
+
+- id: proc-2016-vahidi-life-cycle-analysis
+  type: "proceedings"
+  title: "Life cycle analysis for solvent extraction of rare earth elements from aqueous solutions"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2016, 145th Annual Meeting and Conference, Nashville, TN, USA, February 2016"
+  year: 2016
+  themes: ["ree"]
+  seq: 79
+
+- id: proc-2013-vahidi-synergistic-extraction-separation
+  type: "proceedings"
+  title: "Synergistic extraction and separation of Nickel and Vanadium from sulfate leach liquor of power plant fly ash by the addition of Cyanex 272 to D2EHPA"
+  authors: ["Ehsan Vahidi", "Mehdi Noori", "Fereshteh Rashchi", "Ataollah Babakhani"]
+  venue: "AIChE (American Institute of Chemical Engineers) 2013 Annual Meeting, San Francisco, CA, USA, November 2013"
+  year: 2013
+  themes: ["other"]
+  seq: 80
+
+- id: proc-2013-vahidi-modeling-synergistic-effect
+  type: "proceedings"
+  title: "Modeling of synergistic effect of Cyanex 302 and D2EHPA on separation of nickel and cadmium from sulfate leach liquors of spent Ni–Cd batteries"
+  authors: ["Ehsan Vahidi", "Ataollah Babakhani", "Fereshteh Rashchi", "Alireza Zakeri"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2013, 142nd Annual Meeting and Conference, San Antonio, TX, USA, March 2013"
+  year: 2013
+  themes: ["battery-recycling"]
+  seq: 81
+
+- id: proc-2012-vahidi-kinetics-study-hydrometallurgical
+  type: "proceedings"
+  title: "A kinetics study on the hydrometallurgical recovery of vanadium from LD converter slag in alkaline media"
+  authors: ["Ehsan Vahidi", "Ali Shahnazi", "Fereshteh Rashchi"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2012, 141st Annual Meeting and Conference, Orlando, FL, USA, March 2012"
+  year: 2012
+  themes: ["other"]
+  seq: 82
+
+- id: proc-2012-vahidi-effect-different-parameters
+  type: "proceedings"
+  title: "Effect of different parameters on synergistic separation of nickel and cadmium from sulfate solution using D2EHPA and Cyanex 302"
+  authors: ["Ehsan Vahidi", "Ataollah Babakhani", "Fereshteh Rashchi"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2012, 141st Annual Meeting and Conference, Orlando, FL, USA, March 2012"
+  year: 2012
+  themes: ["other"]
+  seq: 83
+
+- id: proc-2012-vahidi-study-effect-different
+  type: "proceedings"
+  title: "A study on the effect of different additives in electrolyte in zinc electrowinning process using Taguchi statistical experimental design methodology"
+  authors: ["Ehsan Vahidi", "Somayyeh Dashti", "Fereshteh Rashchi"]
+  venue: "TMS (The Minerals, Metals, and Materials Society) 2012, 141st Annual Meeting and Conference, Orlando, FL, USA, March 2012"
+  year: 2012
+  themes: ["other"]
+  seq: 84
+
+- id: proc-2010-vahidi-kinetics-vanadium-leaching
+  type: "proceedings"
+  title: "Kinetics of vanadium leaching from LD converter slag in sulphuric acid solution"
+  authors: ["Ehsan Vahidi", "Mohsen Aarabi", "Fereshteh Rashchi"]
+  venue: "International Mineral Processing Congress (IMPC) 2010, Brisbane, Australia, August 2010"
+  year: 2010
+  themes: ["other"]
+  seq: 85
+
+- id: proc-2010-vahidi-stripping-from-ehpa
+  type: "proceedings"
+  title: "Stripping of Fe (III) from D2EHPA extracted in solvent extraction process"
+  authors: ["Ehsan Vahidi", "Maryam Akhlaghi", "Fereshteh Rashchi"]
+  venue: "International Mineral Processing Congress (IMPC) 2010, Brisbane, Australia, August 2010"
+  year: 2010
+  themes: ["other"]
+  seq: 86
+
+- id: proc-2009-vahidi-kinetic-study-nickel
+  type: "proceedings"
+  title: "Kinetic study of nickel leaching from spent catalyst with sulfuric acid"
+  authors: ["Ehsan Vahidi", "Mohammad Karim Nazemi", "Fereshteh Rashchi", "Navid Mostoufi"]
+  venue: "48th Conference of Metallurgists (COM) 2009, Nickel-Cobalt 2009, Sudbury, Ontario, Canada, August 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 87
+
+- id: proc-2009-vahidi-stripping-ehpa-from
+  type: "proceedings"
+  title: "Stripping of D2EHPA from Fe (III) after Solvent Extraction of Zn"
+  authors: ["Ehsan Vahidi", "Maryam Akhlaghi", "Fereshteh Rashchi"]
+  venue: "The Journal of Iranian Metallurgical Engineering Society, 12 (34), 4-13"
+  year: 2009
+  themes: ["other"]
+  seq: 88
+
+- id: proc-2008-vahidi-liquid-liquid-extraction
+  type: "proceedings"
+  title: "Liquid-liquid extraction of zinc from a leach residue using D2EHPA"
+  authors: ["Ehsan Vahidi", "Fereshteh Rashchi", "Davood Moradkhani"]
+  venue: "International Mineral Processing Congress (IMPC) 2008, Beijing, China, September 2008"
+  year: 2008
+  themes: ["other"]
+  seq: 89
+
+- id: pres-2025-nili-synthetic-spent-medium
+  type: "presentation"
+  title: "Synthetic Spent-Medium Bioleaching REEs from Allanite"
+  authors: ["Sheida Nili", "Seyedmehdi Sharifian", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, CO, USA, February 2025"
+  year: 2025
+  themes: ["ree"]
+  seq: 90
+
+- id: pres-2025-valencia-assessing-environmental-burden
+  type: "presentation"
+  title: "Assessing the environmental burden of nickel sulfate for batteries: A life cycle perspective"
+  authors: ["Frida Valencia", "Mohsen Rabbani", "Ario Fahimi", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, CO, USA, February 2025"
+  year: 2025
+  themes: ["lithium"]
+  seq: 91
+
+- id: pres-2024-nikfar-comparative-life-cycle
+  type: "presentation"
+  title: "Comparative Life Cycle Analysis of Lithium Separation Methods from Geothermal Brines"
+  authors: ["Sima Nikfar", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Phoenix, AZ, USA, February 2024"
+  year: 2024
+  themes: ["lithium"]
+  seq: 92
+
+- id: pres-2024-nili-environmental-life-cycle
+  type: "presentation"
+  title: "Environmental life cycle analysis of direct lithium extraction from brine resources in Nevada"
+  authors: ["Sheida Nili", "Seyedkamal Mousavinezhad", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Phoenix, AZ, USA, February 2024"
+  year: 2024
+  themes: ["lithium"]
+  seq: 93
+
+- id: pres-2024-kadivar-environmental-impacts-gold
+  type: "presentation"
+  title: "Environmental Impacts of Gold Production from Refractory Ores"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Phoenix, AZ, USA, February 2024"
+  year: 2024
+  themes: ["gold"]
+  seq: 94
+
+- id: pres-2023-nili-assessing-environmental-footprint
+  type: "presentation"
+  title: "Assessing the environmental footprint of smartphones based on design evolution and raw materials utilization"
+  authors: ["Sheida Nili", "Seyedkamal Mousavinezhad", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Association (AEMA), Sparks, NV, USA, December 2023"
+  year: 2023
+  themes: ["other"]
+  seq: 95
+
+- id: pres-2023-kadivar-environmental-life-cycle
+  type: "presentation"
+  title: "Environmental Life Cycle Assessment of Gold Production from Refractory Ores"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Association (AEMA), Sparks, NV, USA, December 2023"
+  year: 2023
+  themes: ["gold"]
+  seq: 96
+
+- id: pres-2023-nikfar-comparing-life-cycle
+  type: "presentation"
+  title: "Comparing Life Cycle Assessments of Brine-Based Lithium Extraction Methods"
+  authors: ["Sima Nikfar", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Association (AEMA), Sparks, NV, USA, December 2023"
+  year: 2023
+  themes: ["lithium"]
+  seq: 97
+
+- id: pres-2023-vahidi-environmental-impacts-direct
+  type: "presentation"
+  title: "Environmental impacts of direct lithium extraction from brine resources in Nevada"
+  authors: ["Ehsan Vahidi"]
+  venue: "2023 International Conference on Resource Sustainability (icRS 2023), Guildford, Surrey, the United Kingdom, August 2023"
+  year: 2023
+  themes: ["lithium"]
+  seq: 98
+
+- id: pres-2023-vahidi-environmental-life-cycle
+  type: "presentation"
+  title: "Environmental life cycle assessment on the production of lithium from sedimentary deposits in Nevada"
+  authors: ["Ehsan Vahidi"]
+  venue: "The International Symposium on Sustainable Systems and Technology (ISSST), Fort Collins, CO, USA, June 2023"
+  year: 2023
+  themes: ["lithium"]
+  seq: 99
+
+- id: pres-2023-rabbani-assessing-environmental-burdens
+  type: "presentation"
+  title: "Assessing the environmental burdens of rare earth elements recovery from coal-related materials"
+  authors: ["Mohsen Rabbani", "Joshua Werner", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, CO, USA, March 2023"
+  year: 2023
+  themes: ["ree"]
+  seq: 100
+
+- id: pres-2023-kadivar-environmental-footprints-gold
+  type: "presentation"
+  title: "Environmental footprints of gold production in Nevada"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, Co, March 2023"
+  year: 2023
+  themes: ["gold"]
+  seq: 101
+
+- id: pres-2023-mousavi-environmental-impact-analysis
+  type: "presentation"
+  title: "Environmental impact analysis of lithium production from sedimentary rocks in Nevada"
+  authors: ["Kamal Mousavi", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, Colorado, USA, March 2023"
+  year: 2023
+  themes: ["lithium"]
+  seq: 102
+
+- id: pres-2023-nikfar-assessing-environmental-footprint
+  type: "presentation"
+  title: "Assessing the environmental footprint of smartphones based on design evolution and raw materials utilization"
+  authors: ["Sima Nikfar", "Sheida Nili", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Denver, Colorado, USA, March 2023"
+  year: 2023
+  themes: ["other"]
+  seq: 103
+
+- id: pres-2022-rabbani-environmental-footprints-recovery
+  type: "presentation"
+  title: "Environmental footprints of Recovery of Rare Earth Elements from Coal-related materials"
+  authors: ["Mohsen Rabbani", "Joshua Werner", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Association (AEMA), Sparks, NV, USA, December 2022"
+  year: 2022
+  themes: ["ree"]
+  seq: 104
+
+- id: pres-2022-nili-assessing-environmental-footprint
+  type: "presentation"
+  title: "Assessing the environmental footprint of smartphones based on design evolution and raw materials utilization"
+  authors: ["Sheida Nili", "Sima Nikfar", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Associations (AEMA), Reno, NV, USA, December 2022"
+  year: 2022
+  themes: ["other"]
+  seq: 105
+
+- id: pres-2022-kadivar-environmental-footprints-gold
+  type: "presentation"
+  title: "Environmental footprints of gold production from double refractory ore during roasting process"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Association (AEMA), Reno, NV, December 2022"
+  year: 2022
+  themes: ["gold"]
+  seq: 106
+
+- id: pres-2022-mousavi-assessing-environmental-footprint
+  type: "presentation"
+  title: "Assessing the environmental footprint of lithium production from sedimentary deposits in Nevada"
+  authors: ["Kamal Mousavi", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Associations (AEMA), Reno, NV, USA, December 2022"
+  year: 2022
+  themes: ["lithium"]
+  seq: 107
+
+- id: pres-2022-kadivar-evaluation-environmental-burdens
+  type: "presentation"
+  title: "Evaluation on the Environmental burdens of gold production in Nevada"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "International Precious Metals Institute (IPMI), Orlando, Fl, USA, June 2022"
+  year: 2022
+  themes: ["gold"]
+  seq: 108
+
+- id: pres-2022-mousavi-comparative-life-cycle
+  type: "presentation"
+  title: "Comparative Life Cycle Analysis for Critical Materials Recovery from Spent Li-ion Batteries"
+  authors: ["Kamal Mousavi", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Salt Lake City, Utah, USA, March 2022"
+  year: 2022
+  themes: ["lithium", "battery-recycling"]
+  seq: 109
+
+- id: pres-2022-kadivar-assessing-environmental-footprints
+  type: "presentation"
+  title: "Assessing the environmental footprints of metals recovery from spent Li-ion batteries using bio-hydrometallurgical processes"
+  authors: ["Saeede Kadivar", "Ehsan Vahidi"]
+  venue: "Society of Mining, Metallurgy and Exploration (SME) Annual Conference, Salt Lake City, Utah, USA, March 2022"
+  year: 2022
+  themes: ["lithium", "battery-recycling"]
+  seq: 110
+
+- id: pres-2021-brown-life-cycle-assessment
+  type: "presentation"
+  title: "Life Cycle Assessment of Gold Production in Nevada"
+  authors: ["Duncan Brown", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Associations (AEMA), Reno, NV, USA, December 2021"
+  year: 2021
+  themes: ["gold"]
+  seq: 111
+
+- id: pres-2021-solorio-hydrometallurgical-recovery-valuable
+  type: "presentation"
+  title: "Hydrometallurgical recovery of valuable metals from spent lithium-ion batteries and its associated environmental impacts"
+  authors: ["Hector Solorio", "Ehsan Vahidi"]
+  venue: "American Exploration & Mining Associations (AEMA), Reno, NV, USA, December 2021"
+  year: 2021
+  themes: ["lithium", "battery-recycling"]
+  seq: 112
+
+- id: pres-2021-brown-assessing-environmental-footprints
+  type: "presentation"
+  title: "Assessing the Environmental Footprints of Nuclear Wastes Transportation to the Nevada National Security Site"
+  authors: ["Duncan Brown", "Ehsan Vahidi"]
+  venue: "Nevada National Security Site (NNSS) Symposium, Reno, NV, USA, December 2021"
+  year: 2021
+  themes: ["other"]
+  seq: 113
+
+- id: pres-2021-vahidi-comparative-life-cycle
+  type: "presentation"
+  title: "Comparative life cycle analysis for critical materials recovery from spent Li-ion batteries"
+  authors: ["Ehsan Vahidi"]
+  venue: "2021 International Conference on Resource Sustainability (icRS), Dublin, Ireland, July 2021"
+  year: 2021
+  themes: ["lithium", "battery-recycling"]
+  seq: 114
+
+- id: pres-2020-vahidi-potential-greenhouse-mitigation
+  type: "presentation"
+  title: "Potential for greenhouse gas mitigation in the United States building sector"
+  authors: ["Ehsan Vahidi", "Jeremy Gregory", "Randolph Kirchain"]
+  venue: "MITAB Applied Energy conference, Cambridge, MA, USA, August 2020"
+  year: 2020
+  themes: ["carbon"]
+  seq: 115
+
+- id: pres-2020-vahidi-regional-variation-greenhouse
+  type: "presentation"
+  title: "Regional variation of greenhouse gas mitigation strategies for the United States building sector"
+  authors: ["Ehsan Vahidi", "Jeremy Gregory", "Randolph Kirchain"]
+  venue: "The International Symposium on Sustainable Systems and Technology (ISSST), USA, June 2020"
+  year: 2020
+  themes: ["carbon"]
+  seq: 116
+
+- id: pres-2019-vahidi-assessing-impacts-energy
+  type: "presentation"
+  title: "Assessing the impacts of energy code evolution on energy performance and embodied environmental impacts of multi-family residential buildings in the US"
+  authors: ["Ehsan Vahidi", "Jeremy Gregory", "Randolph Kirchain"]
+  venue: "MITAB Applied Energy conference, The International Symposium on Sustainable Systems and Technology (ISSST), Portland, OR, USA, June 2019"
+  year: 2019
+  themes: ["other"]
+  seq: 117
+
+- id: pres-2019-bailey-state-life-cycle
+  type: "presentation"
+  title: "A State-of-the Art Life Cycle Assessment of Rare Earth Elements for production routes involving Bastnaesite, Monazite, and Ionic Clays"
+  authors: ["Gwendolyn Bailey", "James Joyce", "Dieuwertje Schrijvers", "Rita Schulze", "Anne Marie Sylvestre", "Benjamin Sprecher", "Ehsan Vahidi", "Wim Dewulf", "Karel Van Acker"]
+  venue: "EUROMAT 2019 (European Congress & Exhibition on Advanced Materials & Processes), Stockholm, Sweden, September 2019"
+  year: 2019
+  themes: ["ree"]
+  seq: 118
+
+- id: pres-2018-vahidi-investigation-complexity-life
+  type: "presentation"
+  title: "An investigation on the complexity of life cycle inventories for the rare earth production using network analysis"
+  authors: ["Ehsan Vahidi", "Shewta Singh", "Fu Zhao"]
+  venue: "The International Symposium on Sustainable Systems and Technology (ISSST), Advances in the Circular Economy, Buffalo, NY, USA, June 2018"
+  year: 2018
+  themes: ["ree"]
+  seq: 119
+
+- id: pres-2017-vahidi-easily-accessible-free
+  type: "presentation"
+  title: "An easily accessible free software tool for life cycle assessment of rare earth elements"
+  authors: ["Ehsan Vahidi", "Praneet Arshi", "Fu Zhao"]
+  venue: "6th International Forum on Sustainable Manufacturing, Lexington, KY, USA, December 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 120
+
+- id: pres-2017-vahidi-life-cycle-analysis
+  type: "presentation"
+  title: "Life Cycle Analysis of Rare Earth Metals Production via Electro-Refining and Manufacturing of Rare Earth Magnets"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "MRS Fall Meeting, Boston, MA, USA, November 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 121
+
+- id: pres-2017-vahidi-network-analysis-rare
+  type: "presentation"
+  title: "Network Analysis of Rare Earth Production for Environmental Assessment"
+  authors: ["Ehsan Vahidi", "Shewta Singh", "Fu Zhao"]
+  venue: "American Center for Life Cycle Assessment (ACLCA), Portsmouth, NH, USA, October 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 122
+
+- id: pres-2017-vahidi-open-source-software
+  type: "presentation"
+  title: "An open-source software tool for life cycle assessment of rare earth elements"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "Association of Environmental Engineering and Science Professors (AEESP), Ann Arbor, MI, USA, June 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 123
+
+- id: pres-2017-vahidi-life-cycle-assessment
+  type: "presentation"
+  title: "Life cycle assessment for the solvent extraction process of rare earth oxides"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "23rd Annual Environmental Engineering & Science Symposium, Champaign, IL, USA, April 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 124
+
+- id: pres-2017-vahidi-life-cycle-analysis-b
+  type: "presentation"
+  title: "Life Cycle Analysis of the Production of Rare Earth Metals and Alloys via Electrowinning"
+  authors: ["Ehsan Vahidi", "Praneet Arshi", "Fu Zhao"]
+  venue: "AIChE Midwest Regional Conference, Chicago, IL, USA, February 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 125
+
+- id: pres-2017-vahidi-development-easily-accessed
+  type: "presentation"
+  title: "Development of an easily-accessed dataset for life cycle assessment of rare earth elements"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "Critical Materials Institute (CMI) Winter Meeting, Golden, CO, USA, February 2017"
+  year: 2017
+  themes: ["ree"]
+  seq: 126
+
+- id: pres-2016-vahidi-easily-accessed-dataset
+  type: "presentation"
+  title: "An easily-accessed dataset for life cycle assessment of rare earth elements"
+  authors: ["Ehsan Vahidi", "Praneet Arshi", "Fu Zhao"]
+  venue: "American Center for Life Cycle Assessment (ACLCA), Charleston, SC, USA, September 2016"
+  year: 2016
+  themes: ["ree"]
+  seq: 127
+
+- id: pres-2016-vahidi-recovery-lithium-cobalt
+  type: "presentation"
+  title: "Recovery of lithium and cobalt from spent Li-ion batteries using organic acids as leaching agents"
+  authors: ["Ehsan Vahidi", "Rabeeh Golmohammadzadeh", "Fereshteh Rashchi"]
+  venue: "22nd international congress of chemical and process engineering CHISA, Prague, Czech Republic, 27-31 August 2016"
+  year: 2016
+  themes: ["lithium", "battery-recycling"]
+  seq: 128
+
+- id: pres-2016-vahidi-environmental-performance-assessment
+  type: "presentation"
+  title: "Environmental Performance Assessment of Solvent Extraction Based Separation of Rare Earth Elements"
+  authors: ["Ehsan Vahidi", "Fu Zhao"]
+  venue: "Critical Materials Institute (CMI) Winter Meeting, Golden, CO, USA, February 2016"
+  year: 2016
+  themes: ["ree"]
+  seq: 129
+
+- id: pres-2015-vahidi-comparative-life-cycle
+  type: "presentation"
+  title: "Comparative Life Cycle Assessment of Wastewater Pipeline Materials"
+  authors: ["Ehsan Vahidi", "Enze Jin", "Maithilee Das", "Mansukh Singh", "Fu Zhao"]
+  venue: "International Conference on Sustainable Design, Engineering and Construction, Chicago, IL, USA, May 2015"
+  year: 2015
+  themes: ["other"]
+  seq: 130
+
+- id: pres-2015-vahidi-optimization-solvent-extraction
+  type: "presentation"
+  title: "Optimization of solvent extraction and separation of nickel and vanadium from synthetic sulfate leach liquor of power plant fly ash using D2EHPA and Cyanex 272"
+  authors: ["Ehsan Vahidi", "Mehdi Noori", "Fereshteh Rashchi", "Ataollah Babakhani"]
+  venue: "EMC (European Metallurgical Conference), Dusseldorf, Germany, June 2015"
+  year: 2015
+  themes: ["other"]
+  seq: 131
+
+- id: pres-2012-vahidi-selective-separation-nickel
+  type: "presentation"
+  title: "Selective separation of nickel and cobalt from sulfate solutions using mixture of D2EHPA and Cyanex 302"
+  authors: ["Ehsan Vahidi", "Ataollah Babakhani", "Fereshteh Rashchi", "Alireza Zakeri"]
+  venue: "16th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Tehran, Iran, November 2012"
+  year: 2012
+  themes: ["other"]
+  seq: 132
+
+- id: pres-2014-vahidi-mechanism-thermodynamics-synergistic
+  type: "presentation"
+  title: "Mechanism and thermodynamics of synergistic separation of vanadium and nickel from sulfate media using D2EHPA and Cyanex 272"
+  authors: ["Ehsan Vahidi", "Mehdi Noori", "Fereshteh Rashchi", "Ataollah Babakhani"]
+  venue: "ISEC (International Solvent Extraction Conference) 2014, Wurzburg, Germany, September 2014"
+  year: 2014
+  themes: ["other"]
+  seq: 133
+
+- id: pres-2011-vahidi-manganese-recovery-from
+  type: "presentation"
+  title: "Manganese recovery from electric arc furnace dust by Solvent Extraction, using D2EHPA, Cyanex 272, and Cyanex 302 as extractants"
+  authors: ["Ehsan Vahidi", "Navid Mostoufi", "Fereshteh Rashchi"]
+  venue: "Fray International Symposium on Metals and Materials Processing in a Clean Environment, Cancun, Mexico, November 2011"
+  year: 2011
+  themes: ["other"]
+  seq: 134
+
+- id: pres-2011-vahidi-investigating-synergistic-effect
+  type: "presentation"
+  title: "Investigating the synergistic effect of D2EHPA and Cyanex 302 on nickel and cadmium separation"
+  authors: ["Ehsan Vahidi", "Ataollah Babakhani", "Fereshteh Rashchi", "Alireza Zakeri"]
+  venue: "The 7th International Chemical Engineering Congress, Kish Island, Iran, November 2011"
+  year: 2011
+  themes: ["other"]
+  seq: 135
+
+- id: pres-2011-vahidi-effect-different-anode
+  type: "presentation"
+  title: "Effect of different anode compositions on the current efficiency of zinc electrowinning from acidic sulphate solutions"
+  authors: ["Ehsan Vahidi", "Somayyeh Dashti", "Fereshteh Rashchi"]
+  venue: "EMC (European Metallurgical Conference), Dusseldorf, Germany, June 2011"
+  year: 2011
+  themes: ["other"]
+  seq: 136
+
+- id: pres-2009-vahidi-experimental-investigation-synergistic
+  type: "presentation"
+  title: "Experimental investigation of synergistic effect of D2EHPA and Cyanex 302 on solvent extraction of zinc from sulphate solution"
+  authors: ["Ehsan Vahidi", "Tahereh Hosseini", "Fereshteh Rashchi", "Navid Mostoufi"]
+  venue: "The 6th International Chemical Engineering Congress, Kish Island, Iran, November 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 137
+
+- id: pres-2009-vahidi-reductive-leaching-manganese
+  type: "presentation"
+  title: "Reductive leaching of manganese from electric arc furnace dust in H2SO4 media"
+  authors: ["Ehsan Vahidi", "Behzad Ghafarizadeh", "Fereshteh Rashchi"]
+  venue: "The 6th International Chemical Engineering Congress, Kish Island, Iran, November 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 138
+
+- id: pres-2009-vahidi-study-nickel-recovery
+  type: "presentation"
+  title: "A study on the nickel recovery from spent reforming catalyst with sulfuric acid"
+  authors: ["Ehsan Vahidi", "Mohammad Karim Nazemi", "Fereshteh Rashchi"]
+  venue: "13th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Kerman, Iran, November 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 139
+
+- id: pres-2009-vahidi-kinetic-study-leaching
+  type: "presentation"
+  title: "Kinetic study on the leaching of vanadium from LD converter slag using sulfuric acid"
+  authors: ["Ehsan Vahidi", "Mohsen Aarabi", "Fereshteh Rashchi"]
+  venue: "13th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Kerman, Iran, November 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 140
+
+- id: pres-2009-vahidi-leaching-optimization-using
+  type: "presentation"
+  title: "Leaching optimization for using solvent extraction to recover zinc from zinc leach residues"
+  authors: ["Ehsan Vahidi", "Reza Alizadeh", "Fereshteh Rashchi"]
+  venue: "An International Prospective on Environmental and Water Resources, ASCE (EWRI) conference, Bangkok, Thailand, January 2009"
+  year: 2009
+  themes: ["other"]
+  seq: 141
+
+- id: pres-2008-vahidi-study-micro-structure
+  type: "presentation"
+  title: "Study of Micro Structure of AlNiCo6 Produced by Liquid Phase Sintering"
+  authors: ["Ehsan Vahidi", "Mohammad Reza Tavakoli-Khaledi", "Hossein Yoozbashizadeh"]
+  venue: "12th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Karaj, Iran, November 2008"
+  year: 2008
+  themes: ["other"]
+  seq: 142
+
+- id: pres-2008-vahidi-stripping-ehpa-from
+  type: "presentation"
+  title: "Stripping of D2EHPA from Fe (III) after Solvent Extraction of Zn"
+  authors: ["Ehsan Vahidi", "Maryam Akhlaghi", "Fereshteh Rashchi"]
+  venue: "12th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Karaj, Iran, November 2008"
+  year: 2008
+  themes: ["other"]
+  seq: 143
+
+- id: pres-2008-vahidi-kinetic-analysis-effect
+  type: "presentation"
+  title: "Kinetic analysis of the effect of additives on the extraction of zinc ion in the system Zn/H2SO4/ D2EHPA/Kerosene, using chemical model"
+  authors: ["Ehsan Vahidi", "Fereshteh Rashchi", "Kamyar Pashayi"]
+  venue: "12th Annual Congress of Iranian Metallurgical Engineering Society (IMES), Karaj, Iran, November 2008"
+  year: 2008
+  themes: ["other"]
+  seq: 144
+

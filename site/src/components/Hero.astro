@@ -1,0 +1,208 @@
+---
+import { url } from '../lib/site';
+
+const li = url('/research/lithium');
+const ree = url('/research/rare-earth-elements');
+const phyto = url('/research/phytomining');
+
+// Root paths for the plants on the tailings pile
+const plants = [150, 195, 240, 285];
+---
+
+<figure class="hero">
+  <p class="hero-tagline">Cleaner pathways to the minerals behind the energy transition</p>
+  <svg viewBox="0 0 1200 530" role="group" aria-labelledby="hero-desc" preserveAspectRatio="xMidYMid slice">
+    <desc id="hero-desc">
+      A cross-section of a Nevada basin. Plants grow on a mine tailings pile at left, a lithium-bearing claystone bed and
+      brine aquifer fill the basin, and a rare earth ore body sits in the mountain range at right.
+    </desc>
+    <defs>
+      <pattern id="clay-lines" width="40" height="9" patternUnits="userSpaceOnUse">
+        <path d="M0 4.5 H40" class="clay-stroke" />
+      </pattern>
+      <pattern id="brine-dots" width="22" height="16" patternUnits="userSpaceOnUse">
+        <circle cx="5" cy="5" r="1.6" class="brine-dot" />
+        <circle cx="16" cy="12" r="1.2" class="brine-dot" />
+      </pattern>
+      <pattern id="rock-grain" width="60" height="40" patternUnits="userSpaceOnUse">
+        <path d="M6 10 l10 -3 M34 28 l12 2 M48 8 l6 6 M14 32 l-5 4" class="rock-stroke" />
+      </pattern>
+    </defs>
+
+    <rect class="sky" width="1200" height="320" />
+    <g transform="translate(0 70)">
+    <path class="far-range" d="M0 250 V214 L60 196 L120 206 L210 178 L300 198 L380 186 L470 204 L560 180 L650 200 L760 190 L840 250 Z" />
+
+    <!-- bedrock and the range on the right -->
+    <g class="layer" style="--d: 0ms">
+      <path class="bedrock" d="M0 250 H760 L840 150 L900 122 L975 92 L1050 128 L1115 104 L1200 136 V460 H0 Z" />
+      <path class="bedrock-grain" d="M0 250 H760 L840 150 L900 122 L975 92 L1050 128 L1115 104 L1200 136 V460 H0 Z" fill="url(#rock-grain)" />
+    </g>
+
+    <!-- basin fill, bounded on the right by the range-front fault -->
+    <a href={li} class="hit hit-li" aria-label="Lithium research: claystone and brine">
+      <g class="layer" style="--d: 120ms">
+        <path class="playa" d="M0 250 H830 L806 285 H0 Z" />
+        <path class="clay" d="M0 285 H806 L772 335 H0 Z" />
+        <path d="M0 285 H806 L772 335 H0 Z" fill="url(#clay-lines)" />
+        <path class="brine" d="M0 335 H772 L738 385 H0 Z" />
+        <path d="M0 335 H772 L738 385 H0 Z" fill="url(#brine-dots)" />
+      </g>
+    </a>
+    <path class="fault" d="M842 236 L700 460" />
+
+    <!-- rare earth ore body in the range -->
+    <a href={ree} class="hit hit-ree" aria-label="Rare earth elements research">
+      <g class="layer" style="--d: 240ms">
+        <path class="ore" d="M930 232 C955 205 1010 200 1046 222 C1080 243 1092 284 1070 312 C1046 342 985 346 950 322 C916 298 908 256 930 232 Z" />
+        <g class="crystal">
+          <path d="M968 250 l8 -12 l8 12 l-8 10 Z" />
+          <path d="M1018 238 l6 -9 l6 9 l-6 8 Z" />
+          <path d="M1040 286 l7 -10 l7 10 l-7 9 Z" />
+          <path d="M990 300 l6 -9 l6 9 l-6 8 Z" />
+          <path d="M952 284 l5 -7 l5 7 l-5 6 Z" />
+        </g>
+      </g>
+    </a>
+
+    <!-- tailings pile with metal-accumulating plants -->
+    <a href={phyto} class="hit hit-phyto" aria-label="Phytomining research">
+      <g class="layer" style="--d: 360ms">
+        <path class="tailings" d="M40 250 L112 198 H338 L410 250 Z" />
+        <path class="bench" d="M76 224 H374" />
+        {
+          plants.map((x) => (
+            <g>
+              <path class="root" d={`M${x} 200 q-6 12 -2 24 M${x} 200 q8 10 6 22 M${x} 200 q-14 8 -18 16 M${x} 200 q2 16 10 30`} />
+              <path class="stem" d={`M${x} 200 V170 M${x} 186 l-12 -12 M${x} 182 l11 -13`} />
+              <ellipse class="leaf" cx={x - 13} cy={172} rx="9" ry="5" transform={`rotate(-35 ${x - 13} 172)`} />
+              <ellipse class="leaf" cx={x + 12} cy={167} rx="9" ry="5" transform={`rotate(35 ${x + 12} 167)`} />
+              <ellipse class="leaf" cx={x} cy={165} rx="6" ry="9" />
+            </g>
+          ))
+        }
+      </g>
+    </a>
+
+    <!-- labels (hidden on small screens, where the legend below is shown instead) -->
+    <g class="labels" aria-hidden="true">
+      <path class="leader" d="M306 182 H420" />
+      <rect class="pill" x="420" y="162" width="180" height="40" />
+      <text x="510" y="189" text-anchor="middle"><tspan class="dot dot-phyto">●</tspan> Phytomining</text>
+
+      <rect class="pill" x="300" y="290" width="350" height="40" />
+      <text x="475" y="317" text-anchor="middle"><tspan class="dot dot-li">●</tspan> Lithium in claystone and brine</text>
+
+      <path class="leader leader-light" d="M1004 372 V336" />
+      <rect class="pill" x="880" y="372" width="248" height="40" />
+      <text x="1004" y="399" text-anchor="middle"><tspan class="dot dot-ree">●</tspan> Rare earth elements</text>
+    </g>
+    </g>
+  </svg>
+  <ul class="hero-legend plain-list">
+    <li><a class="tag c-phyto" href={phyto}>Phytomining</a></li>
+    <li><a class="tag c-li" href={li}>Lithium</a></li>
+    <li><a class="tag c-ree" href={ree}>Rare earth elements</a></li>
+  </ul>
+</figure>
+
+<style>
+  .hero {
+    --sky: #e6edf3;
+    --far: #c9d4dd;
+    --rock: #56636c;
+    --rock-line: #6b7880;
+    --playa: #ece6d8;
+    --clay: #b8c2b0;
+    --clay-line: #9eaa95;
+    --brine: #2f7f8f;
+    --brine-dot: #a8d4dc;
+    --ore: #b77a52;
+    --crystal: #f1d6bf;
+    --tailings: #cdb999;
+    --bench: #b29d7c;
+    --plant: #5e7052;
+    --root: #6e5a43;
+    position: relative;
+    margin: 1.75rem 0 0;
+    overflow: hidden;
+    background: var(--sky);
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .hero {
+      --sky: #1b2933; --far: #2a3a46; --rock: #3a454d; --rock-line: #4a565e; --playa: #6d6759;
+      --clay: #5f6b59; --clay-line: #737f6c; --brine: #1f6170; --brine-dot: #5fa6b4; --ore: #a06a45;
+      --crystal: #e8c4a6; --tailings: #8a7a62; --bench: #a08d6f; --plant: #9cb38c; --root: #b59a78;
+    }
+  }
+  :global(:root[data-theme='dark']) .hero {
+    --sky: #1b2933; --far: #2a3a46; --rock: #3a454d; --rock-line: #4a565e; --playa: #6d6759;
+    --clay: #5f6b59; --clay-line: #737f6c; --brine: #1f6170; --brine-dot: #5fa6b4; --ore: #a06a45;
+    --crystal: #e8c4a6; --tailings: #8a7a62; --bench: #a08d6f; --plant: #9cb38c; --root: #b59a78;
+  }
+  svg { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 530; }
+  .sky { fill: var(--sky); }
+  .far-range { fill: var(--far); }
+  .bedrock { fill: var(--rock); }
+  .rock-stroke { stroke: var(--rock-line); stroke-width: 2; fill: none; stroke-linecap: round; }
+  .playa { fill: var(--playa); }
+  .clay { fill: var(--clay); }
+  .clay-stroke { stroke: var(--clay-line); stroke-width: 1.5; }
+  .brine { fill: var(--brine); }
+  .brine-dot { fill: var(--brine-dot); }
+  .fault { stroke: var(--sky); stroke-width: 2; stroke-dasharray: 8 7; fill: none; opacity: 0.7; }
+  .ore { fill: var(--ore); }
+  .crystal path { fill: var(--crystal); }
+  .tailings { fill: var(--tailings); }
+  .bench { stroke: var(--bench); stroke-width: 2; }
+  .stem { stroke: var(--plant); stroke-width: 3; fill: none; stroke-linecap: round; }
+  .leaf { fill: var(--plant); }
+  .root { stroke: var(--root); stroke-width: 1.6; fill: none; stroke-linecap: round; }
+
+  .hit { cursor: pointer; }
+  .hit .layer { transition: filter 150ms ease; }
+  .hit:hover .layer, .hit:focus-visible .layer { filter: brightness(1.12) saturate(1.1); }
+  .hit:focus-visible { outline: none; }
+  .hit:focus-visible .layer { filter: brightness(1.12) drop-shadow(0 0 0 var(--nevada)); stroke: var(--nevada); stroke-width: 4; }
+
+  .pill { fill: var(--page); rx: 20; }
+  .labels text { font: 650 21px var(--font-ui); fill: var(--ink); }
+  .dot { font-size: 18px; }
+  .dot-li { fill: var(--theme-li); }
+  .dot-ree { fill: var(--theme-ree); }
+  .dot-phyto { fill: var(--theme-phyto); }
+  .leader { stroke: var(--ink); stroke-width: 1.5; }
+  .leader-light { stroke: var(--page); stroke-width: 2; }
+
+  .hero-tagline {
+    position: absolute;
+    top: clamp(1rem, 3vw, 2.25rem);
+    left: clamp(1rem, 3vw, 2.5rem);
+    z-index: 1;
+    max-width: 22ch;
+    margin: 0;
+    font-size: clamp(1.25rem, 0.8rem + 1.9vw, 2.35rem);
+    font-weight: 750;
+    font-stretch: 112%;
+    line-height: 1.12;
+    color: var(--nevada);
+  }
+  .hero-legend { display: none; }
+
+  .layer { animation: rise 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d); }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 700px) {
+    .hero { background: transparent; }
+    .hero-tagline { position: static; max-width: none; margin-bottom: 1rem; }
+    .labels { display: none; }
+    .hero-legend {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+      padding: 0.85rem 0 0;
+    }
+    .hero-legend .tag { font-size: var(--step-0); color: var(--ink); }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ThemeTags from './ThemeTags.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const { title, sponsor, year, role, status, themes, summary } = project.data;
+---
+
+<li class="project" data-status={status} data-themes={themes.join(' ')}>
+  <h3 class="project-title">{title}</h3>
+  <p class="meta">
+    {sponsor}, {year}. Dr. Vahidi as {role === 'PI' ? 'Principal Investigator' : 'Co-Investigator'}.
+    {status === 'active' ? <span class="status">Active</span> : null}
+  </p>
+  {summary && <p class="project-summary">{summary}</p>}
+  <ThemeTags themes={themes} />
+</li>
+
+<style>
+  .project { padding: 1.1rem 0; border-top: 1px solid var(--rule); max-width: none; }
+  .project-title { font-size: var(--step-0); font-weight: 650; font-stretch: 100%; margin-bottom: 0.3rem; line-height: 1.35; max-width: 70ch; }
+  .project p { margin-bottom: 0.4rem; }
+  .project-summary { font-size: var(--step--1); }
+  .status {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0 0.45rem;
+    border: 1px solid var(--nevada);
+    color: var(--nevada);
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+</style>

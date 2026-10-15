@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/site';
+import { AREAS } from '../../lib/themes';
+---
+
+<Base title="Research" description="Research on lithium, rare earth elements and phytomining at the Sustainable Mining Lab, University of Nevada, Reno.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / Research</p>
+      <h1>Research</h1>
+      <p class="lede">
+        We look for ways to produce critical minerals with less energy, water, waste and carbon. Laboratory process work is
+        paired with life cycle assessment and techno-economic analysis, so cost and environmental impact are weighed together
+        from the start.
+      </p>
+    </div>
+
+    <ul class="plain-list areas">
+      {
+        AREAS.map((a) => (
+          <li class={`area c-${a.color}${a.image ? '' : ' no-fig'}`}>
+            <div class="area-text">
+              <h2>
+                <a href={url(`/research/${a.slug}`)}>{a.name}</a>
+              </h2>
+              <p>{a.image ? a.intro[0] : a.short}</p>
+              <a class="more" href={url(`/research/${a.slug}`)}>
+                More on {a.name.toLowerCase().startsWith('other') ? 'our other research' : a.name.toLowerCase()}
+              </a>
+            </div>
+            {a.image && (
+              <a class="area-fig" href={encodeURI(url(a.image.full ?? a.image.src))} target="_blank" rel="noopener">
+                <img src={encodeURI(url(a.image.src))} alt={a.image.alt} loading="lazy" />
+                <span class="visually-hidden">(open full-size figure in a new tab)</span>
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <section class="section" aria-labelledby="how-h">
+      <h2 id="how-h" class="rule-head">How we work</h2>
+      <ul class="how">
+        <li><strong>Life cycle assessment (LCA).</strong> Cradle-to-gate and cradle-to-grave inventories for mineral, metal and battery-material production, identifying environmental hotspots and comparing technology routes.</li>
+        <li><strong>Techno-economic analysis (TEA).</strong> Process models and cost estimates that show whether a cleaner route can also compete commercially.</li>
+        <li><strong>Hydrometallurgy and separation.</strong> Leaching, solvent extraction, adsorption and bioleaching experiments for lithium, rare earths and battery metals.</li>
+        <li><strong>Characterization.</strong> XRD, SEM-EDS, AAS and ICP-OES analysis supporting process optimization.</li>
+        <li><strong>Phytotechnologies.</strong> Plant-based remediation and recovery of metals from contaminated soils and mine tailings.</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .areas { margin-top: 2.5rem; display: grid; gap: 0; }
+  /* Zig-zag rows: text and figure side by side, swapping sides on every other row */
+  .area {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: none;
+  }
+  .area:last-child { border-bottom: 1px solid var(--rule); }
+  @media (min-width: 860px) {
+    .area { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
+    .area:nth-child(even) .area-text { order: 2; }
+    .area.no-fig { grid-template-columns: minmax(0, 1fr); }
+  }
+  .area h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: var(--step-2);
+    margin-bottom: 0.6rem;
+  }
+  .area h2::before {
+    content: '';
+    flex: none;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--tag-color);
+  }
+  .area h2 a { color: var(--ink); text-decoration: none; }
+  .area h2 a:hover { color: var(--nevada); text-decoration: underline; }
+  .area-text p { font-family: var(--font-prose); font-size: 1.02rem; line-height: 1.7; text-align: justify; hyphens: auto; }
+  .more { font-weight: 650; }
+  /* Figures are drawn on white, so the frame stays white in dark mode too */
+  .area-fig {
+    display: block;
+    padding: 0.75rem;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 -4px 0 var(--tag-color);
+    cursor: zoom-in;
+  }
+  .area-fig img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: contain; }
+  .how li { margin-bottom: 0.75rem; }
+</style>

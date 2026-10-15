@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectItem from '../../components/ProjectItem.astro';
+import PubItem from '../../components/PubItem.astro';
+import Avatar from '../../components/Avatar.astro';
+import { byRecent } from '../../lib/sort';
+import { buildAuthorIndex } from '../../lib/authors';
+import { url } from '../../lib/site';
+import { AREAS, type ResearchArea } from '../../lib/themes';
+
+export function getStaticPaths() {
+  return AREAS.map((area) => ({ params: { area: area.slug }, props: { area } }));
+}
+
+const { area } = Astro.props as { area: ResearchArea };
+const matches = (themes: string[]) => themes.some((t) => (area.tags as string[]).includes(t));
+
+const people = await getCollection('people');
+const memberOf = buildAuthorIndex(people);
+const projects = (await getCollection('projects')).filter((p) => matches(p.data.themes)).sort((a, b) => b.data.year - a.data.year);
+const team = people.filter((p) => p.data.role !== 'pi' && matches(p.data.themes));
+// Same order as the Team page: the people.yaml `order` field first, then alphabetical
+const currentTeam = team.filter((p) => p.data.status === 'current').sort((a, b) => a.data.order - b.data.order);
+const alumniTeam = team.filter((p) => p.data.status === 'alumni');
+const pubs = (await getCollection('publications'))
+  .filter((p) => p.data.type === 'journal' && matches(p.data.themes))
+  .sort(byRecent);
+const others = AREAS.filter((a) => a.slug !== area.slug);
+const roleLabel: Record<string, string> = {
+  postdoc: 'Postdoctoral Associate',
+  'research-scientist': 'Research Scientist',
+  phd: 'Ph.D. student',
+  ms: 'M.S. student',
+  undergrad: 'Undergraduate researcher',
+};
+---
+
+<Base title={area.name} description={area.short}>
+  <div class={`wrap c-${area.color}`}>
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / <a href={url('/research')}>Research</a> / {area.name}</p>
+      <h1>{area.name}</h1>
+      <p class="lede">{area.short}</p>
+    </div>
+
+    <div class="area-layout section">
+      <div class="prose">{area.intro.map((para) => <p>{para}</p>)}</div>
+      <aside class="area-aside">
+        <div>
+          <h2 class="aside-h">Questions we ask</h2>
+          <ul>{area.questions.map((q) => <li>{q}</li>)}</ul>
+        </div>
+        <div>
+          <h2 class="aside-h">Methods</h2>
+          <ul>{area.methods.map((m) => <li>{m}</li>)}</ul>
+        </div>
+      </aside>
+    </div>
+
+    {
+      projects.length > 0 && (
+        <section class="section" aria-labelledby="proj-h">
+          <h2 id="proj-h" class="rule-head">Projects</h2>
+          <ul class="plain-list">{projects.map((p) => <ProjectItem project={p} />)}</ul>
+        </section>
+      )
+    }
+
+    {
+      team.length > 0 && (
+        <section class="section" aria-labelledby="team-h">
+          <h2 id="team-h" class="rule-head">People</h2>
+          <ul class="plain-list mini-team">
+            {[...currentTeam, ...alumniTeam].map((p) => (
+              <li>
+                <Avatar name={p.data.name} photo={p.data.photo} size={44} />
+                <span>
+                  <a href={url(`/team#${p.id}`)}>{p.data.name}</a>
+                  <span class="meta">
+                    <br />
+                    {p.data.status === 'alumni' ? 'Alumni' : roleLabel[p.data.role] ?? 'Researcher'}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      pubs.length > 0 && (
+        <section class="section" aria-labelledby="pub-h">
+          <h2 id="pub-h" class="rule-head">Publications</h2>
+          <ul class="plain-list">{pubs.map((p) => <PubItem pub={p} memberOf={memberOf} showTags={false} />)}</ul>
+          <p class="more"><a href={url('/publications')}>All publications</a></p>
+        </section>
+      )
+    }
+
+    <nav class="section other-areas" aria-label="Other research areas">
+      <h2 class="aside-h">Other research areas</h2>
+      <ul class="plain-list">
+        {others.map((a) => <li class={`tag c-${a.color}`}><a href={url(`/research/${a.slug}`)}>{a.name}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .page-head h1::after { background: var(--tag-color); }
+  /* Intro runs full width; Questions and Methods sit side by side in one panel beneath it */
+  .area-layout { display: grid; gap: 2rem; }
+  .area-layout .prose p { max-width: 80ch; }
+  .area-aside {
+    display: grid;
+    gap: 0.5rem 3rem;
+    background: var(--surface);
+    padding: 1.5rem;
+    border-top: 4px solid var(--tag-color);
+  }
+  @media (min-width: 760px) { .area-aside { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
+  .area-aside ul { margin: 0; }
+  .area-aside li { margin-bottom: 0.5rem; }
+  .aside-h { font-size: var(--step-1); }
+  .mini-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem 2rem; }
+  .mini-team li { display: flex; gap: 0.75rem; align-items: center; }
+  .more { margin-top: 1rem; font-weight: 600; }
+  .other-areas ul { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
+  .other-areas .tag { font-size: var(--step-0); }
+</style>

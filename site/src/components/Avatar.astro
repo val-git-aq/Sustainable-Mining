@@ -1,0 +1,45 @@
+---
+interface Props {
+  name: string;
+  photo?: string;
+  size?: number;
+}
+const { name, photo, size = 72 } = Astro.props;
+const initials = name
+  .split(/\s+/)
+  .filter((w) => /^[A-Z]/.test(w))
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('');
+const src = photo ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/team/${photo}` : undefined;
+---
+
+{
+  src ? (
+    <img class="avatar" src={src} alt="" width={size} height={size} loading="lazy" style={`--size:${size}px`} />
+  ) : (
+    <span class="avatar avatar-initials" aria-hidden="true" style={`--size:${size}px`}>
+      {initials}
+    </span>
+  )
+}
+
+<style>
+  .avatar {
+    width: var(--size);
+    height: var(--size);
+    flex: none;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .avatar-initials {
+    display: grid;
+    place-items: center;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    color: var(--nevada);
+    font-weight: 700;
+    font-stretch: 112%;
+    font-size: calc(var(--size) * 0.34);
+  }
+</style>

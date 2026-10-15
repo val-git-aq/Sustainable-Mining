@@ -1,0 +1,268 @@
+---
+import { url } from '../lib/site';
+
+// Images live in public/images/Carousel/. `src` is the web-size copy shown in the slide;
+// `full` is the original, opened when the figure is clicked.
+const slides = [
+  {
+    id: 'lithium',
+    color: 'li',
+    title: 'Lithium in claystone and brine',
+    text: 'We compare how lithium production routes use land, water, energy and money, from hard rock and evaporation ponds to direct lithium extraction (DLE), so the cleanest options for Nevada’s claystone and brine resources can be chosen early.',
+    href: '/research/lithium',
+    cta: 'Explore lithium research',
+    src: '/images/Carousel/lithium-web.jpg',
+    full: '/images/Carousel/Lithium.jpg',
+    alt: 'Iceberg chart comparing direct and indirect land use per tonne of lithium carbonate equivalent for hard rock, Atacama and Cauchari brine evaporation, and direct lithium extraction',
+  },
+  {
+    id: 'ree',
+    color: 'ree',
+    title: 'Rare Earth Elements',
+    text: 'Adding a sorting step before grinding and flotation can remove low-density waste rock early, cutting the energy and emissions of producing rare earth oxide concentrate from U.S. ore.',
+    href: '/research/rare-earth-elements',
+    cta: 'Explore rare earth research',
+    src: '/images/Carousel/rees-web.jpg',
+    full: '/images/Carousel/REEs.jpg',
+    alt: 'Flow diagram comparing a conventional rare earth processing route (crushing, milling, flotation, purification) with a modified route that adds a sorting machine to reject low-density material',
+  },
+  {
+    id: 'phytomining',
+    color: 'phyto',
+    title: 'Phytomining',
+    text: 'Plants that accumulate rare earths can restore soils damaged by mining while their harvested biomass is processed to recover metals and produce biofuel.',
+    href: '/research/phytomining',
+    cta: 'Explore phytomining research',
+    src: '/images/Carousel/phytomining-web.jpg',
+    full: '/images/Carousel/Phytomining.jpg',
+    alt: 'Illustrated cycle of rare earth phytomining: soil amendment, planting, bioaccumulation, harvesting, biomass sorting and pretreatment, rare earth extraction and biofuel production, around a polluted mining landscape being restored',
+  },
+  {
+    id: 'battery',
+    color: 'batt',
+    title: 'Battery recycling',
+    text: 'Graphite recycled from spent lithium-ion batteries has about 70% lower global warming impact than natural or synthetic graphite, with energy and reagents as the main hotspots.',
+    href: '/research/battery-recycling',
+    cta: 'Explore battery recycling research',
+    src: '/images/Carousel/graphite-web.jpg',
+    full: '/images/Carousel/Graphite.jpg',
+    alt: 'Table of life cycle impacts for natural, synthetic and recycled graphite, and a Sankey diagram showing how energy and reagents contribute to concentration and purification for each route',
+  },
+];
+---
+
+<section class="carousel" aria-roledescription="carousel" aria-label="Research highlights" data-carousel>
+  <p class="hero-tagline">Cleaner pathways to the minerals behind the energy transition</p>
+
+  <div class="slides" aria-live="off">
+    {
+      slides.map((s, i) => (
+        <div
+          class={`slide c-${s.color}`}
+          id={`slide-${s.id}`}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${slides.length}: ${s.title}`}
+          data-active={i === 0 ? '' : undefined}
+          inert={i !== 0}
+        >
+          <div class="slide-text">
+            <h2 class="slide-title">{s.title}</h2>
+            <p>{s.text}</p>
+            <a class="slide-link" href={url(s.href)}>{s.cta}</a>
+          </div>
+          <a class="slide-fig" href={encodeURI(url(s.full))} target="_blank" rel="noopener">
+            <img src={encodeURI(url(s.src))} alt={s.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+            <span class="visually-hidden">(open full-size figure in a new tab)</span>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="controls" hidden>
+    <button class="ctl prev" type="button" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+    </button>
+    <div class="picker" role="group" aria-label="Choose a slide">
+      {
+        slides.map((s, i) => (
+          <button class={`pick c-${s.color}`} type="button" aria-controls={`slide-${s.id}`} aria-current={i === 0 ? 'true' : undefined}>
+            {s.title}
+          </button>
+        ))
+      }
+    </div>
+    <button class="ctl next" type="button" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+    </button>
+    <button class="ctl pause" type="button" aria-label="Pause automatic slide show">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" /></svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  const INTERVAL = 7000;
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
+    const picks = [...root.querySelectorAll<HTMLButtonElement>('.pick')];
+    const controls = root.querySelector<HTMLElement>('.controls')!;
+    const pauseBtn = root.querySelector<HTMLButtonElement>('.pause')!;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let timer: number | undefined;
+    let userPaused = reduceMotion; // no automatic movement for reduced-motion users
+    let hovering = false;
+
+    const show = (i: number) => {
+      index = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => {
+        const on = n === index;
+        s.toggleAttribute('data-active', on);
+        s.inert = !on;
+      });
+      picks.forEach((p, n) => (n === index ? p.setAttribute('aria-current', 'true') : p.removeAttribute('aria-current')));
+    };
+    const stop = () => {
+      window.clearInterval(timer);
+      timer = undefined;
+    };
+    const start = () => {
+      stop();
+      if (!userPaused && !hovering) timer = window.setInterval(() => show(index + 1), INTERVAL);
+    };
+    const renderPause = () => {
+      root.toggleAttribute('data-paused', userPaused);
+      pauseBtn.setAttribute('aria-label', userPaused ? 'Play automatic slide show' : 'Pause automatic slide show');
+    };
+
+    root.querySelector('.prev')!.addEventListener('click', () => { show(index - 1); start(); });
+    root.querySelector('.next')!.addEventListener('click', () => { show(index + 1); start(); });
+    picks.forEach((p, n) => p.addEventListener('click', () => { show(n); start(); }));
+    pauseBtn.addEventListener('click', () => { userPaused = !userPaused; renderPause(); start(); });
+
+    // Hold still while the pointer or keyboard focus is inside, so slides never move while being read
+    root.addEventListener('mouseenter', () => { hovering = true; stop(); });
+    root.addEventListener('mouseleave', () => { hovering = false; start(); });
+    root.addEventListener('focusin', () => { hovering = true; stop(); });
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget as Node)) { hovering = false; start(); }
+    });
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') show(index + 1);
+      else if (e.key === 'ArrowLeft') show(index - 1);
+    });
+
+    controls.hidden = false;
+    renderPause();
+    start();
+  });
+</script>
+
+<style>
+  .carousel {
+    margin: 1.75rem 0 0;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    background: var(--surface);
+    border-top: 4px solid var(--nevada);
+  }
+  .hero-tagline {
+    margin: 0 0 1.5rem;
+    max-width: 28ch;
+    font-size: var(--step-3);
+    font-weight: 750;
+    font-stretch: 112%;
+    line-height: 1.15;
+    color: var(--nevada);
+  }
+
+  /* All slides share one grid cell, so the box keeps the height of the tallest slide and never jumps */
+  .slides { display: grid; }
+  .slide {
+    grid-area: 1 / 1;
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms ease, visibility 0s linear 400ms;
+  }
+  .slide[data-active] { opacity: 1; visibility: visible; transition: opacity 400ms ease; }
+  @media (min-width: 860px) {
+    .slide { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); gap: 2.5rem; }
+  }
+
+  .slide-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: var(--step-2);
+    margin-bottom: 0.6rem;
+  }
+  .slide-title::before {
+    content: '';
+    flex: none;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--tag-color);
+  }
+  .slide-text p { font-family: var(--font-prose); font-size: 1.05rem; line-height: 1.65; }
+  .slide-link { font-weight: 650; }
+
+  /* Figures are drawn on white, so the frame stays white in dark mode too */
+  .slide-fig {
+    display: block;
+    height: clamp(15rem, 30vw, 24rem);
+    padding: 0.75rem;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    box-shadow: inset 0 -4px 0 var(--tag-color);
+    cursor: zoom-in;
+  }
+  .slide-fig img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .controls[hidden] { display: none; }
+  .picker { display: flex; flex-wrap: wrap; gap: 0.5rem; flex: 1 1 auto; justify-content: center; }
+  .ctl,
+  .pick {
+    min-height: 2.75rem;
+    border: 1px solid var(--rule);
+    background: var(--page);
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+  .ctl { display: grid; place-items: center; width: 2.75rem; padding: 0; }
+  .ctl svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .ctl .i-play { fill: currentColor; stroke: none; }
+  .ctl:hover, .pick:hover { border-color: var(--nevada); }
+  .pick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0 0.9rem;
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+  .pick::before { content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--tag-color); }
+  .pick[aria-current='true'] { border-color: var(--tag-color); box-shadow: inset 0 -3px 0 var(--tag-color); }
+  .carousel .i-play { display: none; }
+  .carousel[data-paused] .i-play { display: block; }
+  .carousel[data-paused] .i-pause { display: none; }
+
+  /* On narrow screens the topic buttons take their own row under the arrows */
+  @media (max-width: 640px) {
+    .picker { order: 3; flex-basis: 100%; justify-content: flex-start; }
+    .pause { margin-left: auto; }
+  }
+</style>

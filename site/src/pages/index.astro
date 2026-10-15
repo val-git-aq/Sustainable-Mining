@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import PubItem from '../components/PubItem.astro';
+import LogoWall from '../components/LogoWall.astro';
+import { byRecent } from '../lib/sort';
+import { buildAuthorIndex } from '../lib/authors';
+import { url } from '../lib/site';
+import { AREAS } from '../lib/themes';
+
+const people = await getCollection('people');
+const memberOf = buildAuthorIndex(people);
+const latest = (await getCollection('publications'))
+  .filter((p) => p.data.type === 'journal')
+  .sort(byRecent)
+  .slice(0, 5);
+const orgs = (await getCollection('sponsors')).sort((a, b) => a.data.order - b.data.order);
+const sponsors = orgs.filter((o) => o.data.group === 'sponsor');
+const partners = orgs.filter((o) => o.data.group === 'partner');
+const [lithium, ree, phyto, battery, other] = AREAS;
+const currentCount = people.filter((p) => p.data.status === 'current' && p.data.role !== 'pi').length;
+---
+
+<Base>
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Welcome to the Sustainable Mining Lab</h1>
+    </div>
+
+    <HeroCarousel />
+
+    <div class="intro section-tight">
+      <p class="intro-text">
+        The Sustainable Mining Lab at the University of Nevada, Reno studies how the critical minerals behind batteries,
+        magnets and clean energy can be produced with less energy, water, waste and carbon. We pair laboratory process work
+        with life cycle assessment and techno-economic analysis. Our main areas are <a href={url('/research/lithium')}>lithium</a>,{' '}
+        <a href={url('/research/rare-earth-elements')}>rare earth elements</a> and{' '}
+        <a href={url('/research/phytomining')}>phytomining</a>.
+        The lab is led by <a href={url('/team/ehsan-vahidi')}>Dr. Ehsan Vahidi</a>, Chair and John N. Butler Endowed Professor
+        in the Department of Mining and Metallurgical Engineering.
+      </p>
+      <div class="actions intro-actions">
+        <a class="btn" href={url('/research')}>Explore our research</a>
+        <a class="btn" href={url('/team')}>Meet the team</a>
+        <a class="btn" href={url('/publications')}>Read our publications</a>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="what-h">
+      <h2 id="what-h" class="rule-head">What we work on</h2>
+      <ul class="plain-list thrusts">
+        {
+          [lithium, ree, phyto, battery].map((a) => (
+            <li class={`thrust c-${a.color}`}>
+              {a.image && (
+                <div class="thrust-fig">
+                  <img src={encodeURI(url(a.image.src))} alt={a.image.alt} loading="lazy" />
+                </div>
+              )}
+              <h3><a href={url(`/research/${a.slug}`)}>{a.name}</a></h3>
+              <p>{a.short}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="also">
+        We also study gold and copper production and carbon management in mining. See{' '}
+        <a href={url(`/research/${other.slug}`)}>other research areas</a>.
+      </p>
+    </section>
+
+
+    <section class="section" aria-labelledby="pubs-h">
+      <h2 id="pubs-h" class="rule-head">Recent publications</h2>
+      <ul class="plain-list">{latest.map((p) => <PubItem pub={p} memberOf={memberOf} showTags={false} />)}</ul>
+      <p class="more"><a href={url('/publications')}>All publications</a></p>
+    </section>
+
+    <section class="section" aria-labelledby="spons-h">
+      <h2 id="spons-h" class="rule-head">Supported by</h2>
+      <h3 class="org-h">Sponsors</h3>
+      <LogoWall orgs={sponsors} />
+      <h3 class="org-h">Industry partners</h3>
+      <LogoWall orgs={partners} />
+    </section>
+
+    <section class="section join" aria-labelledby="join-h">
+      <h2 id="join-h">Join the group</h2>
+      <p>
+        The lab currently has {currentCount} postdocs, research scientists and students. We recruit Ph.D. and M.S. students
+        interested in extractive metallurgy, life cycle assessment and critical minerals, and we welcome undergraduate
+        researchers.
+      </p>
+      <a class="btn" href={url('/contact')}>Get in touch</a>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .section-tight { margin-top: 2rem; }
+  .intro-text { font-family: var(--font-prose); font-size: 1.12rem; line-height: 1.7; max-width: 72ch; margin-inline: auto; text-align: center; }
+  .intro-actions { justify-content: center; }
+  .thrusts { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); margin-top: 1.5rem; }
+  .thrust { border-top: 4px solid var(--tag-color); padding-top: 1rem; max-width: none; }
+  .thrust h3 { font-size: var(--step-2); margin-bottom: 0.5rem; }
+  /* Figures are drawn on white, so the frame stays white in dark mode too */
+  .thrust-fig {
+    height: 11rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+  }
+  .thrust-fig img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .thrust h3 a { color: var(--ink); text-decoration: none; }
+  .thrust h3 a:hover { color: var(--nevada); text-decoration: underline; }
+  .also { margin-top: 1.75rem; }
+  .more { margin-top: 1rem; font-weight: 600; }
+  .org-h { color: var(--nevada); margin-top: 2rem; }
+  .join { padding: 2rem; border-left: 4px solid var(--nevada); background: var(--surface); }
+</style>

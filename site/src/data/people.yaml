@@ -1,0 +1,288 @@
+# Lab members, current and past.
+# role: pi | postdoc | research-scientist | phd | ms | undergrad
+# status: current | alumni
+# photo: optional filename in public/images/team/ (e.g. kamal-mousavi.jpg). Without one, initials are shown.
+# order: optional number; lower numbers are listed first within a group (otherwise alphabetical).
+# scholar: optional Google Scholar profile URL (shown as a link on the Team page).
+# linkedin: optional LinkedIn profile URL. Remove the leading '# ' from the placeholder line to turn it on.
+# aliases: other spellings of the name used on papers, so publications can highlight lab authors.
+# themes: lithium | ree | phytomining | battery-recycling | gold | carbon | other
+
+- id: ehsan-vahidi
+  name: Ehsan Vahidi
+  title: Ph.D.
+  role: pi
+  status: current
+  photo: ehsan-vahidi.jpg
+  linkedin: https://www.linkedin.com/in/ehsan-vahidi-07206341/
+  position: Chair and John N. Butler Endowed Professor, Department of Mining and Metallurgical Engineering
+  themes: [lithium, ree, phytomining]
+  email: evahidi@unr.edu
+
+# Current team
+
+- id: feridun-boylu
+  name: Feridun Boylu
+  role: postdoc
+  status: current
+  photo: feridun-boylu.jpg
+  scholar: https://scholar.google.com/citations?user=-bOp0VUAAAAJ
+  linkedin: https://www.linkedin.com/in/feridun-boylu-7221b55a/
+  start: August 2026
+  themes: [ree]
+
+- id: ngun-za-luai-mang
+  name: Ngun Za Luai Mang
+  role: research-scientist
+  status: current
+  photo: ngun-za-luai-mang.jpg
+  scholar: https://scholar.google.com/citations?user=-_9cxFEAAAAJ
+  linkedin: https://www.linkedin.com/in/ngunzaluaimang/
+  affiliation: Desert Research Institute
+  start: November 2024
+  themes: [phytomining]
+
+- id: kamal-mousavi
+  name: Kamal Mousavi
+  aliases: [Seyedkamal Mousavinezhad, Seyed Kamal Mousavinezhad]
+  role: phd
+  status: current
+  order: 1
+  scholar: https://scholar.google.com/citations?user=ZpSa8aQAAAAJ
+  photo: kamal-mousavi.png
+  # linkedin: https://www.linkedin.com/in/...
+  project: Integrated Techno-Economic and Life Cycle Assessment of Sustainable Lithium Supply Pathways
+  themes: [lithium]
+
+- id: mohsen-rabbani
+  name: Mohsen Rabbani
+  role: phd
+  status: current
+  order: 2
+  scholar: https://scholar.google.com/citations?user=e6kxOEMAAAAJ
+  photo: mohsen-rabbani.jpg
+  linkedin: https://www.linkedin.com/in/mohsen-rabbani-629823b9/
+  project: "Advancing Phytomining for Sustainable Rare Earth Element Recovery: Techno-Economic and Life Cycle Assessment Approaches"
+  themes: [phytomining, ree]
+
+- id: sima-nikfar
+  name: Sima Nikfar
+  role: phd
+  status: current
+  order: 3
+  photo: sima-nikfar.jpg
+  scholar: https://scholar.google.com/citations?user=VecleSgAAAAJ
+  linkedin: https://www.linkedin.com/in/sima-nikfar-11320466/
+  project: "Sustainable Lithium Recovery and Separation: Experimental Solvent Extraction and Comparative TEA–LCA of Emerging Technologies"
+  themes: [lithium]
+
+- id: saeede-kadivar
+  name: Saeede Kadivar
+  role: phd
+  status: current
+  order: 4
+  scholar: https://scholar.google.com/citations?user=UPuZPfYAAAAJ
+  photo: saeede-kadivar.jpg
+  linkedin: https://www.linkedin.com/in/saeede-kadivar-b85946b0/
+  project: "Advanced Lithium Recovery and Battery Recycling Technologies: Experimental Adsorption Studies and Sustainability Assessment"
+  note: "Lab alumna: M.S., Metallurgical Engineering, 2023."
+  themes: [lithium, battery-recycling, gold]
+
+- id: frida-muthoni
+  name: Frida Muthoni
+  aliases: [Fridah Muthoni]
+  role: phd
+  status: current
+  order: 5
+  photo: frida-muthoni.jpg
+  scholar: https://scholar.google.com/citations?user=e3jVMIAAAAAJ
+  # linkedin: https://www.linkedin.com/in/...
+  project: Sustainable Phytoremediation and Phytomining Approaches for Contaminated Soil Management and Resource Recovery
+  themes: [phytomining]
+
+- id: sabinus-arthur
+  name: Sabinus Arthur
+  aliases: [Sabinus E. Arthur]
+  role: phd
+  status: current
+  order: 6
+  photo: sabinus-arthur.jpg
+  linkedin: https://www.linkedin.com/in/sabinus-essel-arthur-a475481b6/
+  project: Beneficiation and Upgrading of Rare Earth Feedstocks for Selective Laser-Based REE Separation
+  themes: [ree]
+
+- id: andrea-oviatt
+  name: Andrea Oviatt
+  role: undergrad
+  status: current
+  photo: andrea-oviatt.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Metallurgical Engineering
+  awards: [NSF EPSCoR Undergraduate Award]
+  project: Hydrometallurgical recovery of lithium from sedimentary claystone
+  themes: [lithium]
+
+- id: trista-mclaughlin
+  name: Trista McLaughlin
+  aliases: [Trista Mclaughlin]
+  role: undergrad
+  status: current
+  photo: trista-mclaughlin.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Geological Engineering
+  awards: [NSF EPSCoR Undergraduate Award, Nevada Undergraduate Research Award (NURA)]
+  project: Phytoremediation of heavy metals adjacent to coal power plants (NSF EPSCoR); carbon management in the lithium industry (NURA)
+  themes: [phytomining, carbon]
+
+# Alumni
+
+- id: mehdi-sharifian
+  name: Mehdi Sharifian
+  aliases: [Seyedmehdi Sharifian]
+  role: postdoc
+  status: alumni
+  photo: mehdi-sharifian.jpg
+  scholar: https://scholar.google.com/citations?user=7Jhvf2cAAAAJ
+  # linkedin: https://www.linkedin.com/in/...
+  start: September 2024
+  end: January 2026
+  nowAt: Senior Research Scientist, Electra, Boulder, CO
+  themes: [lithium, ree]
+
+- id: ario-fahimi
+  name: Ario Fahimi
+  role: postdoc
+  status: alumni
+  photo: ario-fahimi.jpg
+  scholar: https://scholar.google.com/citations?user=D8wfP6cAAAAJ
+  # linkedin: https://www.linkedin.com/in/...
+  start: July 2023
+  end: July 2024
+  nowAt: Research & Development Manager, MOVA Metals, Houston, TX
+  themes: [lithium, ree]
+
+- id: sheida-nili
+  name: Sheida Nili
+  role: phd
+  status: alumni
+  photo: sheida-nili.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: Ph.D., Mineral Resource Engineering
+  start: August 2022
+  end: August 2026
+  project: Advancing Sustainable Rare Earth Production through Economic and Environmental Assessment of U.S. Domestic Resources
+  nowAt: Engineer, Kappes, Cassiday & Associates (KCA), Reno, NV
+  themes: [ree]
+
+- id: qixuan-wen
+  name: Qixuan Wen
+  role: ms
+  status: alumni
+  order: 1
+  # linkedin: https://www.linkedin.com/in/...
+  program: M.S., Mining Engineering
+  start: January 2022
+  end: May 2025
+  project: Life Cycle Assessment on Adopting Electric Vehicle Haulage Fleet for Gold Mining
+  nowAt: Engineer, CCI Inc., Sugar Land, TX
+  themes: [gold, carbon]
+
+# Saeede's M.S. record. Her main (current Ph.D.) entry is saeede-kadivar above; this one carries
+# no themes so she isn't listed twice on research area pages.
+- id: saeede-kadivar-ms
+  name: Saeede Kadivar
+  role: ms
+  status: alumni
+  order: 2
+  photo: saeede-kadivar.jpg
+  program: M.S., Metallurgical Engineering, 2023
+  project: Environmental impact assessment of gold production from different types of ore in Nevada
+  nowAt: Ph.D. student in the lab
+
+- id: hector-solorio
+  name: Hector Solorio
+  role: ms
+  status: alumni
+  order: 3
+  # linkedin: https://www.linkedin.com/in/...
+  program: M.S., Metallurgical Engineering
+  start: August 2020
+  end: December 2021
+  project: Hydrometallurgical recovery of critical metals from spent lithium-ion batteries and their associated environmental impacts
+  nowAt: Associate Manager, American Battery Technology Company (ABTC), Reno, NV
+  themes: [lithium, battery-recycling]
+
+- id: alexia-carver
+  name: Alexia Carver
+  role: undergrad
+  status: alumni
+  photo: alexia-carver.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Metallurgical Engineering
+  awards: [NSF EPSCoR Undergraduate Award, Nevada Undergraduate Research Award (NURA)]
+  project: Biomining of critical minerals
+  nowAt: Metallurgical Engineer, Hecla, Greens Creek, AK
+  themes: [other]
+
+- id: duncan-brown
+  name: Duncan Brown
+  role: undergrad
+  status: alumni
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Metallurgical Engineering
+  awards: [NSF EPSCoR Undergraduate Award, Nevada National Security Site (NNSS) Award]
+  project: Environmental impact assessment of gold production (NSF EPSCoR); environmental impact assessment of electric haul trucks (NNSS)
+  themes: [gold]
+
+- id: amber-thompson
+  name: Amber Thompson
+  role: undergrad
+  status: alumni
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Metallurgical Engineering
+  awards: [Nevada Undergraduate Research Award (NURA)]
+  project: Carbon management in the lithium mining industry
+  nowAt: Metallurgist, Nevada Gold Mines, Elko, NV
+  themes: [lithium, carbon]
+
+- id: madison-sandoval
+  name: Madison Sandoval
+  role: undergrad
+  status: alumni
+  photo: madison-sandoval.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Metallurgical Engineering
+  awards: [NSF EPSCoR Undergraduate Award, Nevada Undergraduate Research Award (NURA)]
+  project: Critical minerals recovery from lithium-ion batteries
+  nowAt: Process Engineer, FLSmidth, Salt Lake City, UT
+  themes: [lithium, battery-recycling]
+
+- id: luana-quintiliano
+  name: Luana Quintiliano
+  role: undergrad
+  status: current
+  photo: luana-quintiliano.jpg
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Mining Engineering
+  project: Phytomining of critical minerals
+  themes: [phytomining]
+
+- id: nathan-ly
+  name: Nathan Ly
+  role: undergrad
+  status: alumni
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Mechanical Engineering
+  project: Recycling of lithium-ion batteries
+  nowAt: Undergraduate student, Department of Mechanical Engineering, UNR
+  themes: [lithium, battery-recycling]
+
+- id: alex-vizcay
+  name: Alex Vizcay
+  role: undergrad
+  status: alumni
+  # linkedin: https://www.linkedin.com/in/...
+  program: B.S., Chemical Engineering
+  project: Biomining of critical minerals
+  nowAt: Undergraduate student, Department of Geology, UNR
+  themes: [other]

@@ -1,0 +1,101 @@
+# Organizations shown in the "Sponsors and partners" logo wall on the Projects page.
+# group: sponsor (federal agencies, foundations, societies) | partner (industry)
+# logo: optional filename in public/images/logos/ (SVG or PNG on a transparent or white background).
+#       Without one, the organization's name is shown in the tile instead.
+# showName: true to print the name under the tile (for seals and emblems without text).
+# order: position in the wall (lower first).
+# url: optional link to the organization's website.
+
+- id: doe
+  order: 1
+  logo: doe.png
+  showName: true
+  name: U.S. Department of Energy
+  short: DOE
+  note: Including ARPA-E and the Office of Fossil Energy and Carbon Management
+  group: sponsor
+  url: https://www.energy.gov
+
+- id: dod
+  order: 2
+  logo: dod.png
+  showName: true
+  name: U.S. Department of Defense
+  short: DoD
+  group: sponsor
+  url: https://www.defense.gov
+
+- id: nsf
+  order: 3
+  logo: nsf.svg
+  showName: true
+  name: National Science Foundation
+  short: NSF
+  group: sponsor
+  url: https://www.nsf.gov
+
+- id: australia
+  order: 4
+  logo: australia.png
+  showName: true
+  name: Commonwealth of Australia
+  group: sponsor
+
+- id: eref
+  order: 5
+  name: Environmental Research and Education Foundation
+  short: EREF
+  group: sponsor
+  url: https://erefdn.org
+
+- id: sme
+  order: 6
+  logo: sme.png
+  name: Society for Mining, Metallurgy & Exploration
+  short: SME
+  group: sponsor
+  url: https://www.smenet.org
+
+- id: unr
+  order: 7
+  logo: unr.svg
+  name: University of Nevada, Reno
+  note: Pack Partnership Grant
+  group: sponsor
+  url: https://www.unr.edu
+
+- id: mp-materials
+  order: 8
+  logo: mp-materials.svg
+  name: MP Materials
+  group: partner
+  url: https://mpmaterials.com
+
+- id: lithium-americas
+  order: 9
+  logo: lithium-americas.png
+  name: Lithium Americas
+  group: partner
+  url: https://lithiumamericas.com
+
+- id: slb
+  order: 10
+  logo: slb.svg
+  name: SLB
+  note: Schlumberger
+  group: partner
+  url: https://www.slb.com
+
+- id: pan-american-energy
+  order: 11
+  logo: pan-american-energy.svg
+  name: Pan American Energy Corp.
+  group: partner
+  url: https://panam-energy.com
+
+- id: peloton-minerals
+  order: 12
+  logo: peloton-minerals.svg
+  name: Peloton Minerals Corporation
+  group: partner
+  url: https://www.pelotonminerals.com

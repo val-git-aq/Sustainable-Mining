@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Sustainable Mining Lab">
+  <!-- Placeholder lab mark: a plant rooted in tailings above lithium claystone and a rare-earth ore lens.
+       Replace this file (keep the name logo.svg) when the lab has a final logo. -->
+  <defs>
+    <clipPath id="sml-r"><rect width="48" height="48" rx="9"/></clipPath>
+  </defs>
+  <g clip-path="url(#sml-r)">
+    <rect width="48" height="48" fill="#003366"/>
+    <rect y="25" width="48" height="6" fill="#cfc8b4"/>
+    <rect y="31" width="48" height="7" fill="#2f7f8f"/>
+    <rect y="38" width="48" height="10" fill="#4f5d66"/>
+    <ellipse cx="34" cy="42.5" rx="8" ry="3" fill="#c07a4f"/>
+    <path d="M18 25v-12" stroke="#b5c9a3" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M18 19c-6 0-8.5-3.6-8.5-7.2 5.2 0 8.5 3 8.5 7.2z" fill="#9cb38c"/>
+    <path d="M18 15.5c5.6 0 8.6-3.4 8.6-7.5-5.2 0-8.6 3.2-8.6 7.5z" fill="#b5c9a3"/>
+    <path d="M18 25v7M18 27l-3.5 4.5M18 28l3.5 4.5" stroke="#5e7052" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <circle cx="36" cy="12" r="3.4" fill="#e3b25a"/>
+  </g>
+</svg>

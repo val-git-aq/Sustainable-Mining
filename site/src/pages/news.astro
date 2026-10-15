@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/site';
+
+const news = (await getCollection('news')).sort((a, b) => b.data.year - a.data.year);
+const videos = news.filter((n) => n.data.kind === 'video' && n.data.link);
+const groups = [
+  { id: 'awards', heading: 'Awards', items: news.filter((n) => n.data.kind === 'award') },
+  { id: 'talks', heading: 'Invited talks and panels', items: news.filter((n) => n.data.kind === 'talk') },
+];
+---
+
+<Base title="News" description="Media, awards and invited talks from the Sustainable Mining Lab.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / News</p>
+      <h1>News</h1>
+      <p class="lede">Media, awards and invited talks from the lab.</p>
+    </div>
+
+    {
+      videos.length > 0 && (
+        <section class="section" aria-labelledby="media-h">
+          <h2 id="media-h" class="rule-head">Media</h2>
+          <ul class="plain-list videos">
+            {videos.map((v) => (
+              <li class="video">
+                <a class="video-thumb" href={v.data.link} target="_blank" rel="noopener">
+                  {v.data.thumbnail && (
+                    <img src={url(v.data.thumbnail)} alt="" width="1280" height="720" loading="lazy" />
+                  )}
+                  <span class="play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" /></svg>
+                  </span>
+                  <span class="visually-hidden">Watch “{v.data.title}” on YouTube (opens in a new tab)</span>
+                </a>
+                <p class="video-title">
+                  <a href={v.data.link} target="_blank" rel="noopener">{v.data.title}</a>
+                </p>
+                <p class="meta">{v.data.outlet}, {v.data.year}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      groups.map((g) => (
+        <section class="section" aria-labelledby={`${g.id}-h`}>
+          <h2 id={`${g.id}-h`} class="rule-head">{g.heading}</h2>
+          <ul class="plain-list ruled">
+            {g.items.map((n) => (
+              <li class="news-item">
+                <span class="year">{n.data.year}</span>
+                <span>
+                  {n.data.link ? <a href={n.data.link}>{n.data.title}</a> : <strong>{n.data.title}</strong>}
+                  <br />
+                  <span class="meta">{n.data.outlet}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .news-item { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; }
+  .year { font-weight: 700; color: var(--nevada); }
+
+  .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1.75rem; }
+  .video { max-width: none; }
+  .video-thumb {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: inset 0 -4px 0 var(--nevada);
+  }
+  .video-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 250ms ease; }
+  .video-thumb:hover img { transform: scale(1.03); }
+  .play {
+    position: absolute;
+    /* Bottom-left corner, so the button never covers the speaker in the thumbnail */
+    left: 0.85rem;
+    bottom: 1.1rem;
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgb(4 30 66 / 0.85);
+    border: 2px solid #ffffff;
+    transition: background 150ms ease;
+  }
+  .play svg { width: 1.6rem; height: 1.6rem; margin-left: 0.2rem; fill: #ffffff; }
+  .video-thumb:hover .play,
+  .video-thumb:focus-visible .play { background: var(--unr-blue); }
+  .video-title { margin: 0.75rem 0 0.15rem; font-weight: 650; line-height: 1.35; }
+  .video-title a { color: var(--ink); text-decoration: none; }
+  .video-title a:hover { color: var(--nevada); text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) {
+    .video-thumb img { transition: none; }
+    .video-thumb:hover img { transform: none; }
+  }
+</style>

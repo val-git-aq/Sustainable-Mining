@@ -1,0 +1,105 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  orgs: CollectionEntry<'sponsors'>[];
+}
+const { orgs } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Staggered "brick" rows: alternate k and k-1 logos so each short row sits offset by half a tile.
+// Pick the largest k (up to 5) whose pattern ends on a full k or k-1 row; otherwise fall back to 3.
+// e.g. 7 logos -> 4 + 3, 5 logos -> 3 + 2, 9 logos -> 5 + 4.
+function stagger<T>(items: T[]): T[][] {
+  const fits = (k: number) => {
+    if (items.length > 2 && items.length <= k) return false; // always at least two rows to stagger
+    let left = items.length;
+    for (let i = 0; left > 0; i++) {
+      const size = i % 2 === 0 ? k : k - 1;
+      if (left < size) return false;
+      left -= size;
+    }
+    return true;
+  };
+  const k = [5, 4, 3, 2].find(fits) ?? 3;
+  const rows: T[][] = [];
+  for (let i = 0, at = 0; at < items.length; i++) {
+    const size = i % 2 === 0 ? k : k - 1;
+    rows.push(items.slice(at, at + size));
+    at += size;
+  }
+  return rows;
+}
+const rows = stagger(orgs);
+---
+
+<div class="logo-wall">
+  {rows.map((row) => (
+  <ul class="plain-list logo-row">
+  {
+    row.map(({ data: o }) => {
+      const label = o.note ? `${o.name} (${o.note})` : o.name;
+      const inner = o.logo ? (
+        <img src={`${base}/images/logos/${o.logo}`} alt={o.name} loading="lazy" />
+      ) : (
+        <span class="wordmark">
+          {o.short && <span class="wordmark-short">{o.short}</span>}
+          <span class="wordmark-name">{o.name}</span>
+        </span>
+      );
+      return (
+        <li title={label}>
+          {o.url ? (
+            <a class="tile" href={o.url} rel="noopener" target="_blank">
+              {inner}
+              <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          ) : (
+            <span class="tile">{inner}</span>
+          )}
+          {o.logo && o.showName && <span class="caption">{o.name}</span>}
+          {o.note && <span class="note">{o.note}</span>}
+        </li>
+      );
+    })
+  }
+  </ul>
+  ))}
+</div>
+
+<style>
+  .logo-wall { display: grid; gap: 1rem; margin-top: 1rem; }
+  /* Rows are centred, so a row with one fewer logo sits half a tile in from the row above */
+  .logo-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .logo-row li {
+    flex: 0 0 15.5rem;
+    max-width: none;
+    display: grid;
+    gap: 0.35rem;
+    align-content: start;
+    text-align: center;
+  }
+  @media (max-width: 34rem) {
+    .logo-row li { flex-basis: calc(50% - 0.5rem); }
+  }
+  .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7.5rem;
+    padding: 0.6rem 0.9rem;
+    /* Logos are designed for light backgrounds, so tiles stay light in dark mode too */
+    background: #ffffff;
+    color: #1f2a30;
+    text-decoration: none;
+    transition: box-shadow 150ms ease;
+  }
+  a.tile:hover { box-shadow: inset 0 -3px 0 var(--nevada); }
+  /* Largest size that fits the tile, keeping each logo's proportions */
+  .tile img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; }
+  .wordmark { display: grid; gap: 0.15rem; text-align: center; }
+  .wordmark-short { font-size: var(--step-2); font-weight: 800; font-stretch: 112%; color: #041e42; line-height: 1; }
+  .wordmark-name { font-size: var(--step--1); font-weight: 600; line-height: 1.25; }
+  .caption { font-size: var(--step--1); font-weight: 600; line-height: 1.35; }
+  .note { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.35; }
+</style>

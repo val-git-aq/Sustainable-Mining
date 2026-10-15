@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ThemeTags from './ThemeTags.astro';
+import { url } from '../lib/site';
+
+interface Props {
+  pub: CollectionEntry<'publications'>;
+  memberOf: (author: string) => string | undefined;
+  showTags?: boolean;
+}
+const { pub, memberOf, showTags = true } = Astro.props;
+const { authors, title, venue, year, doi, themes } = pub.data;
+const text = [title, venue, ...authors].join(' ').toLowerCase();
+---
+
+<li class="pub filterable" data-year={year} data-themes={themes.join(' ')} data-text={text}>
+  <p class="pub-title">{title}</p>
+  <p class="pub-authors">
+    {
+      authors.map((a, i) => {
+        const id = memberOf(a);
+        const sep = i < authors.length - 1 ? ', ' : '';
+        return id ? (
+          <>
+            <a class="member" href={url(`/team#${id}`)}>{a}</a>{sep}
+          </>
+        ) : (
+          <>{a}{sep}</>
+        );
+      })
+    }
+  </p>
+  <p class="pub-venue">
+    <em>{venue}</em>{!venue.includes(String(year)) && `, ${year}`}
+    {doi && (<>. <a href={`https://doi.org/${doi}`} rel="noopener">doi:{doi}</a></>)}
+  </p>
+  {showTags && <ThemeTags themes={themes} />}
+</li>
+
+<style>
+  .pub { padding: 1rem 0; border-top: 1px solid var(--rule); max-width: none; }
+  .pub p { margin: 0 0 0.25rem; max-width: 80ch; }
+  .pub-title { font-weight: 650; line-height: 1.35; }
+  .pub-authors, .pub-venue { font-size: var(--step--1); color: var(--ink-soft); }
+  .pub-venue a { word-break: break-all; }
+  .member { color: var(--ink); font-weight: 650; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .member:hover { border-bottom-color: var(--nevada); }
+</style>

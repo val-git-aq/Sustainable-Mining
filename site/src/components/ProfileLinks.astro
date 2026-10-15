@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+  scholar?: string;
+  linkedin?: string;
+}
+const { name, scholar, linkedin } = Astro.props;
+const links = [
+  scholar && { label: 'Google Scholar', href: scholar },
+  linkedin && { label: 'LinkedIn', href: linkedin },
+].filter(Boolean) as { label: string; href: string }[];
+---
+
+{
+  links.length > 0 && (
+    <p class="profile-links">
+      {links.map((l) => (
+        <a href={l.href} rel="noopener" target="_blank">
+          {l.label}
+          <span class="visually-hidden"> profile of {name} (opens in a new tab)</span>
+        </a>
+      ))}
+    </p>
+  )
+}
+
+<style>
+  .profile-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; margin: 0 0 0.35rem; font-size: var(--step--1); font-weight: 600; }
+</style>

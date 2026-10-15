@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Avatar from './Avatar.astro';
+import ThemeTags from './ThemeTags.astro';
+import ProfileLinks from './ProfileLinks.astro';
+
+interface Props {
+  person: CollectionEntry<'people'>;
+}
+const { person } = Astro.props;
+const p = person.data;
+const roleLabel: Record<string, string> = {
+  postdoc: 'Postdoctoral Associate',
+  'research-scientist': 'Research Scientist',
+};
+const line = p.program ?? roleLabel[p.role] ?? '';
+const dates = p.start ? `${p.start} – ${p.end ?? 'present'}` : undefined;
+---
+
+<li class="person" id={person.id}>
+  <Avatar name={p.name} photo={p.photo} />
+  <div class="person-body">
+    <h3 class="person-name">{p.name}</h3>
+    {(line || p.affiliation || dates) && (
+      <p class="meta">
+        {line}{p.affiliation && `, ${p.affiliation}`}{dates && <><br />{dates}</>}
+      </p>
+    )}
+    {p.project && <p class="person-project">{p.project}</p>}
+    {p.awards.length > 0 && <p class="meta">{p.awards.join('; ')}</p>}
+    {p.note && <p class="meta">{p.note}</p>}
+    {p.nowAt && <p class="now">Currently: {p.nowAt}</p>}
+    <ProfileLinks name={p.name} scholar={p.scholar} linkedin={p.linkedin} />
+    {p.themes.length > 0 && <ThemeTags themes={p.themes} />}
+  </div>
+</li>
+
+<style>
+  .person {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule);
+    max-width: none;
+    scroll-margin-top: 1rem;
+  }
+  .person:target { box-shadow: inset 4px 0 0 var(--nevada); padding-left: 1rem; }
+  .person-body p { margin: 0 0 0.35rem; }
+  .person-name { font-size: var(--step-1); margin-bottom: 0.2rem; }
+  .person-project { font-family: var(--font-prose); font-size: 0.98rem; line-height: 1.5; }
+  .now { font-size: var(--step--1); font-weight: 600; }
+</style>

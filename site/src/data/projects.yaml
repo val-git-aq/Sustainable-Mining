@@ -1,0 +1,161 @@
+# Sponsored research projects. Funding amounts are intentionally not published.
+# status: active | completed  (please confirm. The default rule: awarded 2024 or later = active)
+# role: PI | Co-I (Dr. Vahidi's role)
+# themes: lithium | ree | phytomining | battery-recycling | gold | carbon | other
+
+- id: core-cm-region-7
+  title: "CORE-CM Region 7: Pacific Coast & Basin and Range Critical Minerals Initiative"
+  sponsor: U.S. Department of Energy (DOE)
+  sponsorType: federal
+  year: 2026
+  role: PI
+  status: active
+  themes: [lithium, ree]
+  summary: A regional initiative to assess and develop critical mineral resources across the Pacific Coast and the Basin and Range.
+
+- id: laser-ree-separation
+  title: Laser-Assisted Separation of Rare Earth Elements
+  sponsor: U.S. Department of Defense (DoD)
+  sponsorType: federal
+  year: 2026
+  role: PI
+  status: active
+  themes: [ree]
+  summary: Developing selective, laser-based separation of individual rare earth elements, supported by beneficiation and upgrading of REE feedstocks.
+
+- id: nelp-clay-co-recovery
+  title: Integrated Leaching Strategies for Co-Recovery of Lithium, Rubidium, Gallium, and Cesium from NELP Clay Ores
+  sponsor: Peloton Minerals Corporation
+  sponsorType: industry
+  year: 2026
+  role: PI
+  status: active
+  themes: [lithium]
+  summary: Leaching routes that recover lithium alongside rubidium, gallium and cesium from Nevada clay ores.
+
+- id: sme-career-grant
+  title: 2024 Freeport-McMoRan, Inc. Career Development Grant
+  sponsor: Society for Mining, Metallurgy & Exploration (SME)
+  sponsorType: foundation
+  year: 2024
+  role: PI
+  status: active
+  themes: [lithium, ree]
+
+- id: lithium-resources-nevada
+  title: Lithium Resources in Nevada
+  sponsor: U.S. Department of Energy (DOE)
+  sponsorType: federal
+  year: 2024
+  role: Co-I
+  status: active
+  themes: [lithium]
+
+- id: acidic-water-critical-minerals
+  title: Acidic Water Pollution Cleanup and Community Economic Development through Domestic Production of Critical Minerals for National Security
+  sponsor: U.S. Department of Energy (DOE)
+  sponsorType: federal
+  year: 2024
+  role: Co-I
+  status: active
+  themes: [ree]
+
+- id: horizon-clayton-valley
+  title: Investigating lithium recovery from clay minerals in the Horizon project, Clayton Valley, NV
+  sponsor: Pan American Energy Corp.
+  sponsorType: industry
+  year: 2023
+  role: PI
+  status: completed
+  themes: [lithium]
+
+- id: circular-lithium-batteries
+  title: Advancing the circular economy for lithium batteries
+  sponsor: National Science Foundation (NSF)
+  sponsorType: federal
+  year: 2023
+  role: Co-I
+  status: completed
+  themes: [lithium, battery-recycling]
+
+- id: ree-secondary-sources
+  title: Extraction and separation of rare earth and critical minerals from secondary sources such as acid mine drainage, clays, and e-waste
+  sponsor: U.S. Department of Energy (DOE)
+  sponsorType: federal
+  year: 2023
+  role: Co-I
+  status: completed
+  themes: [ree]
+
+- id: landfill-co2
+  title: Selective Carbon Dioxide Capture and Conversion from Landfill Gas
+  sponsor: Environmental Research and Education Foundation (EREF)
+  sponsorType: foundation
+  year: 2023
+  role: Co-I
+  status: completed
+  themes: [carbon]
+
+- id: lithium-hydroxide-brine
+  title: Developing sustainable lithium hydroxide production from brine solutions
+  sponsor: Pack Partnership Grant, University of Nevada, Reno
+  sponsorType: foundation
+  year: 2023
+  role: PI
+  status: completed
+  themes: [lithium]
+
+- id: arpa-e-arcp
+  title: Accelerated Reactive Carbonation Process (ARCP) for Energy Efficient Separation of Rare Earth Minerals
+  sponsor: ARPA-E, U.S. Department of Energy
+  sponsorType: federal
+  year: 2022
+  role: Co-I
+  status: completed
+  themes: [ree, carbon]
+
+- id: fecm-phytoremediation
+  title: Sustainable and cost-effective phytoremediation technologies in managing contaminated soils adjacent to a coal combustion product impoundment
+  sponsor: Office of Fossil Energy and Carbon Management (FECM), U.S. Department of Energy
+  sponsorType: federal
+  year: 2022
+  role: PI
+  status: completed
+  themes: [phytomining]
+  summary: Plant-based remediation of metal-contaminated soils near a coal combustion product impoundment, paired with life cycle and cost analysis. This work grew into the lab's phytomining research.
+
+- id: neolith-clayton-valley
+  title: Assessing the environmental footprints of the NeoLith Energy Production Facility in Clayton Valley, Nevada
+  sponsor: Schlumberger (SLB)
+  sponsorType: industry
+  year: 2022
+  role: PI
+  status: completed
+  themes: [lithium]
+
+- id: thacker-pass
+  title: Assessing the socio-economic and environmental footprints of lithium production at the Thacker Pass mine in Nevada
+  sponsor: Lithium Americas
+  sponsorType: industry
+  year: 2021
+  role: PI
+  status: completed
+  themes: [lithium]
+
+- id: ergi-academy
+  title: Energy Resource Governance Initiative (ERGI) Academy
+  sponsor: Commonwealth of Australia
+  sponsorType: federal
+  year: 2021
+  role: Co-I
+  status: completed
+  themes: [other]
+
+- id: mountain-pass
+  title: Assessing the environmental footprint of rare earth products at the Mountain Pass mine in California
+  sponsor: MP Materials (Mine Operations LLC)
+  sponsorType: industry
+  year: 2021
+  role: PI
+  status: completed
+  themes: [ree]

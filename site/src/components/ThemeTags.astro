@@ -1,0 +1,12 @@
+---
+import { TAG_COLOR, TAG_LABEL, type ThemeTag } from '../lib/themes';
+
+interface Props {
+  themes: ThemeTag[];
+}
+const { themes } = Astro.props;
+---
+
+<span class="tags">
+  {themes.map((t) => <span class={`tag c-${TAG_COLOR[t]}`}>{TAG_LABEL[t]}</span>)}
+</span>

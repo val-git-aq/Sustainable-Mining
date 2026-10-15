@@ -1,0 +1,134 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+import { byRecent } from '../lib/sort';
+import { buildAuthorIndex } from '../lib/authors';
+import { url } from '../lib/site';
+import { TAG_LABEL, type ThemeTag } from '../lib/themes';
+
+const pubs = await getCollection('publications');
+const memberOf = buildAuthorIndex(await getCollection('people'));
+
+const journal = pubs.filter((p) => p.data.type === 'journal').sort(byRecent);
+const proceedings = pubs.filter((p) => p.data.type === 'proceedings').sort(byRecent);
+const presentations = pubs.filter((p) => p.data.type === 'presentation').sort(byRecent);
+
+const years = [...new Set(journal.map((p) => p.data.year))];
+const themeOptions: ThemeTag[] = ['lithium', 'battery-recycling', 'ree', 'phytomining', 'gold', 'carbon', 'other'];
+---
+
+<Base title="Publications" description="Peer-reviewed journal papers, conference proceedings and presentations from the Sustainable Mining Lab.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / Publications</p>
+      <h1>Publications</h1>
+      <p class="lede">
+        {journal.length} peer-reviewed journal papers, {proceedings.length} conference proceedings and {presentations.length} conference
+        presentations. Lab members' names are in bold.
+      </p>
+    </div>
+
+    <form class="filters" id="pub-filters" role="search" aria-label="Filter publications" onsubmit="return false">
+      <label>
+        Search
+        <input type="search" name="q" placeholder="Title, author or journal" autocomplete="off" />
+      </label>
+      <label>
+        Research area
+        <select name="theme">
+          <option value="">All areas</option>
+          {themeOptions.map((t) => <option value={t}>{TAG_LABEL[t]}</option>)}
+        </select>
+      </label>
+      <label>
+        Year
+        <select name="year">
+          <option value="">All years</option>
+          {years.map((y) => <option value={y}>{y}</option>)}
+        </select>
+      </label>
+    </form>
+    <p class="result-count" id="pub-count" aria-live="polite"></p>
+
+    <section class="section pub-section" aria-labelledby="journal-h">
+      <h2 id="journal-h">Journal papers</h2>
+      {
+        years.map((y) => (
+          <div class="year-group">
+            <h3 class="year">{y}</h3>
+            <ul class="plain-list">
+              {journal
+                .filter((p) => p.data.year === y)
+                .map((p) => (
+                  <PubItem pub={p} memberOf={memberOf} />
+                ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="section pub-section" aria-labelledby="proc-h">
+      <h2 id="proc-h">Conference proceedings</h2>
+      <ul class="plain-list">
+        {
+          proceedings.map((p) => (
+            <PubItem pub={p} memberOf={memberOf} />
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section pub-section" aria-labelledby="pres-h">
+      <details>
+        <summary><h2 id="pres-h">Conference presentations ({presentations.length})</h2></summary>
+        <ul class="plain-list">
+          {
+            presentations.map((p) => (
+              <PubItem pub={p} memberOf={memberOf} showTags={false} />
+            ))
+          }
+        </ul>
+      </details>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('pub-filters') as HTMLFormElement | null;
+  const count = document.getElementById('pub-count');
+  const items = [...document.querySelectorAll<HTMLElement>('.filterable')];
+
+  function apply() {
+    if (!form) return;
+    const q = (form.elements.namedItem('q') as HTMLInputElement).value.trim().toLowerCase();
+    const theme = (form.elements.namedItem('theme') as HTMLSelectElement).value;
+    const year = (form.elements.namedItem('year') as HTMLSelectElement).value;
+    let shown = 0;
+    for (const el of items) {
+      const ok =
+        (!q || el.dataset.text!.includes(q)) &&
+        (!theme || el.dataset.themes!.split(' ').includes(theme)) &&
+        (!year || el.dataset.year === year);
+      el.hidden = !ok;
+      if (ok) shown++;
+    }
+    document.querySelectorAll<HTMLElement>('.year-group, .pub-section').forEach((g) => {
+      g.hidden = !g.querySelector('.filterable:not([hidden])');
+    });
+    const filtering = q || theme || year;
+    if (count) count.textContent = filtering ? `${shown} of ${items.length} items match.` : '';
+    if (filtering) document.querySelector('details')?.setAttribute('open', '');
+  }
+  form?.addEventListener('input', apply);
+</script>
+
+<style>
+  .year { font-size: var(--step-1); color: var(--nevada); margin: 2rem 0 0.25rem; }
+  details summary { cursor: pointer; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary h2 { display: inline; }
+  details summary::after { content: ' +'; font-size: var(--step-2); font-weight: 700; color: var(--nevada); }
+  details[open] summary::after { content: ' −'; }
+</style>

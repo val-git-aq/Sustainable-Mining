@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectItem from '../components/ProjectItem.astro';
+import LogoWall from '../components/LogoWall.astro';
+import { url } from '../lib/site';
+import { TAG_LABEL, type ThemeTag } from '../lib/themes';
+
+const projects = (await getCollection('projects')).sort((a, b) => b.data.year - a.data.year);
+const active = projects.filter((p) => p.data.status === 'active');
+const completed = projects.filter((p) => p.data.status === 'completed');
+const orgs = (await getCollection('sponsors')).sort((a, b) => a.data.order - b.data.order);
+const sponsors = orgs.filter((o) => o.data.group === 'sponsor');
+const partners = orgs.filter((o) => o.data.group === 'partner');
+const themeOptions: ThemeTag[] = ['lithium', 'ree', 'phytomining', 'battery-recycling', 'carbon', 'other'];
+---
+
+<Base title="Projects" description="Current and past sponsored research projects of the Sustainable Mining Lab.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / Projects</p>
+      <h1>Projects</h1>
+      <p class="lede">
+        Sponsored research with federal agencies, industry partners and foundations, from regional critical-mineral
+        initiatives to site-specific footprint studies of Nevada lithium and California rare earth operations.
+      </p>
+    </div>
+
+    <form class="filters" id="proj-filters" aria-label="Filter projects" onsubmit="return false">
+      <label>
+        Research area
+        <select name="theme">
+          <option value="">All areas</option>
+          {themeOptions.map((t) => <option value={t}>{TAG_LABEL[t]}</option>)}
+        </select>
+      </label>
+    </form>
+
+    <section class="section group" aria-labelledby="active-h">
+      <h2 id="active-h" class="rule-head">Current projects</h2>
+      <ul class="plain-list">{active.map((p) => <ProjectItem project={p} />)}</ul>
+    </section>
+
+    <section class="section group" aria-labelledby="past-h">
+      <h2 id="past-h" class="rule-head">Past projects</h2>
+      <ul class="plain-list">{completed.map((p) => <ProjectItem project={p} />)}</ul>
+    </section>
+
+    <section class="section" aria-labelledby="sponsors-h">
+      <h2 id="sponsors-h" class="rule-head">Sponsors and partners</h2>
+      <p>We are grateful to the agencies, foundations and companies that support our research.</p>
+      <h3 class="org-h">Sponsors</h3>
+      <LogoWall orgs={sponsors} />
+      <h3 class="org-h">Industry partners</h3>
+      <LogoWall orgs={partners} />
+    </section>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('proj-filters') as HTMLFormElement | null;
+  form?.addEventListener('input', () => {
+    const theme = (form.elements.namedItem('theme') as HTMLSelectElement).value;
+    document.querySelectorAll<HTMLElement>('.project').forEach((el) => {
+      el.hidden = !!theme && !el.dataset.themes!.split(' ').includes(theme);
+    });
+    document.querySelectorAll<HTMLElement>('.group').forEach((g) => {
+      g.hidden = !g.querySelector('.project:not([hidden])');
+    });
+  });
+</script>
+
+<style>
+  .org-h { color: var(--nevada); margin-top: 2rem; }
+</style>
