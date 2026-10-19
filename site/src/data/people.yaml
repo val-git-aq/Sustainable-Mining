@@ -34,12 +34,11 @@
 - id: ngun-za-luai-mang
   name: Ngun Za Luai Mang
   role: research-scientist
-  status: current
+  status: alumni
   photo: ngun-za-luai-mang.jpg
   scholar: https://scholar.google.com/citations?user=-_9cxFEAAAAJ
   linkedin: https://www.linkedin.com/in/ngunzaluaimang/
   affiliation: Desert Research Institute
-  start: November 2024
   themes: [phytomining]
 
 - id: kamal-mousavi
@@ -260,7 +259,7 @@
 - id: luana-quintiliano
   name: Luana Quintiliano
   role: undergrad
-  status: current
+  status: alumni
   photo: luana-quintiliano.jpg
   # linkedin: https://www.linkedin.com/in/...
   program: B.S., Mining Engineering

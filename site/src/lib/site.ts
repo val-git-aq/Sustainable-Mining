@@ -1,7 +1,6 @@
 export const SITE = {
   name: 'Sustainable Mining Lab',
   department: 'Department of Mining and Metallurgical Engineering',
-  departmentShort: 'Mining and Metallurgical Engineering', // used in the header
   university: 'University of Nevada, Reno',
   email: 'evahidi@unr.edu',
   phone: '775-784-6923',
