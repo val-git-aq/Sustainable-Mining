@@ -43,6 +43,7 @@
 
 - id: eref
   order: 5
+  logo: eref.png
   name: Environmental Research and Education Foundation
   short: EREF
   group: sponsor
@@ -99,3 +100,10 @@
   name: Peloton Minerals Corporation
   group: partner
   url: https://www.pelotonminerals.com
+
+- id: ioneer
+  order: 13
+  logo: ioneer.png
+  name: Ioneer
+  group: partner
+  url: https://www.ioneer.com

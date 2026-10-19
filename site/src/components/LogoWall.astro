@@ -8,8 +8,9 @@ const { orgs } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Staggered "brick" rows: alternate k and k-1 logos so each short row sits offset by half a tile.
-// Pick the largest k (up to 5) whose pattern ends on a full k or k-1 row; otherwise fall back to 3.
-// e.g. 7 logos -> 4 + 3, 5 logos -> 3 + 2, 9 logos -> 5 + 4.
+// Pick the largest k (3 to 5) whose pattern ends on a full k or k-1 row. Counts that don't fit
+// (e.g. 6) become two centred rows, the first two longer, rather than many rows of one or two.
+// e.g. 7 logos -> 4 + 3, 5 logos -> 3 + 2, 9 logos -> 5 + 4, 6 logos -> 4 + 2.
 function stagger<T>(items: T[]): T[][] {
   const fits = (k: number) => {
     if (items.length > 2 && items.length <= k) return false; // always at least two rows to stagger
@@ -21,7 +22,12 @@ function stagger<T>(items: T[]): T[][] {
     }
     return true;
   };
-  const k = [5, 4, 3, 2].find(fits) ?? 3;
+  const k = [5, 4, 3].find(fits);
+  if (k === undefined) {
+    if (items.length <= 3) return [items];
+    const first = Math.ceil(items.length / 2) + (items.length % 2 === 0 ? 1 : 0);
+    return [items.slice(0, first), items.slice(first)];
+  }
   const rows: T[][] = [];
   for (let i = 0, at = 0; at < items.length; i++) {
     const size = i % 2 === 0 ? k : k - 1;
@@ -92,9 +98,23 @@ const rows = stagger(orgs);
     background: #ffffff;
     color: #1f2a30;
     text-decoration: none;
-    transition: box-shadow 150ms ease;
+    border-radius: 2px;
+    outline: 2px solid transparent;
+    outline-offset: 4px;
+    transition: transform 180ms ease, box-shadow 180ms ease, outline-color 180ms ease, border-radius 180ms ease;
   }
-  a.tile:hover { box-shadow: inset 0 -3px 0 var(--nevada); }
+  /* Hover/focus: the tile lifts inside a rounded Nevada outline */
+  a.tile:hover,
+  a.tile:focus-visible {
+    border-radius: 0.75rem;
+    outline-color: var(--nevada);
+    box-shadow: 0 0.6rem 1.4rem -0.6rem rgb(4 30 66 / 0.45);
+    transform: translateY(-3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tile { transition: none; }
+    a.tile:hover, a.tile:focus-visible { transform: none; }
+  }
   /* Largest size that fits the tile, keeping each logo's proportions */
   .tile img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; }
   .wordmark { display: grid; gap: 0.15rem; text-align: center; }

@@ -5,21 +5,22 @@
 
 - { id: video-rcr-dle-2025, kind: video, year: 2025, outlet: "Resources, Conservation & Recycling (YouTube)", title: "Unlocking Sustainable Lithium: Life Cycle Insights into Direct Extraction Methods", link: "https://www.youtube.com/watch?v=KfNnFVyBVeU", thumbnail: /images/media/rcr-dle-lca.jpg }
 
-- { id: media-yahoo-2026, kind: media, year: 2026, outlet: Yahoo News Canada, title: "How a new, more sustainable lithium mining process could kick off the industry in Western Canada" }
-- { id: media-msn-2026, kind: media, year: 2026, outlet: MSN France-Canada, title: "Companies' appetite for lithium in Alberta" }
-- { id: media-ue-2025, kind: media, year: 2025, outlet: Undisciplined Environments, title: "China's expanding footprint in South America's Lithium Triangle" }
-- { id: media-cbc-2025, kind: media, year: 2025, outlet: CBC News, title: "Alberta's brine lithium potential and emerging extraction industry" }
-- { id: media-ksut-2024, kind: media, year: 2024, outlet: KSUT Public Radio, title: "New lithium mining method could save groundwater resources in Nevada" }
-- { id: media-fp-2024, kind: media, year: 2024, outlet: Financial Post (GlobeNewswire), title: "Pan American Energy partners with the University of Nevada, Reno for comprehensive metallurgical testing and research" }
-- { id: media-nt-sme-2024, kind: media, year: 2024, outlet: Nevada Today, title: "SME Career Development Grant awarded to Metallurgical Engineering Assistant Professor Ehsan Vahidi" }
-- { id: media-hitchcock-2024, kind: media, year: 2024, outlet: The Hitchcock Project for Visualizing Science, title: "Nevada's lithium revolution: balancing sustainability with energy demands for a crucial element" }
-- { id: media-fp-2023, kind: media, year: 2023, outlet: Financial Post, title: "Pan American Energy supports UNR geothermal lithium research" }
-- { id: media-tir-2023, kind: media, year: 2023, outlet: This Is Reno, title: "UNR student team wins second place in national competition" }
-- { id: media-nt-lithium-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Biggest Little Impact: UNR researchers seek to make lithium extraction more sustainable" }
-- { id: media-nt-atp-2022, kind: media, year: 2022, outlet: Nevada Today, title: "ATP successful undergraduate research projects showcase" }
-- { id: media-nt-editor-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Appointed Associate Editor, Frontiers in Sustainable Resource Management" }
-- { id: media-nt-buildings-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Building greener buildings" }
-- { id: media-dsm-2021, kind: media, year: 2021, outlet: DSM Observer, title: "Life cycle assessment will play an important role in decision-making for deep-sea mining" }
+- { id: media-yahoo-2026, kind: media, year: 2026, outlet: Yahoo News Canada, title: "How a new, more sustainable lithium mining process could kick off the industry in Western Canada", link: "https://ca.news.yahoo.com/more-sustainable-lithium-mining-process-090000182.html" }
+- { id: media-msn-2026, kind: media, year: 2026, outlet: MSN France-Canada, title: "Companies' appetite for lithium in Alberta", link: "https://www.msn.com/fr-ca/finances/affaires/l-app%C3%A9tit-des-entreprises-pour-le-lithium-en-alberta/ar-AA1VB4LG" }
+- { id: media-ue-2025, kind: media, year: 2025, outlet: Undisciplined Environments, title: "China's expanding footprint in South America's Lithium Triangle", link: "https://undisciplinedenvironments.org/2025/03/11/chinas-expanding-footprint-in-south-americas-lithium-triangle/" }
+- { id: media-cellpress-2025, kind: media, year: 2025, outlet: Cell Press (webinar), title: "Managing critical minerals for future technologies", link: "https://www.bigmarker.com/cellpress-societyjournals/managing-critical-minerals-for-future-technologies" }
+- { id: media-cbc-2025, kind: media, year: 2025, outlet: CBC News, title: "Alberta's brine lithium potential and emerging extraction industry", link: "https://www.cbc.ca/news/science/lithium-alberta-mining-brines-9.7068876" }
+- { id: media-ksut-2024, kind: media, year: 2024, outlet: KSUT Public Radio, title: "New lithium mining method could save groundwater resources in Nevada", link: "https://www.ksut.org/environment-climate/2024-09-26/new-lithium-mining-method-could-save-ground-water-resources-in-nevada" }
+- { id: media-fp-2024, kind: media, year: 2024, outlet: Financial Post (GlobeNewswire), title: "Pan American Energy partners with the University of Nevada, Reno for comprehensive metallurgical testing and research", link: "https://financialpost.com/globe-newswire/pan-american-energy-partners-with-the-university-of-nevada-reno-for-comprehensive-metallurgical-testing-and-research" }
+- { id: media-nt-sme-2024, kind: media, year: 2024, outlet: Nevada Today, title: "SME Career Development Grant awarded to Metallurgical Engineering Assistant Professor Ehsan Vahidi", link: "https://www.unr.edu/nevada-today/news/2024/sme-career-development-grant" }
+- { id: media-hitchcock-2024, kind: media, year: 2024, outlet: The Hitchcock Project for Visualizing Science, title: "Nevada's lithium revolution: balancing sustainability with energy demands for a crucial element", link: "https://hitchcockproject.org/nevadas-lithium-revolution-balancing-sustainability-with-energy-demands-for-a-crucial-element/" }
+- { id: media-fp-2023, kind: media, year: 2023, outlet: Financial Post, title: "Pan American Energy supports UNR geothermal lithium research", link: "https://financialpost.com/globe-newswire/pan-american-energy-to-support-proposed-university-of-nevada-research-and-development-of-lithium-production-from-geothermal-brines" }
+- { id: media-tir-2023, kind: media, year: 2023, outlet: This Is Reno, title: "UNR student team wins second place in national competition", link: "https://thisisreno.com/2023/07/unr-student-team-wins-second-place-in-national-competition/" }
+- { id: media-nt-lithium-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Biggest Little Impact: UNR researchers seek to make lithium extraction more sustainable", link: "https://www.unr.edu/nevada-today/news/2022/biggest-little-impact" }
+- { id: media-nt-atp-2022, kind: media, year: 2022, outlet: Nevada Today, title: "ATP successful undergraduate research projects showcase", link: "https://www.unr.edu/nevada-today/news/2022/atp-successful-undergraduate-research" }
+- { id: media-nt-editor-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Appointed Associate Editor, Frontiers in Sustainable Resource Management", link: "https://www.unr.edu/nevada-today/read-watch-listen/recognitions/060622-appointment-ehsan-vahidi" }
+- { id: media-nt-buildings-2022, kind: media, year: 2022, outlet: Nevada Today, title: "Building greener buildings", link: "https://www.unr.edu/nevada-today/news/2022/building-greener-buildings" }
+- { id: media-dsm-2021, kind: media, year: 2021, outlet: DSM Observer, title: "Life cycle assessment will play an important role in decision-making for deep-sea mining", link: "https://dsmobserver.com/2021/04/life-cycle-assessment-will-play-an-important-in-decision-making-for-deep-sea-mining/" }
 
 - { id: award-sme-2024, kind: award, year: 2024, outlet: Society for Mining, Metallurgy & Exploration (SME), title: "Freeport-McMoRan, Inc. Career Development Grant" }
 - { id: award-doe-2023, kind: award, year: 2023, outlet: U.S. DOE Office of Fossil Energy and Carbon Management, title: "Second place, First Annual American-Made Carbon Management Collegiate Competition" }

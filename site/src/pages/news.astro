@@ -5,10 +5,12 @@ import { url } from '../lib/site';
 
 const news = (await getCollection('news')).sort((a, b) => b.data.year - a.data.year);
 const videos = news.filter((n) => n.data.kind === 'video' && n.data.link);
+// collapsible: shown as a dropdown, closed by default
 const groups = [
   { id: 'awards', heading: 'Awards', items: news.filter((n) => n.data.kind === 'award') },
-  { id: 'talks', heading: 'Invited talks and panels', items: news.filter((n) => n.data.kind === 'talk') },
-];
+  { id: 'talks', heading: 'Invited talks and panels', items: news.filter((n) => n.data.kind === 'talk'), collapsible: true },
+  { id: 'coverage', heading: 'Media coverage and engagement', items: news.filter((n) => n.data.kind === 'media'), collapsible: true },
+].filter((g) => g.items.length > 0);
 ---
 
 <Base title="News" description="Media, awards and invited talks from the Sustainable Mining Lab.">
@@ -47,23 +49,48 @@ const groups = [
     }
 
     {
-      groups.map((g) => (
-        <section class="section" aria-labelledby={`${g.id}-h`}>
-          <h2 id={`${g.id}-h`} class="rule-head">{g.heading}</h2>
+      groups.map((g) => {
+        const list = (
           <ul class="plain-list ruled">
             {g.items.map((n) => (
               <li class="news-item">
                 <span class="year">{n.data.year}</span>
                 <span>
-                  {n.data.link ? <a href={n.data.link}>{n.data.title}</a> : <strong>{n.data.title}</strong>}
+                  {n.data.link ? (
+                    <a href={n.data.link} target="_blank" rel="noopener">
+                      {n.data.title}
+                      <span class="visually-hidden"> (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <strong>{n.data.title}</strong>
+                  )}
                   <br />
                   <span class="meta">{n.data.outlet}</span>
                 </span>
               </li>
             ))}
           </ul>
-        </section>
-      ))
+        );
+        return (
+          <section class="section" aria-labelledby={`${g.id}-h`}>
+            {g.collapsible ? (
+              <details class="dropdown">
+                <summary>
+                  <h2 id={`${g.id}-h`} class="rule-head">{g.heading}</h2>
+                  <span class="count">{g.items.length} items</span>
+                  <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+                </summary>
+                {list}
+              </details>
+            ) : (
+              <>
+                <h2 id={`${g.id}-h`} class="rule-head">{g.heading}</h2>
+                {list}
+              </>
+            )}
+          </section>
+        );
+      })
     }
   </div>
 </Base>
@@ -71,6 +98,38 @@ const groups = [
 <style>
   .news-item { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; }
   .year { font-weight: 700; color: var(--nevada); }
+
+  /* Dropdown lists: the whole heading row is the toggle */
+  .dropdown summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    list-style: none;
+    cursor: pointer;
+  }
+  .dropdown summary::-webkit-details-marker { display: none; }
+  .dropdown summary h2 { margin: 0; }
+  .dropdown .count { margin-left: auto; font-size: var(--step--1); color: var(--ink-soft); white-space: nowrap; }
+  .chevron {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    fill: none;
+    stroke: var(--nevada);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 200ms ease;
+  }
+  .dropdown summary:hover .chevron { border-color: var(--nevada); }
+  .dropdown[open] .chevron { transform: rotate(180deg); }
+  .dropdown[open] summary { margin-bottom: 0.75rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .chevron { transition: none; }
+  }
 
   .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1.75rem; }
   .video { max-width: none; }

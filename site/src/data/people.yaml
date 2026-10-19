@@ -49,7 +49,7 @@
   order: 1
   scholar: https://scholar.google.com/citations?user=ZpSa8aQAAAAJ
   photo: kamal-mousavi.png
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://www.linkedin.com/in/kamal-mousavi/
   project: Integrated Techno-Economic and Life Cycle Assessment of Sustainable Lithium Supply Pathways
   themes: [lithium]
 
@@ -95,7 +95,7 @@
   order: 5
   photo: frida-muthoni.jpg
   scholar: https://scholar.google.com/citations?user=e3jVMIAAAAAJ
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://ke.linkedin.com/in/fridah-valenciah
   project: Sustainable Phytoremediation and Phytomining Approaches for Contaminated Soil Management and Resource Recovery
   themes: [phytomining]
 
@@ -115,7 +115,7 @@
   role: undergrad
   status: current
   photo: andrea-oviatt.jpg
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://www.linkedin.com/in/andrea-oviatt-990b03212/
   program: B.S., Metallurgical Engineering
   awards: [NSF EPSCoR Undergraduate Award]
   project: Hydrometallurgical recovery of lithium from sedimentary claystone
@@ -127,7 +127,7 @@
   role: undergrad
   status: current
   photo: trista-mclaughlin.jpg
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://www.linkedin.com/in/trista-mclaughlin-3ba90b267/
   program: B.S., Geological Engineering
   awards: [NSF EPSCoR Undergraduate Award, Nevada Undergraduate Research Award (NURA)]
   project: Phytoremediation of heavy metals adjacent to coal power plants (NSF EPSCoR); carbon management in the lithium industry (NURA)
@@ -142,7 +142,7 @@
   status: alumni
   photo: mehdi-sharifian.jpg
   scholar: https://scholar.google.com/citations?user=7Jhvf2cAAAAJ
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://www.linkedin.com/in/mehdi-sharifian-3957aa93/
   start: September 2024
   end: January 2026
   nowAt: Senior Research Scientist, Electra, Boulder, CO
@@ -154,7 +154,7 @@
   status: alumni
   photo: ario-fahimi.jpg
   scholar: https://scholar.google.com/citations?user=D8wfP6cAAAAJ
-  # linkedin: https://www.linkedin.com/in/...
+  linkedin: https://www.linkedin.com/in/ario-fahimi-ph-d-656986211/
   start: July 2023
   end: July 2024
   nowAt: Research & Development Manager, MOVA Metals, Houston, TX
@@ -165,7 +165,8 @@
   role: phd
   status: alumni
   photo: sheida-nili.jpg
-  # linkedin: https://www.linkedin.com/in/...
+  scholar: https://scholar.google.com/citations?user=_oNqeXwAAAAJ
+  linkedin: https://www.linkedin.com/in/sheida-nili-81596980/
   program: Ph.D., Mineral Resource Engineering
   start: August 2022
   end: August 2026
@@ -177,6 +178,7 @@
   name: Qixuan Wen
   role: ms
   status: alumni
+  photo: qixuan-wen.jpg
   order: 1
   # linkedin: https://www.linkedin.com/in/...
   program: M.S., Mining Engineering
@@ -202,6 +204,7 @@
   name: Hector Solorio
   role: ms
   status: alumni
+  photo: hector-solorio.jpg
   order: 3
   # linkedin: https://www.linkedin.com/in/...
   program: M.S., Metallurgical Engineering
