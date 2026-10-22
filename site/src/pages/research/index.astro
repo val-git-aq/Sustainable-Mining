@@ -16,6 +16,15 @@ import { AREAS } from '../../lib/themes';
       </p>
     </div>
 
+    <figure class="lab-photo">
+      <img
+        src={url('/images/web/research-lab.jpg')}
+        alt="Dr. Ehsan Vahidi and a student in safety glasses and gloves reading a measurement on a benchtop meter beside a beaker in the lab"
+        width="1536"
+        height="1024"
+      />
+    </figure>
+
     <ul class="plain-list areas">
       {
         AREAS.map((a) => (
@@ -54,6 +63,19 @@ import { AREAS } from '../../lib/themes';
 </Base>
 
 <style>
+  .lab-photo { margin: 2rem 0 0; }
+  .lab-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+    object-position: 50% 62%;
+    border-bottom: 4px solid var(--nevada);
+  }
+  @media (max-width: 640px) {
+    .lab-photo img { aspect-ratio: 4 / 3; object-position: 40% 60%; }
+  }
   .areas { margin-top: 2.5rem; display: grid; gap: 0; }
   /* Zig-zag rows: text and figure side by side, swapping sides on every other row */
   .area {

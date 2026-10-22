@@ -11,7 +11,7 @@ const isCurrent = (href: string) => current === href || current.startsWith(`${hr
     <a class="brand" href={url('/')}>
       <span class="brand-logo"><img src={url('/images/logo-nevada.webp')} alt="" width="1384" height="900" /></span>
       <span class="brand-text">
-        <span class="brand-sub"><span class="sub-dept">{SITE.department},</span> <span class="sub-uni">{SITE.university}</span></span>
+        <span class="brand-sub"><span class="sub-dept">{SITE.department}</span> <span class="sub-uni">{SITE.university}</span></span>
         <span class="brand-name">{SITE.name}</span>
       </span>
     </a>
@@ -100,7 +100,9 @@ const isCurrent = (href: string) => current === href || current.startsWith(`${hr
   /* The source image has a thin black edge; scaling slightly inside the clipped box trims it */
   .brand-logo img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); }
   .brand-text { display: grid; gap: 0.15rem; min-width: 0; }
-  .brand-sub { font-size: 0.75rem; color: #c9d1db; }
+  .brand-sub { font-size: 0.75rem; line-height: 1.3; color: #c9d1db; }
+  /* Department and university each on their own line */
+  .sub-dept, .sub-uni { display: block; }
   .brand-name {
     font-size: clamp(1.25rem, 1rem + 1vw, 1.6rem);
     font-weight: 800;
@@ -181,12 +183,11 @@ const isCurrent = (href: string) => current === href || current.startsWith(`${hr
     .site-nav a[aria-current='page'] { border-bottom-color: rgb(255 255 255 / 0.18); box-shadow: inset 4px 0 0 var(--unr-silver); padding-left: 0.85rem; }
   }
 
-  /* Phones: department and university on their own lines, slightly smaller, so the subtitle stays compact */
+  /* Phones: slightly smaller subtitle and logo, so the header stays compact */
   @media (max-width: 34rem) {
     .header-inner { gap: 0.75rem 1rem; }
     .brand { gap: 0.6rem; }
     .brand-logo { width: 3.5rem; height: 2.3rem; }
-    .brand-sub { font-size: 0.66rem; line-height: 1.3; }
-    .sub-dept, .sub-uni { display: block; }
+    .brand-sub { font-size: 0.66rem; }
   }
 </style>
