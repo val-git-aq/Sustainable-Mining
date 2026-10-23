@@ -2,7 +2,7 @@ import { defineCollection } from 'astro:content';
 import { file } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const theme = z.enum(['lithium', 'ree', 'phytomining', 'battery-recycling', 'gold', 'carbon', 'other']);
+const theme = z.enum(['lithium', 'ree', 'phytomining', 'battery-recycling', 'gold', 'carbon', 'nickel', 'other']);
 
 const people = defineCollection({
   loader: file('src/data/people.yaml'),

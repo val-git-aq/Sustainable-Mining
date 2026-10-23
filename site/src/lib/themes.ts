@@ -1,4 +1,4 @@
-export type ThemeTag = 'lithium' | 'ree' | 'phytomining' | 'battery-recycling' | 'gold' | 'carbon' | 'other';
+export type ThemeTag = 'lithium' | 'ree' | 'phytomining' | 'battery-recycling' | 'gold' | 'carbon' | 'nickel' | 'other';
 
 /** Short labels for the small theme markers shown beside list items. */
 export const TAG_LABEL: Record<ThemeTag, string> = {
@@ -8,6 +8,7 @@ export const TAG_LABEL: Record<ThemeTag, string> = {
   'battery-recycling': 'Battery recycling',
   gold: 'Gold',
   carbon: 'Carbon',
+  nickel: 'Nickel',
   other: 'Other',
 };
 
@@ -21,6 +22,7 @@ export const TAG_COLOR: Record<ThemeTag, ThemeColor> = {
   phytomining: 'phyto',
   gold: 'misc',
   carbon: 'misc',
+  nickel: 'misc',
   other: 'misc',
 };
 
