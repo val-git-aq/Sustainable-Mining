@@ -79,7 +79,7 @@ const roleLabel: Record<string, string> = {
                   <a href={url(`/team#${p.id}`)}>{p.data.name}</a>
                   <span class="meta">
                     <br />
-                    {p.data.status === 'alumni' ? 'Alumni' : roleLabel[p.data.role] ?? 'Researcher'}
+                    {p.data.status === 'alumni' ? 'Alumni' : (p.data.candidate ? 'Ph.D. candidate' : roleLabel[p.data.role]) ?? 'Researcher'}
                   </span>
                 </span>
               </li>

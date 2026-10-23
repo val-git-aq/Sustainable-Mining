@@ -27,6 +27,14 @@ const people = defineCollection({
     linkedin: z.string().url().optional(),
     email: z.string().optional(),
     themes: z.array(theme).default([]),
+    // Ph.D. students who have passed candidacy are labelled "Ph.D. candidate"
+    candidate: z.boolean().default(false),
+    // Adding a bio gives the person a full profile page at /team/<id>
+    bio: z.string().optional(),
+    // Optional second photo for the profile page, from public/images/team/ (heading defaults to "Outside the lab")
+    personalPhoto: z
+      .object({ src: z.string(), alt: z.string(), caption: z.string().optional(), heading: z.string().default('Outside the lab') })
+      .optional(),
   }),
 });
 

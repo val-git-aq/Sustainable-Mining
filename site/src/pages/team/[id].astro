@@ -1,0 +1,124 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Avatar from '../../components/Avatar.astro';
+import ProfileLinks from '../../components/ProfileLinks.astro';
+import ThemeTags from '../../components/ThemeTags.astro';
+import PubItem from '../../components/PubItem.astro';
+import { buildAuthorIndex } from '../../lib/authors';
+import { url } from '../../lib/site';
+
+// One full profile page per lab member who has a `bio` in people.yaml.
+// The PI has a hand-written page at team/ehsan-vahidi.astro, so he is skipped here.
+export async function getStaticPaths() {
+  const people = await getCollection('people');
+  return people
+    .filter((p) => p.data.bio && p.data.role !== 'pi')
+    .map((person) => ({ params: { id: person.id }, props: { person } }));
+}
+
+interface Props {
+  person: CollectionEntry<'people'>;
+}
+const { person } = Astro.props;
+const p = person.data;
+
+const roleLabel: Record<string, string> = {
+  postdoc: 'Postdoctoral Associate',
+  'research-scientist': 'Research Scientist',
+  phd: 'Ph.D. student',
+  ms: 'M.S. student',
+  undergrad: 'Undergraduate researcher',
+};
+const role = p.status === 'alumni' ? `Lab alum${p.program ? `, ${p.program}` : ''}` : p.candidate ? 'Ph.D. candidate' : roleLabel[p.role];
+
+const people = await getCollection('people');
+const memberOf = buildAuthorIndex(people);
+const pubs = (await getCollection('publications'))
+  .filter((pub) => pub.data.type === 'journal' && pub.data.authors.some((a) => memberOf(a) === person.id))
+  .sort((a, b) => b.data.year - a.data.year);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base title={p.name} description={`${p.name}, ${role}, Sustainable Mining Lab, University of Nevada, Reno.`}>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="breadcrumb"><a href={url('/')}>Home</a> / <a href={url('/team')}>Team</a> / {p.name}</p>
+      <div class="profile-head">
+        <Avatar name={p.name} photo={p.photo} size={160} />
+        <div>
+          <h1>{p.name}</h1>
+          <p class="lede">{role}, Sustainable Mining Lab</p>
+          <ProfileLinks name={p.name} scholar={p.scholar} linkedin={p.linkedin} />
+          {p.themes.length > 0 && <ThemeTags themes={p.themes} />}
+        </div>
+      </div>
+    </div>
+
+    <div class="cols section">
+      <div class="prose">
+        <h2 class="rule-head">About</h2>
+        {/* A blank line in the bio starts a new paragraph */}
+        {p.bio!.split(/\n+/).map((para) => <p>{para.trim()}</p>)}
+        {p.project && (
+          <>
+            <h3 class="sub-h">{p.role === 'phd' ? 'Dissertation research' : 'Research project'}</h3>
+            <p class="project">{p.project}</p>
+          </>
+        )}
+        {p.awards.length > 0 && (
+          <>
+            <h3 class="sub-h">Awards</h3>
+            <ul>{p.awards.map((a) => <li>{a}</li>)}</ul>
+          </>
+        )}
+      </div>
+      {p.personalPhoto && (
+        <figure class="personal">
+          <h2 class="rule-head">{p.personalPhoto.heading}</h2>
+          <img
+            src={`${base}/images/team/${p.personalPhoto.src}`}
+            alt={p.personalPhoto.alt}
+            loading="lazy"
+          />
+          {p.personalPhoto.caption && <figcaption class="meta">{p.personalPhoto.caption}</figcaption>}
+        </figure>
+      )}
+    </div>
+
+    {
+      pubs.length > 0 && (
+        <section class="section" aria-labelledby="pubs-h">
+          <h2 id="pubs-h" class="rule-head">Publications with the lab</h2>
+          <ul class="plain-list">{pubs.map((pub) => <PubItem pub={pub} memberOf={memberOf} showTags={false} />)}</ul>
+        </section>
+      )
+    }
+
+    <p class="back"><a href={url(`/team#${person.id}`)}>Back to the team</a></p>
+  </div>
+</Base>
+
+<style>
+  .profile-head { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+  .profile-head > div { flex: 1 1 22rem; }
+  .profile-head h1 { margin-bottom: 0.4rem; }
+  .profile-head .lede { margin-bottom: 0.6rem; }
+  .cols { display: grid; gap: 2.5rem; align-items: start; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 860px) {
+    .cols { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  }
+  .prose p { font-family: var(--font-prose); font-size: 1.05rem; line-height: 1.7; }
+  .sub-h { margin-top: 1.75rem; color: var(--nevada); }
+  .project { font-style: italic; }
+  .personal { margin: 0; }
+  .personal img {
+    display: block;
+    width: 100%;
+    max-height: 32rem;
+    object-fit: cover;
+    border-bottom: 4px solid var(--nevada);
+  }
+  .personal figcaption { margin-top: 0.5rem; }
+  .back { margin-top: 2.5rem; font-weight: 600; }
+</style>

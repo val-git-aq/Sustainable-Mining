@@ -46,6 +46,7 @@
   aliases: [Seyedkamal Mousavinezhad, Seyed Kamal Mousavinezhad]
   role: phd
   status: current
+  candidate: true
   order: 1
   scholar: https://scholar.google.com/citations?user=ZpSa8aQAAAAJ
   photo: kamal-mousavi.png
@@ -57,17 +58,31 @@
   name: Mohsen Rabbani
   role: phd
   status: current
+  candidate: true
   order: 2
   scholar: https://scholar.google.com/citations?user=e6kxOEMAAAAJ
   photo: mohsen-rabbani.jpg
   linkedin: https://www.linkedin.com/in/mohsen-rabbani-629823b9/
   project: "Advancing Phytomining for Sustainable Rare Earth Element Recovery: Techno-Economic and Life Cycle Assessment Approaches"
   themes: [phytomining, ree]
+  bio: >-
+    Mohsen Rabbani is a Ph.D. candidate in Metallurgical Engineering at the University of Nevada, Reno. He holds a
+    B.Sc. in Mining Engineering and an M.Sc. in Mineral Processing from Isfahan University of Technology. His research
+    focuses on sustainable recovery of rare earth elements (REEs) and critical minerals through phytomining,
+    phytoremediation, and hydrometallurgical processes, integrating life cycle assessment (LCA) and techno-economic
+    analysis (TEA). He has industry experience with Kappes, Cassiday & Associates, MP Materials, and Freeport-McMoRan.
+
+    Outside of research, he enjoys fishing, camping, and exploring national parks.
+  personalPhoto:
+    src: mohsen-rabbani-outdoors.webp
+    alt: Mohsen Rabbani smiling and holding a speckled trout he caught, standing on rocks beside a reservoir
+    caption: Fishing is one of Mohsen's favourite ways to spend time outdoors.
 
 - id: sima-nikfar
   name: Sima Nikfar
   role: phd
   status: current
+  candidate: true
   order: 3
   photo: sima-nikfar.jpg
   scholar: https://scholar.google.com/citations?user=VecleSgAAAAJ
@@ -79,6 +94,7 @@
   name: Saeede Kadivar
   role: phd
   status: current
+  candidate: true
   order: 4
   scholar: https://scholar.google.com/citations?user=UPuZPfYAAAAJ
   photo: saeede-kadivar.jpg
@@ -92,12 +108,25 @@
   aliases: [Fridah Muthoni]
   role: phd
   status: current
+  candidate: true
   order: 5
   photo: frida-muthoni.jpg
   scholar: https://scholar.google.com/citations?user=e3jVMIAAAAAJ
   linkedin: https://ke.linkedin.com/in/fridah-valenciah
   project: Sustainable Phytoremediation and Phytomining Approaches for Contaminated Soil Management and Resource Recovery
   themes: [phytomining]
+  bio: >-
+    Frida is a PhD Metallurgical Engineering Researcher specializing in the sustainable remediation of mine waste and environmental data science.
+    She holds a B.S. in Mining Engineering from Kenya and an M.S. in Environmental from Spain. Her background includes
+    industry experience with Freeport-McMoRan, bridging academic research and operational practice. An active leader
+    within the Northern Nevada section of the Society for Mining, Metallurgy & Exploration (SME), she is dedicated to
+    advancing sustainable mining practices.
+
+    Outside of her research, Frida is an avid traveler, hiker, and outdoor enthusiast.
+  personalPhoto:
+    src: frida-muthoni-outdoors.jpg
+    alt: Frida Muthoni smiling on a gravel hiking trail, with colourful volcanic dunes, a black lava field, a lake and forested mountains behind her
+    caption: Hiking is one of Frida's favourite ways to explore the outdoors.
 
 - id: sabinus-arthur
   name: Sabinus Arthur
@@ -120,6 +149,19 @@
   awards: [NSF EPSCoR Undergraduate Award]
   project: Hydrometallurgical recovery of lithium from sedimentary claystone
   themes: [lithium]
+  bio: >-
+    Andrea Oviatt is currently graduating with a BS in Metallurgical Engineering from the University of Nevada, Reno in
+    May 2027. She has conducted research in pre-treating lithium to maximize recovery, process optimization for a
+    continuous flow analysis (CFA) system used for ice cores, and testing recovery of metals from recycled photovoltaic
+    modules. She has high proficiency in cyanide digestion, experimental design, Python data visualization, and Atomic
+    Absorption Spectroscopy (AAS).
+
+    Outside the lab, she enjoys collecting niche perfumes, reading philosophy (shoutout to Simone de Beauvoir!!!), and using oil pastels.
+  personalPhoto:
+    src: andrea-oviatt-poster.jpg
+    heading: Presenting her research
+    alt: Andrea Oviatt smiling beside her research poster on characterizing a water isotope continuous flow analysis system for ice cores
+    caption: Presenting her poster on a continuous flow analysis (CFA) system for ice core samples.
 
 - id: trista-mclaughlin
   name: Trista McLaughlin
@@ -128,10 +170,15 @@
   status: current
   photo: trista-mclaughlin.jpg
   linkedin: https://www.linkedin.com/in/trista-mclaughlin-3ba90b267/
-  program: B.S., Geological Engineering
+  program: B.S., Geology
   awards: [NSF EPSCoR Undergraduate Award, Nevada Undergraduate Research Award (NURA)]
   project: Phytoremediation of heavy metals adjacent to coal power plants (NSF EPSCoR); carbon management in the lithium industry (NURA)
   themes: [phytomining, carbon]
+  bio: >-
+    Trista McLaughlin is an undergraduate senior studying geology and has spent 3+ years helping with metallurgical
+    and environmental engineering research.
+
+    Trista enjoys dancing, camping, and making art.
 
 # Alumni
 

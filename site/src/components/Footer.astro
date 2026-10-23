@@ -27,6 +27,7 @@ import { NAV, SITE, url } from '../lib/site';
     </nav>
   </div>
   <div class="wrap footer-base">
+    <img class="footer-seal" src={url('/images/unr-seal.jpg')} alt="University of Nevada, Reno seal, 1874" width="320" height="320" loading="lazy" />
     <p>© {new Date().getFullYear()} {SITE.name}, {SITE.university}</p>
   </div>
 </footer>
@@ -47,6 +48,22 @@ import { NAV, SITE, url } from '../lib/site';
   .footer-name { font-size: var(--step-1); font-weight: 800; font-stretch: 112%; color: #fff; margin-bottom: 0.5rem; }
   .footer-label { font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
   .footer-grid li { padding: 0.15rem 0; }
-  .footer-base { border-top: 1px solid rgb(255 255 255 / 0.2); margin-top: 2rem; padding-block: 1rem; }
+  .footer-base {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgb(255 255 255 / 0.2);
+    margin-top: 2rem;
+    padding-block: 1.25rem;
+  }
   .footer-base p { margin: 0; }
+  /* Navy seal on a white disc so it stays visible on the Nevada Blue footer */
+  .footer-seal {
+    flex: none;
+    width: 5.5rem;
+    height: 5.5rem;
+    padding: 0.2rem;
+    background: #ffffff;
+    border-radius: 50%;
+  }
 </style>
