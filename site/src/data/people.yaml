@@ -29,7 +29,19 @@
   scholar: https://scholar.google.com/citations?user=-bOp0VUAAAAJ
   linkedin: https://www.linkedin.com/in/feridun-boylu-7221b55a/
   start: August 2026
-  themes: [ree]
+  project: "Sustainable Mineral Processing and Critical Mineral Recovery: Advanced Beneficiation, Hydrometallurgy, and Resource Recycling"
+  themes: [ree, lithium]
+  bio: >-
+    Feridun's research areas include mineral and coal processing, extractive metallurgy, lithium, rare earth elements,
+    and recycling.
+
+    Outside of research, Feridun enjoys spending quality time with his family, exploring new places, traveling, and
+    experiencing different cultures. He also enjoys spending time outdoors and discovering the natural beauty of the
+    places he visits.
+  personalPhoto:
+    src: feridun-boylu-outdoors.jpg
+    alt: Feridun Boylu standing on large granite boulders at the edge of a clear blue lake, with forested mountains behind him
+    caption: Exploring the natural beauty of the places he visits.
 
 - id: ngun-za-luai-mang
   name: Ngun Za Luai Mang
@@ -51,8 +63,22 @@
   scholar: https://scholar.google.com/citations?user=ZpSa8aQAAAAJ
   photo: kamal-mousavi.png
   linkedin: https://www.linkedin.com/in/kamal-mousavi/
-  project: Integrated Techno-Economic and Life Cycle Assessment of Sustainable Lithium Supply Pathways
-  themes: [lithium]
+  project: "Sustainable Lithium Production Pathways: Environmental and Economic Assessment and Process Optimization to Maximize Benefits"
+  themes: [lithium, battery-recycling]
+  bio: >-
+    Kamal Mousavi is a Ph.D. candidate in Metallurgical Engineering at the University of Nevada, Reno. He holds a B.Sc.
+    in Mining Engineering from Sahand University of Technology and an M.Sc. in Mineral Processing from the University
+    of Tehran. His research focuses on sustainable lithium extraction, separation, and purification, including direct
+    lithium extraction (DLE), electrochemical processes, life cycle assessment (LCA), and techno-economic analysis (TEA).
+
+    Since summer 2024, he has worked as an Electrochemical Engineering Intern at Redwood Materials, focusing on
+    lithium-ion battery recycling. He also completed an internship at Freeport-McMoRan's Henderson Mine in Colorado.
+
+    Outside of research, he enjoys travelling, cooking Persian food, and sharing it with friends.
+  personalPhoto:
+    src: kamal-mousavi-outdoors.jpg
+    alt: Kamal Mousavi standing on wide stone steps in front of tall columns topped with carved Persian-style animal capitals, under a blue sky
+    caption: Travelling is one of Kamal's favourite ways to spend time outside the lab.
 
 - id: mohsen-rabbani
   name: Mohsen Rabbani
@@ -99,9 +125,21 @@
   scholar: https://scholar.google.com/citations?user=UPuZPfYAAAAJ
   photo: saeede-kadivar.jpg
   linkedin: https://www.linkedin.com/in/saeede-kadivar-b85946b0/
-  project: "Advanced Lithium Recovery and Battery Recycling Technologies: Experimental Adsorption Studies and Sustainability Assessment"
+  project: Life Cycle Assessment and Techno-Economic Analysis of Lithium-Ion Battery Recycling
   note: "Lab alumna: M.S., Metallurgical Engineering, 2023."
   themes: [lithium, battery-recycling, gold]
+  bio: >-
+    Saeede is a Ph.D. candidate in Metallurgical Engineering specializing in techno-economic analysis and life cycle
+    assessment of lithium-ion battery recycling. She holds bachelor's and master's degrees in Chemical Engineering from
+    Ferdowsi University of Mashhad and Tarbiat Modares University, respectively. She is also an alumna of the
+    Sustainable Mining Lab, where she earned her master's at UNR. Her experience includes an internship at Tesla
+    focused on battery recycling.
+
+    Outside the lab, she enjoys hiking and playing piano.
+  personalPhoto:
+    src: saeede-kadivar-outdoors.jpg
+    alt: Saeede Kadivar smiling on a rocky mountain trail with a hiking pole, tall pine trees fading into fog behind her
+    caption: Hiking is one of Saeede's favourite ways to spend time outside the lab.
 
 - id: frida-muthoni
   name: Frida Muthoni
@@ -179,6 +217,16 @@
     and environmental engineering research.
 
     Trista enjoys dancing, camping, and making art.
+
+- id: khaled-aljneibi
+  name: Khaled Aljneibi
+  role: undergrad
+  status: current
+  photo: khaled-aljneibi.jpg
+  linkedin: https://www.linkedin.com/in/khaled-alineibi
+  program: B.S., Metallurgical Engineering
+  project: Hydrometallurgical processing, wet chemistry and acid dissolution of metals
+  themes: [other]
 
 # Alumni
 

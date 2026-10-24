@@ -1,0 +1,382 @@
+---
+import { getCollection } from 'astro:content';
+import { buildAuthorIndex } from '../lib/authors';
+import { buildPaperMap, type MapLayout } from '../lib/paperMap';
+import { url } from '../lib/site';
+
+// Interactive "paper network": every journal paper is a dot, grouped by research area.
+// Hover or focus a dot to preview the paper; click to open it. A wide layout is drawn for
+// larger screens and a tall one for phones; only one is shown at a time.
+const people = await getCollection('people');
+const memberOf = buildAuthorIndex(people);
+const pubs = await getCollection('publications');
+const layouts: { shape: 'wide' | 'tall'; map: MapLayout }[] = [
+  { shape: 'wide', map: buildPaperMap(pubs, memberOf, 'wide') },
+  { shape: 'tall', map: buildPaperMap(pubs, memberOf, 'tall') },
+];
+const total = new Set(layouts[0].map.nodes.map((n) => n.id)).size;
+
+// Faint background specks, placed with a fixed seed so every build looks the same
+const specks = (w: number, h: number, n: number) => {
+  let seed = 7;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  return Array.from({ length: n }, () => ({ x: rand() * w, y: rand() * h, r: 0.5 + rand() * 1.1, o: 0.15 + rand() * 0.35 }));
+};
+---
+
+<div class="pm" data-paper-map>
+  <a class="visually-hidden pm-skip" href="#after-paper-map">Skip the paper map</a>
+  {
+    layouts.map(({ shape, map }) => (
+      <svg
+        class={`pm-svg pm-${shape}`}
+        viewBox={`0 0 ${map.width} ${map.height}`}
+        role="group"
+        aria-label={`Map of ${total} journal papers grouped by research area. Each dot links to a paper.`}
+      >
+        <defs>
+          <filter id={`pm-glow-${shape}`} x="-200%" y="-200%" width="500%" height="500%">
+            <feGaussianBlur stdDeviation="3.2" />
+          </filter>
+        </defs>
+        <g aria-hidden="true">
+          {specks(map.width, map.height, shape === 'wide' ? 90 : 70).map((s) => (
+            <circle class="pm-speck" cx={s.x.toFixed(1)} cy={s.y.toFixed(1)} r={s.r.toFixed(2)} opacity={s.o.toFixed(2)} />
+          ))}
+        </g>
+        <g class="pm-edges" aria-hidden="true">
+          {map.edges.map(([a, b]) => (
+            <line
+              class="pm-edge"
+              data-a={a}
+              data-b={b}
+              data-cluster={map.nodes[a].cluster}
+              x1={map.nodes[a].x}
+              y1={map.nodes[a].y}
+              x2={map.nodes[b].x}
+              y2={map.nodes[b].y}
+            />
+          ))}
+        </g>
+        {map.clusters.map((c) => (
+          <a class={`pm-label pc-${c.color}`} href={url(`/research/${c.slug}`)} data-cluster={c.slug}>
+            <rect class="pm-pill" rx="10" />
+            <text x={c.x} y={c.labelY} text-anchor="middle">
+              {(shape === 'tall' ? c.short : c.name).toUpperCase()}
+            </text>
+          </a>
+        ))}
+        {map.nodes.map((n, i) => {
+          const label = `${n.title}, ${n.venue.split(',')[0]}, ${n.year}`;
+          const dot = (
+            <>
+              <circle class="pm-hit" cx={n.x} cy={n.y} r={Math.max(n.r + 7, shape === 'tall' ? 15 : 11)} />
+              <circle class="pm-halo" cx={n.x} cy={n.y} r={n.r * 2.4} opacity={n.glow * 0.55} filter={`url(#pm-glow-${shape})`} />
+              <circle class="pm-dot" cx={n.x} cy={n.y} r={n.r} opacity={0.55 + n.glow * 0.45} />
+            </>
+          );
+          const data = {
+            'data-i': i,
+            'data-cluster': n.cluster,
+            'data-title': n.title,
+            'data-venue': n.venue,
+            'data-year': n.year,
+            'data-authors': JSON.stringify(n.authors),
+            'data-lab': JSON.stringify(n.labAuthors),
+          };
+          return n.href ? (
+            <a
+              class={`pm-node pc-${n.color}${n.newest ? ' is-new' : ''}`}
+              href={n.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={`${label} (opens in a new tab)`}
+              {...data}
+            >
+              {dot}
+            </a>
+          ) : (
+            <g class={`pm-node pc-${n.color}${n.newest ? ' is-new' : ''}`} tabindex="0" role="img" aria-label={label} {...data}>
+              {dot}
+            </g>
+          );
+        })}
+      </svg>
+    ))
+  }
+
+  <div class="pm-card" hidden aria-hidden="true">
+    <p class="pm-card-title"></p>
+    <p class="pm-card-authors"></p>
+    <p class="pm-card-venue"></p>
+    <p class="pm-card-hint">Click the dot to open the paper</p>
+    <a class="pm-card-open" href="#" target="_blank" rel="noopener">Open paper</a>
+  </div>
+
+  <p class="pm-hint" aria-hidden="true">
+    <span class="pm-hint-mouse">Hover a dot to preview · click to open the paper</span>
+    <span class="pm-hint-touch">Tap a dot to preview the paper</span>
+    {` · ${total} journal papers`}
+  </p>
+</div>
+<span id="after-paper-map"></span>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-paper-map]').forEach((root) => {
+    const card = root.querySelector<HTMLElement>('.pm-card')!;
+    const titleEl = card.querySelector<HTMLElement>('.pm-card-title')!;
+    const authorsEl = card.querySelector<HTMLElement>('.pm-card-authors')!;
+    const venueEl = card.querySelector<HTMLElement>('.pm-card-venue')!;
+    const openEl = card.querySelector<HTMLAnchorElement>('.pm-card-open')!;
+    let pinned: Element | null = null;
+    let lastPointer = 'mouse';
+    root.addEventListener('pointerdown', (e) => (lastPointer = e.pointerType));
+
+    const svgOf = (el: Element) => el.closest('svg')!;
+    const clear = () => {
+      root.querySelectorAll('.is-lit, .is-dim, .is-active').forEach((el) => el.classList.remove('is-lit', 'is-dim', 'is-active'));
+    };
+    const highlight = (svg: SVGSVGElement, cluster: string, node?: Element) => {
+      clear();
+      svg.querySelectorAll<SVGElement>('.pm-node, .pm-edge, .pm-label').forEach((el) => {
+        el.classList.add(el.dataset.cluster === cluster ? 'is-lit' : 'is-dim');
+      });
+      if (node) {
+        node.classList.add('is-active');
+        const i = (node as HTMLElement).dataset.i;
+        svg.querySelectorAll<SVGElement>(`.pm-edge[data-a="${i}"], .pm-edge[data-b="${i}"]`).forEach((e) => e.classList.add('is-active'));
+      }
+    };
+
+    const escape = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    const show = (node: HTMLElement, touch: boolean) => {
+      const d = node.dataset;
+      const lab: string[] = JSON.parse(d.lab ?? '[]');
+      const authors: string[] = JSON.parse(d.authors ?? '[]');
+      titleEl.textContent = d.title ?? '';
+      authorsEl.innerHTML = authors.map((a) => (lab.includes(a) ? `<strong>${escape(a)}</strong>` : escape(a))).join(', ');
+      venueEl.textContent = `${d.venue}, ${d.year}`;
+      const href = node.getAttribute('href');
+      card.classList.toggle('is-touch', touch);
+      card.classList.toggle('no-link', !href);
+      if (href) openEl.href = href;
+      card.hidden = false;
+
+      // Place the card beside the dot, kept inside the panel
+      const box = root.getBoundingClientRect();
+      const dot = node.querySelector('.pm-dot')!.getBoundingClientRect();
+      const cw = card.offsetWidth;
+      const ch = card.offsetHeight;
+      let left = dot.right - box.left + 14;
+      if (left + cw > box.width - 8) left = dot.left - box.left - cw - 14;
+      left = Math.max(8, Math.min(left, box.width - cw - 8));
+      let top = dot.top - box.top + dot.height / 2 - ch / 2;
+      top = Math.max(8, Math.min(top, box.height - ch - 8));
+      card.style.left = `${left}px`;
+      card.style.top = `${top}px`;
+      highlight(svgOf(node), d.cluster ?? '', node);
+    };
+    const hide = () => {
+      card.hidden = true;
+      pinned = null;
+      clear();
+    };
+
+    root.querySelectorAll<HTMLElement>('.pm-node').forEach((node) => {
+      node.addEventListener('mouseenter', () => !pinned && show(node, false));
+      node.addEventListener('mouseleave', () => !pinned && hide());
+      node.addEventListener('focus', () => show(node, false));
+      node.addEventListener('blur', () => !pinned && hide());
+      // On touch screens the first tap previews; the card's button opens the paper
+      node.addEventListener('click', (e) => {
+        if (lastPointer !== 'touch') return;
+        e.preventDefault();
+        if (pinned === node) return hide();
+        show(node, true);
+        pinned = node;
+      });
+    });
+    // Fit the hover shape to the label text. Measured when shown, since the hidden layout has no size.
+    const fitPill = (label: Element) => {
+      const text = label.querySelector<SVGTextElement>('text');
+      const pill = label.querySelector<SVGRectElement>('.pm-pill');
+      if (!text || !pill) return;
+      const box = text.getBBox();
+      const padX = box.height * 0.7;
+      const padY = box.height * 0.3;
+      pill.setAttribute('x', String(box.x - padX));
+      pill.setAttribute('y', String(box.y - padY));
+      pill.setAttribute('width', String(box.width + padX * 2));
+      pill.setAttribute('height', String(box.height + padY * 2));
+      pill.setAttribute('rx', String((box.height + padY * 2) / 2));
+    };
+    root.querySelectorAll<HTMLElement>('.pm-label').forEach((label) => {
+      const cluster = label.dataset.cluster ?? '';
+      label.addEventListener('mouseenter', () => {
+        fitPill(label);
+        if (!pinned) highlight(svgOf(label), cluster);
+      });
+      label.addEventListener('mouseleave', () => !pinned && clear());
+      label.addEventListener('focus', () => {
+        fitPill(label);
+        highlight(svgOf(label), cluster);
+      });
+      label.addEventListener('blur', () => clear());
+    });
+    document.addEventListener('pointerdown', (e) => {
+      if (pinned && !root.contains(e.target as Node)) hide();
+    });
+    root.addEventListener('keydown', (e) => e.key === 'Escape' && hide());
+  });
+</script>
+
+<style>
+  .pm {
+    /* Night-sky panel in Nevada Blue in both themes, so the glowing dots read the same everywhere */
+    --pc-li: #5fb3c3;
+    --pc-ree: #e0a678;
+    --pc-phyto: #a9c696;
+    --pc-batt: #b3bdf0;
+    --pc-misc: #d3ccbc;
+    position: relative;
+    margin-top: 1.25rem;
+    padding: 0.5rem 0.5rem 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgb(40 78 130 / 0.45), transparent 70%),
+      #041e42;
+    border-bottom: 4px solid var(--unr-silver);
+    color: #e6ecf3;
+    overflow: hidden;
+  }
+  .pm-svg { display: block; width: 100%; height: auto; }
+  .pm-tall { display: none; }
+  @media (max-width: 640px) {
+    .pm-wide { display: none; }
+    .pm-tall { display: block; }
+  }
+
+  .pm-speck { fill: #ffffff; }
+  .pm-edge { stroke: #a9b6c6; stroke-width: 1; opacity: 0.32; transition: opacity 150ms ease, stroke-width 150ms ease; }
+  .pm-edge.is-lit { opacity: 0.55; }
+  .pm-edge.is-dim { opacity: 0.08; }
+  .pm-edge.is-active { opacity: 1; stroke: #ffffff; stroke-width: 1.8; }
+
+  .pc-li { --pc: var(--pc-li); }
+  .pc-ree { --pc: var(--pc-ree); }
+  .pc-phyto { --pc: var(--pc-phyto); }
+  .pc-batt { --pc: var(--pc-batt); }
+  .pc-misc { --pc: var(--pc-misc); }
+
+  .pm-node { cursor: pointer; outline: none; transition: opacity 150ms ease; }
+  .pm-hit { fill: transparent; }
+  .pm-dot { fill: var(--pc); transition: r 150ms ease; }
+  .pm-halo { fill: var(--pc); }
+  .pm-node.is-dim { opacity: 0.25; }
+  .pm-node.is-active .pm-dot { fill: #ffffff; stroke: var(--pc); stroke-width: 2.5; }
+  .pm-node.is-active .pm-halo { opacity: 0.9; }
+  .pm-node:focus-visible .pm-hit { stroke: #ffffff; stroke-width: 2; stroke-dasharray: 3 3; }
+  /* The newest papers twinkle gently */
+  .pm-node.is-new .pm-halo { animation: pm-twinkle 3.2s ease-in-out infinite; }
+  .pm-node.is-new:nth-of-type(3n) .pm-halo { animation-delay: -1.1s; }
+  .pm-node.is-new:nth-of-type(3n + 1) .pm-halo { animation-delay: -2.2s; }
+  @keyframes pm-twinkle {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.85; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pm-node.is-new .pm-halo { animation: none; }
+    .pm-edge, .pm-node, .pm-dot { transition: none; }
+  }
+
+  .pm-label text {
+    fill: var(--pc);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    transition: opacity 150ms ease;
+  }
+  .pm-tall .pm-label text { font-size: 28px; letter-spacing: 0.08em; }
+  .pm-label:hover text,
+  .pm-label:focus-visible text { fill: #ffffff; }
+  /* Rounded outline in the cluster's colour, sized to the text by the script */
+  .pm-pill {
+    fill: var(--pc);
+    fill-opacity: 0.14;
+    stroke: var(--pc);
+    stroke-width: 2;
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+  .pm-label:hover .pm-pill,
+  .pm-label:focus-visible .pm-pill { opacity: 1; }
+  .pm-label.is-dim text { opacity: 0.4; }
+  .pm-label:focus-visible { outline: none; }
+
+  .pm-card {
+    position: absolute;
+    z-index: 2;
+    width: min(22rem, calc(100% - 1rem));
+    padding: 0.85rem 1rem;
+    background: #0b2a55;
+    border: 1px solid rgb(255 255 255 / 0.25);
+    border-left: 4px solid #ffffff;
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.45);
+    font-size: var(--step--1);
+    line-height: 1.45;
+    pointer-events: none;
+  }
+  .pm-card[hidden] { display: none; }
+  .pm-card p { margin: 0 0 0.35rem; }
+  .pm-card-title { font-size: 0.98rem; font-weight: 700; color: #ffffff; }
+  .pm-card-authors { color: #c9d1db; }
+  .pm-card-authors :global(strong) { color: #ffffff; }
+  .pm-card-venue { font-style: italic; color: #c9d1db; }
+  .pm-card-hint { color: #9fb0c4; font-size: 0.8rem; margin-bottom: 0 !important; }
+  .pm-card-open { display: none; }
+  .pm-card.is-touch { pointer-events: auto; }
+  .pm-card.is-touch .pm-card-hint { display: none; }
+  .pm-card.is-touch .pm-card-open {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    background: #ffffff;
+    color: #041e42;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .pm-card.no-link .pm-card-hint,
+  .pm-card.no-link .pm-card-open { display: none; }
+
+  .pm-hint {
+    max-width: none;
+    margin: 0;
+    padding: 0.6rem 0.75rem 0.75rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9fb0c4;
+    text-align: right;
+  }
+  .pm-hint-touch { display: none; }
+  @media (hover: none) {
+    .pm-hint-mouse { display: none; }
+    .pm-hint-touch { display: inline; }
+  }
+  @media (max-width: 640px) {
+    .pm-hint { text-align: left; }
+  }
+  .pm-skip:focus {
+    position: absolute;
+    z-index: 3;
+    left: 0.75rem;
+    top: 0.75rem;
+    width: auto;
+    height: auto;
+    clip: auto;
+    overflow: visible;
+    padding: 0.4rem 0.8rem;
+    background: #ffffff;
+    color: #041e42;
+    font-weight: 700;
+  }
+</style>

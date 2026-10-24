@@ -4,10 +4,10 @@ import Base from '../layouts/Base.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
 import PubItem from '../components/PubItem.astro';
 import LogoWall from '../components/LogoWall.astro';
+import PaperMap from '../components/PaperMap.astro';
 import { byRecent } from '../lib/sort';
 import { buildAuthorIndex } from '../lib/authors';
 import { url } from '../lib/site';
-import { AREAS } from '../lib/themes';
 
 const people = await getCollection('people');
 const memberOf = buildAuthorIndex(people);
@@ -18,7 +18,6 @@ const latest = (await getCollection('publications'))
 const orgs = (await getCollection('sponsors')).sort((a, b) => a.data.order - b.data.order);
 const sponsors = orgs.filter((o) => o.data.group === 'sponsor');
 const partners = orgs.filter((o) => o.data.group === 'partner');
-const [lithium, ree, phyto, battery, other] = AREAS;
 const currentCount = people.filter((p) => p.data.status === 'current' && p.data.role !== 'pi').length;
 ---
 
@@ -49,27 +48,11 @@ const currentCount = people.filter((p) => p.data.status === 'current' && p.data.
 
     <section class="section" aria-labelledby="what-h">
       <h2 id="what-h" class="rule-head">What we work on</h2>
-      <ul class="plain-list thrusts">
-        {
-          [lithium, ree, phyto, battery].map((a) => (
-            <li class={`thrust c-${a.color}`}>
-              {a.image && (
-                <div class="thrust-fig">
-                  <img src={encodeURI(url(a.image.src))} alt={a.image.alt} loading="lazy" />
-                </div>
-              )}
-              <h3><a href={url(`/research/${a.slug}`)}>{a.name}</a></h3>
-              <p>{a.short}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="also">
-        We also study gold and copper production and carbon management in mining. See{' '}
-        <a href={url(`/research/${other.slug}`)}>other research areas</a>.
+      <p class="map-lede">
+        Each dot is one of our journal papers, grouped by research area. Lines join papers that share lab authors.
       </p>
+      <PaperMap />
     </section>
-
 
     <section class="section" aria-labelledby="pubs-h">
       <h2 id="pubs-h" class="rule-head">Recent publications</h2>
@@ -101,21 +84,8 @@ const currentCount = people.filter((p) => p.data.status === 'current' && p.data.
   .section-tight { margin-top: 2rem; }
   .intro-text { font-family: var(--font-prose); font-size: 1.12rem; line-height: 1.7; max-width: 72ch; margin-inline: auto; text-align: center; }
   .intro-actions { justify-content: center; }
-  .thrusts { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); margin-top: 1.5rem; }
-  .thrust { border-top: 4px solid var(--tag-color); padding-top: 1rem; max-width: none; }
-  .thrust h3 { font-size: var(--step-2); margin-bottom: 0.5rem; }
-  /* Figures are drawn on white, so the frame stays white in dark mode too */
-  .thrust-fig {
-    height: 11rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background: #ffffff;
-    border: 1px solid var(--rule);
-  }
-  .thrust-fig img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .thrust h3 a { color: var(--ink); text-decoration: none; }
-  .thrust h3 a:hover { color: var(--nevada); text-decoration: underline; }
-  .also { margin-top: 1.75rem; }
+  /* One line on desktop; it still wraps on narrow screens */
+  .map-lede { max-width: none; }
   .more { margin-top: 1rem; font-weight: 600; }
   .org-h { color: var(--nevada); margin-top: 2rem; }
   .join { padding: 2rem; border-left: 4px solid var(--nevada); background: var(--surface); }

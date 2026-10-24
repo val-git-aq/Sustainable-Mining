@@ -3,6 +3,7 @@
 # link: optional URL
 # thumbnail: image path under public/ (videos); shown in the Media section of the News page
 
+- { id: video-unr-state-of-university-2026, kind: video, year: 2026, outlet: "University of Nevada, Reno", title: "Professor Ehsan Vahidi and the Department of Mining and Metallurgical Engineering recognized by President Brian Sandoval during the University of Nevada, Reno’s 2026 State of the University Address.", video: /images/media/unr-state-of-university-2026.mp4 }
 - { id: video-rcr-dle-2025, kind: video, year: 2025, outlet: "Resources, Conservation & Recycling (YouTube)", title: "Unlocking Sustainable Lithium: Life Cycle Insights into Direct Extraction Methods", link: "https://www.youtube.com/watch?v=KfNnFVyBVeU", thumbnail: /images/media/rcr-dle-lca.jpg }
 
 - { id: media-yahoo-2026, kind: media, year: 2026, outlet: Yahoo News Canada, title: "How a new, more sustainable lithium mining process could kick off the industry in Western Canada", link: "https://ca.news.yahoo.com/more-sustainable-lithium-mining-process-090000182.html" }

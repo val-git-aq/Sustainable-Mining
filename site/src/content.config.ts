@@ -77,6 +77,8 @@ const news = defineCollection({
     link: z.string().url().optional(),
     // Image path under public/, used for video thumbnails
     thumbnail: z.string().optional(),
+    // Video file under public/, played on the page instead of linking out
+    video: z.string().optional(),
   }),
 });
 

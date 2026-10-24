@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import { url } from '../lib/site';
 
 const news = (await getCollection('news')).sort((a, b) => b.data.year - a.data.year);
-const videos = news.filter((n) => n.data.kind === 'video' && n.data.link);
+const videos = news.filter((n) => n.data.kind === 'video' && (n.data.link || n.data.video));
 // collapsible: shown as a dropdown, closed by default
 const groups = [
   { id: 'awards', heading: 'Awards', items: news.filter((n) => n.data.kind === 'award') },
@@ -28,18 +28,36 @@ const groups = [
           <ul class="plain-list videos">
             {videos.map((v) => (
               <li class="video">
-                <a class="video-thumb" href={v.data.link} target="_blank" rel="noopener">
-                  {v.data.thumbnail && (
-                    <img src={url(v.data.thumbnail)} alt="" width="1280" height="720" loading="lazy" />
-                  )}
-                  <span class="play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" /></svg>
-                  </span>
-                  <span class="visually-hidden">Watch “{v.data.title}” on YouTube (opens in a new tab)</span>
-                </a>
-                <p class="video-title">
-                  <a href={v.data.link} target="_blank" rel="noopener">{v.data.title}</a>
-                </p>
+                {v.data.video ? (
+                  <>
+                    {/* #t=0.5 makes browsers show an early frame as the cover when there is no thumbnail */}
+                    <video
+                      class="video-thumb"
+                      controls
+                      preload="metadata"
+                      playsinline
+                      poster={v.data.thumbnail ? url(v.data.thumbnail) : undefined}
+                      src={`${url(v.data.video)}${v.data.thumbnail ? '' : '#t=0.5'}`}
+                      aria-label={v.data.title}
+                    />
+                    <p class="video-title">{v.data.title}</p>
+                  </>
+                ) : (
+                  <>
+                    <a class="video-thumb" href={v.data.link} target="_blank" rel="noopener">
+                      {v.data.thumbnail && (
+                        <img src={url(v.data.thumbnail)} alt="" width="1280" height="720" loading="lazy" />
+                      )}
+                      <span class="play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" /></svg>
+                      </span>
+                      <span class="visually-hidden">Watch “{v.data.title}” on YouTube (opens in a new tab)</span>
+                    </a>
+                    <p class="video-title">
+                      <a href={v.data.link} target="_blank" rel="noopener">{v.data.title}</a>
+                    </p>
+                  </>
+                )}
                 <p class="meta">{v.data.outlet}, {v.data.year}</p>
               </li>
             ))}
@@ -133,6 +151,7 @@ const groups = [
 
   .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1.75rem; }
   .video { max-width: none; }
+  video.video-thumb { width: 100%; height: auto; background: #000; object-fit: contain; border-bottom: 4px solid var(--nevada); }
   .video-thumb {
     position: relative;
     display: block;
