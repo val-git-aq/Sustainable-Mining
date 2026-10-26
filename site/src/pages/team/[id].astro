@@ -30,7 +30,15 @@ const roleLabel: Record<string, string> = {
   ms: 'M.S. student',
   undergrad: 'Undergraduate researcher',
 };
-const role = p.status === 'alumni' ? `Lab alum${p.program ? `, ${p.program}` : ''}` : p.candidate ? 'Ph.D. candidate' : roleLabel[p.role];
+// Alumni staff keep their title ("Former Postdoctoral Associate"); alumni students show their degree
+const role =
+  p.status === 'alumni'
+    ? ['postdoc', 'research-scientist'].includes(p.role)
+      ? `Former ${roleLabel[p.role]}`
+      : `Lab alum${p.program ? `, ${p.program}` : ''}`
+    : p.candidate
+      ? 'Ph.D. candidate'
+      : roleLabel[p.role];
 
 const people = await getCollection('people');
 const memberOf = buildAuthorIndex(people);

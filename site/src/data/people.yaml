@@ -113,8 +113,22 @@
   photo: sima-nikfar.jpg
   scholar: https://scholar.google.com/citations?user=VecleSgAAAAJ
   linkedin: https://www.linkedin.com/in/sima-nikfar-11320466/
-  project: "Sustainable Lithium Recovery and Separation: Experimental Solvent Extraction and Comparative TEA–LCA of Emerging Technologies"
+  project: Developing a Solvent Extraction Process for Lithium Recovery from Brine and Sustainability and Techno-Economic Assessment of Lithium Production from Brine by Direct Lithium Extraction Methods
   themes: [lithium]
+  bio: >-
+    Sima Nikfar is a Ph.D. candidate in Metallurgical Engineering at the University of Nevada, Reno. She holds a B.S. in
+    Chemical Engineering from Babol Noshirvani University of Technology and an M.S. in Chemical Engineering–Biotechnology
+    from Tarbiat Modares University. Her research focuses on sustainable lithium extraction, separation, and
+    purification, including direct lithium extraction (DLE), electrochemical processes, and solvent extraction, as well
+    as life cycle assessment (LCA) and techno-economic analysis (TEA).
+
+    Sima has gained industry experience through internships at Lithium Americas as a Process Engineer, Aqua Metals as an
+    R&D Engineer, Freeport-McMoRan as a Metallurgical Engineer, and Redwood Materials as an Electrochemical Engineer.
+
+    Outside of her research, she enjoys hiking, cooking, and spending time with friends.
+  personalPhoto:
+    src: sima-nikfar-personal.webp
+    alt: Sima Nikfar smiling in a burgundy sweater in front of colourful hand-woven textiles and a patterned wall hanging
 
 - id: saeede-kadivar
   name: Saeede Kadivar
@@ -238,10 +252,16 @@
   photo: mehdi-sharifian.jpg
   scholar: https://scholar.google.com/citations?user=7Jhvf2cAAAAJ
   linkedin: https://www.linkedin.com/in/mehdi-sharifian-3957aa93/
-  start: September 2024
-  end: January 2026
-  nowAt: Senior Research Scientist, Electra, Boulder, CO
+  start: November 2024
+  end: December 2025
+  nowAt: Senior Scientist, Electra, Boulder, CO
   themes: [lithium, ree]
+  bio: >-
+    Mehdi Sharifian is a chemical engineer working on the recovery of critical minerals from ores, industrial residues
+    and end-of-life technologies. He holds a Ph.D. in chemical engineering (process design) from TU Wien. He was an
+    Assistant Professor at the University of Tehran and a Distinguished Postdoctoral Research Associate at Purdue
+    University, and is now Senior Scientist at Electra in Boulder, Colorado. His work spans hydrometallurgical recovery
+    of critical minerals, separations and techno-economic and life cycle assessment.
 
 - id: ario-fahimi
   name: Ario Fahimi
