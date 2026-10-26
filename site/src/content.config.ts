@@ -20,6 +20,8 @@ const people = defineCollection({
     project: z.string().optional(),
     note: z.string().optional(),
     awards: z.array(z.string()).default([]),
+    // Fuller list shown only on the profile page (the short `awards` list also appears on the team card)
+    honors: z.array(z.object({ title: z.string(), year: z.number().int(), from: z.string() })).default([]),
     nowAt: z.string().optional(),
     photo: z.string().optional(),
     order: z.number().default(9999),

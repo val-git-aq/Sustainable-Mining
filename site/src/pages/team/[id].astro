@@ -74,11 +74,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <p class="project">{p.project}</p>
           </>
         )}
-        {p.awards.length > 0 && (
+        {p.honors.length > 0 ? (
           <>
-            <h3 class="sub-h">Awards</h3>
-            <ul>{p.awards.map((a) => <li>{a}</li>)}</ul>
+            <h3 class="sub-h">Honors and awards</h3>
+            <ul class="honors">
+              {p.honors.map((h) => (
+                <li>
+                  <span class="honor-title">{h.title}</span>, {h.year}
+                  <span class="meta">{h.from}</span>
+                </li>
+              ))}
+            </ul>
           </>
+        ) : (
+          p.awards.length > 0 && (
+            <>
+              <h3 class="sub-h">Awards</h3>
+              <ul>{p.awards.map((a) => <li>{a}</li>)}</ul>
+            </>
+          )
         )}
       </div>
       {p.personalPhoto && (
@@ -119,6 +133,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .prose p { font-family: var(--font-prose); font-size: 1.05rem; line-height: 1.7; }
   .sub-h { margin-top: 1.75rem; color: var(--nevada); }
   .project { font-style: italic; }
+  .honors li { margin-bottom: 0.6rem; }
+  .honor-title { font-weight: 650; }
+  .honors .meta { display: block; margin: 0.1rem 0 0; }
   .personal { margin: 0; }
   .personal img {
     display: block;
